@@ -1,0 +1,20 @@
+{
+  "name": "figure-cloud-scramjet-epoxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Auto-loading Scramjet browser for Figure Cloud using Epoxy transport",
+  "scripts": {
+    "start": "node src/index.js",
+    "check": "node --check src/index.js && node --check public/proxy.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@fastify/static": "^9.0.0",
+    "@mercuryworkshop/bare-mux": "^2.1.9",
+    "@mercuryworkshop/epoxy-transport": "^3.0.1",
+    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/v1.1.0/mercuryworkshop-scramjet-1.1.0.tgz",
+    "@mercuryworkshop/wisp-js": "^0.4.1",
+    "fastify": "^5.7.4"
+  }
+}
