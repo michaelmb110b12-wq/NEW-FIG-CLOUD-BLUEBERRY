@@ -49,92 +49,23 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
 
   window.try2launch = function try2launchFromLegacyCatalog() {
     if (typeof cxG === "undefined" || !cxG) return false;
-
     const gameId = typeof getGameId === "function" ? getGameId(cxG) : "";
     const gameName = typeof getGameName === "function" ? getGameName(cxG) : "This game";
-    const legacyUrls = window.LEGACY_GAME_URLS || {};
-    const targetUrl = legacyUrls[gameId];
+    const targetUrl = (window.LEGACY_GAME_URLS || {})[gameId];
 
     if (!targetUrl) {
       if (typeof clsMdl === "function") clsMdl();
       const modal = document.getElementById("p-static-host-warning");
       const title = document.getElementById("static-host-title");
       const message = document.getElementById("static-host-warning-message");
-      if (title) title.textContent = "Game needs a verified provider ID";
-      if (message) {
-        message.textContent = '"' + gameName + '" is not in the verified legacy game list. This deployment does not have an account/session backend configured, so automatic guest-account creation and cloud sessions are unavailable for this title.';
-      }
+      if (title) title.textContent = "Game needs a verified provider URL";
+      if (message) message.textContent = '"' + gameName + '" does not have a verified game URL in this catalogue yet. No URL or provider session ID has been guessed.';
       if (modal) modal.classList.add("show");
-      else window.alert("No verified legacy launch URL is available for " + gameName + ". This title needs the newer cloud-session backend.");
+      else window.alert("No verified launch URL is available for " + gameName + ".");
       return false;
     }
 
     if (typeof clsMdl === "function") clsMdl();
-
-    if (selectedLaunchMode() === "aboutblank") {
-      const popup = window.open("about:blank", "_blank");
-      if (!popup) {
-        if (typeof showToast === "function") showToast("Pop-up blocked. Allow pop-ups or choose Open normally.");
-        return false;
-      }
-      try {
-        popup.document.open();
-        popup.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Figure Cloud</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#06080d;color:#e8edf5;font-family:system-ui,Arial,sans-serif}#launch-note{position:absolute;left:0;right:0;top:0;height:30px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:0 10px;background:rgba(10,13,21,.96);border-bottom:1px solid rgba(255,255,255,.12);z-index:2;font-size:11px;text-align:center}#figure-cloud-frame{position:absolute;left:0;top:31px;width:100%;height:calc(100% - 31px);border:0;background:#000}</style></head><body><div id="launch-note">Loading game page...</div><iframe id="figure-cloud-frame" allow="autoplay; fullscreen; keyboard-map; clipboard-read; clipboard-write; gamepad"></iframe></body></html>');
-        popup.document.close();
-        popup.document.title = gameName + " | Figure Cloud";
-        const note = popup.document.getElementById("launch-note");
-        if (note) note.textContent = "Loading " + gameName + ". If it does not work, close this tab and choose Open normally.";
-        const popupFrame = popup.document.getElementById("figure-cloud-frame");
-        if (popupFrame) popupFrame.src = targetUrl;
-        try { popup.opener = null; } catch (_) {}
-      } catch (_) {
-        try { popup.location.href = targetUrl; } catch (_) {}
-      }
-
-      gmWin = {
-        closed: false,
-        close: function () {
-          try { if (!popup.closed) popup.close(); } catch (_) {}
-        }
-      };
-      const popupWatcher = window.setInterval(function () {
-        if (popup.closed) {
-          window.clearInterval(popupWatcher);
-          if (gmWin) gmWin.closed = true;
-        }
-      }, 1000);
-      if (typeof trStart === "function") trStart(gameId);
-      if (typeof showToast === "function") showToast("Opened " + gameName + " in an about:blank tab.");
-      return false;
-    }
-
-    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 1024;
-    if (mobile) {
-      const popup = window.open(targetUrl, "_blank");
-      if (!popup) {
-        if (typeof showToast === "function") showToast("Pop-up blocked. Opening the game page here.");
-        window.location.assign(targetUrl);
-        return false;
-      }
-      try { popup.opener = null; } catch (_) {}
-      gmWin = {
-        closed: false,
-        close: function () {
-          try { if (!popup.closed) popup.close(); } catch (_) {}
-          if (typeof clsGm === "function") clsGm();
-        }
-      };
-      const monitorPopup = window.setInterval(function () {
-        if (popup.closed) {
-          window.clearInterval(monitorPopup);
-          if (typeof gmWin !== "undefined" && gmWin) gmWin.closed = true;
-        }
-      }, 1000);
-      if (typeof trStart === "function") trStart(gameId);
-      if (typeof showToast === "function") showToast("Opened " + gameName + " using the older working game page.");
-      return false;
-    }
-
     const frame = document.getElementById("gF");
     const loader = document.getElementById("bS");
     const loaderTitle = document.getElementById("bS-t");
@@ -144,30 +75,39 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const topTitle = document.getElementById("n-game-title");
 
     if (!frame) {
-      window.open(targetUrl, "_blank");
+      if (typeof showToast === "function") showToast("The in-app game window is unavailable.");
       return false;
     }
+
+    const proxyBase = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
+    let proxyUrl;
+    try {
+      proxyUrl = new URL(proxyBase);
+      if (proxyUrl.protocol !== "https:" && !["localhost", "127.0.0.1"].includes(proxyUrl.hostname)) {
+        throw new Error("The Scramjet proxy must use HTTPS.");
+      }
+      proxyUrl.searchParams.set("url", targetUrl);
+    } catch (error) {
+      if (typeof showToast === "function") showToast("Scramjet proxy URL is invalid: " + error.message);
+      return false;
+    }
+
     if (topTitle) topTitle.textContent = gameName;
     if (topGame) topGame.style.display = "flex";
-    if (loaderTitle) loaderTitle.textContent = "Loading " + gameName + "...";
-    if (loaderSubtitle) loaderSubtitle.textContent = "Opening the known working game page...";
-    if (loader) {
-      loader.style.display = "flex";
-      loader.style.opacity = "1";
-    }
+    if (loaderTitle) loaderTitle.textContent = "Opening " + gameName + " through Scramjet…";
+    if (loaderSubtitle) loaderSubtitle.textContent = "Starting the in-app browser with Epoxy transport.";
+    if (loader) { loader.style.display = "flex"; loader.style.opacity = "1"; }
     if (expired) expired.style.display = "none";
-
     if (typeof tglV === "function") tglV("g");
     gmWin = { closed: false, close: function () { if (typeof clsGm === "function") clsGm(); } };
+    frame.src = proxyUrl.href;
 
-    window.setTimeout(function () { frame.src = targetUrl; }, 100);
     window.setTimeout(function () {
       if (loader) {
         loader.style.opacity = "0";
         window.setTimeout(function () { loader.style.display = "none"; }, 250);
       }
-    }, 3000);
-
+    }, 2500);
     if (typeof trStart === "function") trStart(gameId);
     return false;
   };
