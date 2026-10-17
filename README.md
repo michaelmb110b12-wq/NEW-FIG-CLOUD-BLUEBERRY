@@ -1,13 +1,13 @@
 # Figure Cloud
 
-This repository contains the static Figure Cloud front end and game catalogue.
+This repository contains the newer Figure Cloud interface and game catalogue.
 
-## Why games do not launch on GitHub Pages
+## GitHub Pages launch compatibility
 
-The catalogue is loaded from `random/gamelayout.js`, so the page can render game cards and details. Launching a session is different: `script.js` requests `/api/auto-signup` and then loads `/play?gid=...` in an iframe. These are backend routes, not files in this repository. GitHub Pages only serves static files and cannot execute those server routes, so the game session fails even though the interface looks normal.
+The older working project at https://github.com/michaelmb110b12-wq/Cine-Cloud-SRC loads games through their Raccoon Game detail-page URLs. The newer version changed to a session launcher that calls /api/auto-signup and /play?gid=; those are backend routes and are not provided by GitHub Pages.
 
-The `fixes` branch detects the `github.io` host and explains the limitation when Play is clicked, with a link to the official [Raccoon Game](https://www.raccoongame.com/) platform. On a server-backed deployment, the original launcher is retained.
+The fixes branch adds random/legacy-urls.js, matching new catalogue keys to verified URLs from the older working catalogue (96 overlapping titles). GitHub Pages uses those URLs for matched games. For newer-only games, the site asks the user to open the provider platform rather than guessing an ID.
 
-## What is required for in-page cloud gaming
+## Auto-account generation
 
-To restore sessions inside this site, deploy or restore the legitimate server-side component that implements the session and streaming routes, and configure it using the provider's supported integration. Keep provider tokens and credentials on the server; do not put secrets in client-side JavaScript. GitHub Pages can continue to host the front end, but the game-session backend must run on a separate service.
+The existing auto-account/session code remains in script.js for server-backed deployments. To use that flow, host the compatible session backend on a server-capable service and configure the front end to call it. GitHub Pages can host the front end, but cannot execute /api/auto-signup or /play itself. The legacy fallback is a compatibility path; it does not create accounts automatically.
