@@ -89,11 +89,10 @@
   </div>
 
   <div id="v-gift" class="tab-view">
-    <div class="sec-head" style="margin-top:0;">Gifts & Rewards</div>
-    <div class="coming-soon-box">
-      <div class="coming-soon-badge">Update</div>
-      <h2>Coming Soon! on v2.5</h2>
-      <p>Daily rewards and gifts are being worked on for the v2.5 release.</p>
+    <div class="sec-head" style="margin-top:0;">Browser</div>
+    <div class="fc-browser-shell">
+      <div class="fc-browser-caption">Scramjet + Epoxy Browser · Home: Google</div>
+      <iframe id="figure-cloud-browser" class="fc-browser-frame" src="https://scramjet.mercurywork.shop/?url=https%3A%2F%2Fwww.google.com%2F" title="Figure Cloud Browser" allow="autoplay; fullscreen; clipboard-read; clipboard-write; gamepad; keyboard-map" loading="eager"></iframe>
     </div>
   </div>
 
@@ -268,7 +267,7 @@
         <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
         <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
       </svg>
-      <span class="sb-label">Gifts</span>
+      <span class="sb-label">Browser</span>
     </div>
     <div class="sb-nav-item" id="b-set" onclick="chgTab('set')">
       <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -346,7 +345,7 @@
       <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
       <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
     </svg>
-    <span>Gifts</span>
+    <span>Browser</span>
   </button>
   <button class="mobl-nav-btn" id="mb-set" onclick="chgTab('set')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -378,11 +377,8 @@
       <img src="" id="mdl-post" alt="">
       <div class="launch-mode-control">
         <label for="launch-mode">Open game</label>
-        <select id="launch-mode" aria-describedby="launch-mode-help">
-          <option value="normal">Open normally</option>
-          <option value="aboutblank">Open in about:blank</option>
-        </select>
-        <small id="launch-mode-help">About:blank opens the provider page inside a blank tab. Some games may work only in normal mode.</small>
+        <select id="launch-mode" aria-describedby="launch-mode-help"><option value="normal">Open in Scramjet Browser</option></select>
+        <small id="launch-mode-help">Games open inside Figure Cloud using the configured Scramjet + Epoxy proxy. No new tab is opened.</small>
       </div>
 
       <button class="m-play" onclick="try2launch(false)">
@@ -546,6 +542,6 @@
 <script src="./random/legacy-urls.js"></script>
 <script>window.FIGURE_CLOUD_STATIC_FALLBACK = true;</script>
 <script src="script.js"></script>
-<script src="hostless-cloud.js"></script>
+<script src="browser-tutorial.js"></script>
 </body>
 </html>
