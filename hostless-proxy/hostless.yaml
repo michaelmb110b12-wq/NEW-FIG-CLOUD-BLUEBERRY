@@ -1,0 +1,9 @@
+# Select the hostless-proxy folder as the existing app's working directory.
+working_directory: .
+build:
+  system: auto
+  command: npm install
+start_command: npm start
+health_check:
+  type: http
+  http_path: /healthz
