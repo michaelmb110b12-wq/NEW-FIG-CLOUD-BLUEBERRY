@@ -1733,3 +1733,38 @@ body.in-fullscreen #mobl-fs-bubble,
   .static-host-box { padding: 22px 18px; }
   #p-static-host-warning .popup-btn-row { flex-direction: column; }
 }
+
+
+/* Official provider account setup link (no third-party account is generated here). */
+.acc-provider-box {
+  margin: 0 0 22px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+.acc-provider-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 9px;
+  background: #f4f5f7;
+  color: #111318;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.acc-provider-btn:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+.acc-provider-note {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
