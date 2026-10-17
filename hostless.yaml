@@ -1,0 +1,9 @@
+# Hostless can use this file to configure the backend app when the app root is set to /hostless-backend.
+working_directory: hostless-backend
+build:
+  system: auto
+  command: npm install
+start_command: npm start
+health_check:
+  type: http
+  http_path: /healthz
