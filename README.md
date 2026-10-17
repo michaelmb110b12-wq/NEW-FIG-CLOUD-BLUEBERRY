@@ -52,6 +52,6 @@ This adapter requires a compatible cloud provider that you own or are authorized
 
 ## Auto-loading Scramjet + Epoxy proxy
 
-The hostless-proxy/ directory contains the browser app. Configure your existing Hostless Scramjet project to use this repository's hostless-cloud-integration branch and set its working directory to /hostless-proxy. This lets you keep that Hostless project's existing URL and custom domain; see HOSTLESS-CLOUD-SETUP.md.
+The `hostless-proxy/` directory stores proxy UI/runtime assets. The same existing Hostless app at `https://blueberry-cloud-figure.hostless.app/` serves these assets from the backend in `hostless-backend/`; do not deploy a separate proxy app or change the working directory. Keep the working directory at `/hostless-backend`.
 
-The proxy supports automatic destination loading through ?url=, uses Epoxy transport over the app's /wisp/ WebSocket route, and serves /healthz for health checks. Figure Cloud routes known game URLs into its in-app proxy window without opening a separate tab. Titles with no verified URL still need a real provider mapping.
+The browser supports automatic destination loading through `?url=`, uses Epoxy transport over the same app's `/wisp/` WebSocket route, and preserves the existing `/api/cloud/*` endpoints. See [HOSTLESS-CLOUD-SETUP.md](HOSTLESS-CLOUD-SETUP.md) for the exact deployment instructions.
