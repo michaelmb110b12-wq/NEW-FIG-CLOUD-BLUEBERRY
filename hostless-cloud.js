@@ -106,8 +106,13 @@
           card.style.cssText = 'padding:12px;border:1px solid rgba(255,255,255,.10);border-radius:11px;background:rgba(255,255,255,.03);display:flex;align-items:center;gap:10px;min-width:0;';
           const image = el('img', { alt: '', loading: 'lazy' });
           const imageUrl = game.image || game.img || game.cover || game.background || '';
-          if (imageUrl && /^https?:\\/\\//i.test(imageUrl)) image.src = imageUrl;
-          else image.style.display = 'none';
+          try {
+            const parsedImageUrl = new URL(imageUrl);
+            if (parsedImageUrl.protocol === 'https:' || parsedImageUrl.protocol === 'http:') image.src = parsedImageUrl.toString();
+            else image.style.display = 'none';
+          } catch {
+            image.style.display = 'none';
+          }
           image.style.cssText += 'width:42px;height:52px;object-fit:cover;border-radius:6px;background:#111;flex-shrink:0;';
           const textWrap = el('div');
           textWrap.style.minWidth = '0';
