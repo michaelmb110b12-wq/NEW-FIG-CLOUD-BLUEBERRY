@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Figure Cloud Browser</title>
+  <link rel="stylesheet" href="/browser.css">
+  <script src="/scram/scramjet.all.js"></script>
+  <script src="/baremux/index.js"></script>
+  <script src="/register-sw.js" defer></script>
+  <script src="/proxy.js" defer></script>
+</head>
+<body>
+  <header class="toolbar">
+    <a class="brand" href="/" aria-label="Figure Cloud Browser home">FC Browser</a>
+    <div class="nav-buttons">
+      <button id="back" type="button" title="Back" aria-label="Back">‹</button>
+      <button id="forward" type="button" title="Forward" aria-label="Forward">›</button>
+      <button id="reload" type="button" title="Reload" aria-label="Reload">↻</button>
+      <button id="home" type="button" title="Home" aria-label="Home">⌂</button>
+    </div>
+    <form id="address-form" autocomplete="off">
+      <input id="address" type="text" inputmode="url" placeholder="Search Google or enter a website URL" aria-label="Website address">
+      <button type="submit">Go</button>
+    </form>
+  </header>
+  <div id="status" role="status" aria-live="polite">Starting secure browser transport…</div>
+  <main id="browser-stage">
+    <div id="empty-state">
+      <div class="mark">FC</div>
+      <h1>Figure Cloud Browser</h1>
+      <p>Starting the requested website through Scramjet with Epoxy transport.</p>
+    </div>
+  </main>
+</body>
+</html>
