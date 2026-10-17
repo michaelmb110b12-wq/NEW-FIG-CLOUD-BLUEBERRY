@@ -5,3 +5,5 @@ package-lock.json
 **/node_modules
 **/.git
 **/.wrangler
+hostless.yaml
+hostless-backend/**
