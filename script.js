@@ -8,7 +8,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
  * - Keep the original auto-account/session launcher unchanged on server-backed hosts.
  * - Do not invent provider IDs for newer-only titles.
  */
-(function installLegacyLaunchFallbackForGitHubPages() {
+(function installStaticLaunchFallback() {
   const isGitHubPages = /(^|\.)github\.io$/i.test(window.location.hostname);
   const launchModeKey = "figure_cloud_launch_mode";
 
@@ -43,7 +43,8 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     initializeLaunchModePicker();
   }
 
-  if (!isGitHubPages || typeof window.try2launch !== "function") return;
+  const staticFallbackEnabled = window.FIGURE_CLOUD_STATIC_FALLBACK === true;
+  if (!(isGitHubPages || staticFallbackEnabled) || typeof window.try2launch !== "function") return;
 
   window.try2launch = function try2launchFromLegacyCatalog() {
     if (typeof cxG === "undefined" || !cxG) return false;
@@ -60,7 +61,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       const message = document.getElementById("static-host-warning-message");
       if (title) title.textContent = "Game needs a verified provider ID";
       if (message) {
-        message.textContent = '"' + gameName + '" was not in the older working catalog, so this site does not have a verified Raccoon Game detail URL for it. Auto-account generation still requires the newer backend; GitHub Pages cannot run /api/auto-signup or /play.';
+        message.textContent = '"' + gameName + '" is not in the verified legacy game list. This deployment does not have an account/session backend configured, so automatic guest-account creation and cloud sessions are unavailable for this title.';
       }
       if (modal) modal.classList.add("show");
       else window.alert("No verified legacy launch URL is available for " + gameName + ". This title needs the newer cloud-session backend.");
