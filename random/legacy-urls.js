@@ -1,4 +1,4 @@
-/* Exact, known-working URLs mapped from the older working catalog. */
+/* Exact, known-working URLs mapped from the older working catalog, including title aliases verified against that catalog. */
 window.LEGACY_GAME_URLS = Object.freeze({
   "bs0039": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1021&name=Little%20Nightmares%20III",
   "dg0419": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1018&name=SAND%20LAND",
@@ -95,5 +95,10 @@ window.LEGACY_GAME_URLS = Object.freeze({
   "jy0059": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=50&name=One%20Piece%3A%20Burning%20Blood",
   "jy0126": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=49&name=Ori%20and%20the%20Will%20of%20the%20Wisps",
   "jy0040": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=25&name=Resident%20Evil%202%3A%20Remake",
-  "jy0011": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=2&name=Hollow%20Knight"
+  "jy0011": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=2&name=Hollow%20Knight",
+  "bs0019": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=993&name=Mandragora%3A%20Whispers%20of%20the%20Witch%20Tree",
+  "kj0287": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=791&name=Ratchet%20%26%20Clank",
+  "kj0161": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=714&name=SpongeBob%20SquarePants%3A%20Battle%20for%20Bikini%20Bottom",
+  "kj0150": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=687&name=SpongeBob%20SquarePants%3A%20The%20Cosmic%20Shake",
+  "kj0025": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=612&name=Subnautica%20Zero"
 });
