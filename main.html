@@ -175,7 +175,7 @@
         <div class="acc-head">
           <div class="acc-badge guest">Provider Account</div>
           <h2>Connect your Raccoon Game account</h2>
-          <p>GitHub Pages cannot create or authenticate Raccoon Game accounts automatically. Use the official provider page to register or sign in. The email and password form below is for a separate Figure Cloud backend account.</p>
+          <p>This static deployment does not include a working Figure Cloud account backend. Use the official provider page to register or sign in to Raccoon Game. Figure Cloud email/password sign-in is disabled until its own backend is configured.</p>
         </div>
 
         <div class="acc-provider-box">
@@ -189,14 +189,14 @@
         <div class="acc-form">
           <div class="acc-input-group">
             <label for="acc-email">Email Address</label>
-            <input type="email" id="acc-email" placeholder="name@example.com" autocomplete="email">
+            <input type="email" id="acc-email" placeholder="Account service not configured" autocomplete="email" disabled>
           </div>
           <div class="acc-input-group">
             <label for="acc-password">Password</label>
-            <input type="password" id="acc-password" placeholder="Enter password" autocomplete="current-password">
+            <input type="password" id="acc-password" placeholder="Account service not configured" autocomplete="off" disabled>
           </div>
-          <div id="acc-login-msg" class="acc-msg"></div>
-          <button id="btn-login-submit" class="acc-btn primary" onclick="submitUserLogin()">Sign In</button>
+          <div id="acc-login-msg" class="acc-msg">Figure Cloud sign-in is unavailable until an account backend is connected.</div>
+          <button id="btn-login-submit" class="acc-btn primary" type="button" disabled title="Account backend not configured">Sign In (unavailable)</button>
         </div>
       </div>
 
@@ -544,6 +544,7 @@
 
 <script src="./random/gamelayout.js"></script>
 <script src="./random/legacy-urls.js"></script>
+<script>window.FIGURE_CLOUD_STATIC_FALLBACK = true;</script>
 <script src="script.js"></script>
 </body>
 </html>
