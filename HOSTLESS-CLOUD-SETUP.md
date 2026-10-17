@@ -1,34 +1,49 @@
-# Hostless setup: Figure Cloud + Scramjet/Epoxy
+# Hostless setup: Figure Cloud backend + Scramjet/Epoxy browser
 
-Use branch: hostless-cloud-integration. The main branch is not changed.
+Use the existing Hostless backend project and preserve its current URL:
 
-## Reuse your existing Scramjet Hostless URL
+**https://blueberry-cloud-figure.hostless.app/**
 
-This repository includes the auto-loading Scramjet frontend in hostless-proxy/. It uses Scramjet and Epoxy transport over the app's own Wisp WebSocket endpoint. It accepts URLs like:
+Do not create a new Hostless app for the proxy. Do not switch the existing app's working directory to `/hostless-proxy`; the proxy is integrated into the existing backend app so the cloud API stays available.
 
-https://scramjet.mercurywork.shop/?url=https%3A%2F%2Fwww.google.com%2F
+Use branch:
+https://github.com/michaelmb110b12-wq/NEW-FIG-CLOUD-BLUEBERRY/tree/hostless-cloud-integration
 
-To keep the same URL/domain as your existing Hostless Scramjet project, update that existing Hostless project instead of creating another app. Point its repository to michaelmb110b12-wq/NEW-FIG-CLOUD-BLUEBERRY, branch to hostless-cloud-integration, and set its working directory to /hostless-proxy. The existing project URL/custom domain stays attached to that Hostless project as long as you keep the domain assignment there.
+## Existing Hostless app settings
 
-Hostless settings:
-- Build command: npm install
-- Start command: npm start
-- Health-check path: /healthz
+Keep the existing app's current repository/branch connection if it already points at this repo and branch. Its working directory should remain `/hostless-backend`.
+
+- Working directory: `/hostless-backend`
+- Build command: `npm install`
+- Start command: `npm start`
+- Health-check path: `/healthz`
 - Node.js: 20 or newer
-- Required WebSocket upgrade route: /wisp/
+- Required WebSocket upgrade route for Scramjet: `/wisp/`
 
-After deploying, test https://scramjet.mercurywork.shop/healthz. It should return JSON with ok true, transport epoxy, and autoLoad true.
+Deploy this branch to the **same existing Hostless app**. The expanded `hostless-backend/package.json` adds the Scramjet and Epoxy runtime packages; the backend now serves the proxy frontend and static runtime assets on the same HTTP server, while preserving its existing `/api/cloud/*` API and signaling routes.
 
-## How automatic loading works
+## Test the same URL
 
-The browser accepts a destination through the ?url= query parameter and loads that site inside its Scramjet frame automatically. Figure Cloud's known/verified game URLs and Browser tab use this URL scheme without opening a new top-level tab. Google is the browser homepage. If a game is not in the verified URL catalogue, the frontend cannot invent a URL or a provider session ID.
+Health check (now includes proxy status):
+https://blueberry-cloud-figure.hostless.app/healthz
 
-The proxy requires the Wisp WebSocket route to work. If /healthz works but pages do not load, verify that Hostless permits WebSocket upgrades and that /wisp/ is available.
+Auto-load Google through Scramjet + Epoxy:
+https://blueberry-cloud-figure.hostless.app/?url=https%3A%2F%2Fwww.google.com%2F
 
-## Existing Figure Cloud backend
+Auto-load a game or other permitted URL by putting its encoded destination in the `url` query parameter. The proxy also uses `/wisp/` over WebSocket, which Hostless must allow.
 
-The separate /hostless-backend service and its cloud-provider API bridge remain independent of this proxy app. The proxy alone does not create cloud gaming sessions or supply a provider-specific WebRTC game service. Game URLs must be valid and permitted by their providers.
+## Existing backend/provider configuration
 
-## Browser tutorial
+Keep the existing environment variables on the existing app:
+- `STRATUS_UPSTREAM_URL`: HTTPS base URL for a compatible cloud backend you own or are authorized to use.
+- `STRATUS_UPSTREAM_TOKEN`: optional upstream bearer token.
+- `CORS_ORIGINS`: comma-separated allowed frontend origins.
+- `UPSTREAM_TIMEOUT_MS`: defaults to `30000`.
 
-The Figure Cloud Browser tab opens Google through the proxy. Settings includes RaccoonGame Login and Emailnator panes, a tutorial-video placeholder, and a saved completion checkmark. Some sites can still block sign-in when embedded; routing through Scramjet/Epoxy may improve compatibility but does not guarantee that every site allows embedded login.
+The existing provider API bridge remains available. Proxy capability does not itself create game sessions or provide a provider-specific WebRTC streaming service. The cloud provider must still be configured and authorized.
+
+## Figure Cloud frontend
+
+The Figure Cloud Browser tab, game-launch fallback, RaccoonGame login tutorial, and Emailnator tutorial now target the same backend URL, `https://blueberry-cloud-figure.hostless.app/`. Known game URLs are passed with `?url=` so the new proxy page can load them automatically without opening a new browser tab.
+
+The proxy files are stored under `hostless-proxy/`, but those files are served by the existing backend server. That folder is source assets, **not the existing Hostless app working directory**.
