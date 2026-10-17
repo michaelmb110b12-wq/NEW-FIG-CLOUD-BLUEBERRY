@@ -6,7 +6,7 @@
   "main": "server.cjs",
   "scripts": {
     "start": "node server.cjs",
-    "check": "node --check server.cjs"
+    "check": "node --check server.cjs && node --check ../hostless-cloud.js"
   },
   "engines": {
     "node": ">=20"
