@@ -15,7 +15,7 @@ Add the optional environment variables:
 - `CORS_ORIGINS`: comma-separated exact origins, for example `https://michaelmb110b12-wq.github.io`. Add the origin of any custom domain. Do not include paths.
 - `UPSTREAM_TIMEOUT_MS`: defaults to `30000`.
 
-Open your generated Hostless URL plus `/healthz`. `ok: true` means the backend is running. `providerConfigured: false` means a streaming provider has not yet been connected.
+Keep this app at **one replica** while client session state is stored in memory; multiple replicas would not share cookies/session tokens.\n\nOpen your generated Hostless URL plus `/healthz`. `ok: true` means the backend is running. `providerConfigured: false` means a streaming provider has not yet been connected.
 
 ## Connect from Figure Cloud
 
