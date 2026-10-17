@@ -10,6 +10,8 @@
 'use strict';
 
 const http = require('node:http');
+const fs = require('node:fs');
+const path = require('node:path');
 const { randomUUID } = require('node:crypto');
 const { URL } = require('node:url');
 const WebSocket = require('ws');
@@ -21,6 +23,98 @@ const DEFAULT_ORIGINS = 'https://michaelmb110b12-wq.github.io,http://localhost:3
 const ALLOWED_ORIGINS = new Set((process.env.CORS_ORIGINS || DEFAULT_ORIGINS).split(',').map(s => s.trim()).filter(Boolean));
 const CLIENTS = new Map();
 const SESSION_IDLE_MS = 12 * 60 * 60 * 1000;
+
+let proxyRuntime = null;
+
+const MIME_TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.wasm': 'application/wasm',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
+  '.txt': 'text/plain; charset=utf-8'
+};
+
+async function initializeProxyRuntime() {
+  const [{ server: wisp, logging }, scramjetModule, baremuxModule] = await Promise.all([
+    import('@mercuryworkshop/wisp-js/server'),
+    import('@mercuryworkshop/scramjet/path'),
+    import('@mercuryworkshop/bare-mux/node')
+  ]);
+  logging.set_level(logging.NONE);
+  Object.assign(wisp.options, {
+    allow_udp_streams: false,
+    dns_servers: ['1.1.1.1', '1.0.0.1']
+  });
+  return {
+    wisp,
+    roots: {
+      public: path.resolve(__dirname, '../hostless-proxy/public'),
+      scram: scramjetModule.scramjetPath,
+      baremux: baremuxModule.baremuxPath,
+      epoxy: path.resolve(__dirname, 'node_modules/@mercuryworkshop/epoxy-transport/dist')
+    }
+  };
+}
+
+function staticMount(urlPath) {
+  if (urlPath === '/' || ['/browser.css','/proxy.js','/register-sw.js','/sw.js'].includes(urlPath)) {
+    return { root: proxyRuntime.roots.public, relative: urlPath === '/' ? 'index.html' : urlPath.slice(1) };
+  }
+  for (const [prefix, key] of [['/scram/','scram'],['/baremux/','baremux'],['/epoxy/','epoxy']]) {
+    if (urlPath.startsWith(prefix)) return { root: proxyRuntime.roots[key], relative: urlPath.slice(prefix.length) };
+  }
+  return null;
+}
+
+async function serveProxyStatic(req, res, url) {
+  if (!proxyRuntime || !['GET','HEAD'].includes(req.method)) return false;
+  const mount = staticMount(url.pathname);
+  if (!mount) return false;
+  let relative;
+  try { relative = decodeURIComponent(mount.relative); }
+  catch {
+    res.writeHead(400, { 'content-type': 'text/plain; charset=utf-8' });
+    res.end('Invalid asset path');
+    return true;
+  }
+  const root = path.resolve(mount.root);
+  const target = path.resolve(root, relative);
+  if (target !== root && !target.startsWith(root + path.sep)) {
+    res.writeHead(403, { 'content-type': 'text/plain; charset=utf-8' });
+    res.end('Forbidden');
+    return true;
+  }
+  let stat;
+  try { stat = await fs.promises.stat(target); }
+  catch {
+    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' });
+    res.end('Proxy asset not found');
+    return true;
+  }
+  if (!stat.isFile()) {
+    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' });
+    res.end('Proxy asset not found');
+    return true;
+  }
+  res.writeHead(200, {
+    'content-type': MIME_TYPES[path.extname(target).toLowerCase()] || 'application/octet-stream',
+    'content-length': stat.size,
+    'cache-control': /\.(?:html|js|mjs|css|wasm)$/i.test(target) ? 'no-cache' : 'public, max-age=3600',
+    'cross-origin-opener-policy': 'same-origin',
+    'cross-origin-embedder-policy': 'require-corp',
+    'x-content-type-options': 'nosniff'
+  });
+  if (req.method === 'HEAD') res.end();
+  else fs.createReadStream(target).on('error', () => res.destroy()).pipe(res);
+  return true;
+}
+
 
 function configuredProvider() {
   const raw = process.env.STRATUS_UPSTREAM_URL;
@@ -207,6 +301,9 @@ async function handleApi(req, res, url) {
       ok: !configError,
       service: 'figure-cloud-hostless-backend',
       providerConfigured,
+      proxyConfigured: Boolean(proxyRuntime),
+      transport: 'epoxy',
+      autoLoad: true,
       configError
     });
   }
@@ -275,15 +372,22 @@ const server = http.createServer((req, res) => {
   try { url = new URL(req.url, 'http://' + (req.headers.host || 'localhost')); }
   catch { return json(res, 400, { error: 'invalid_url' }); }
 
-  if (req.method === 'OPTIONS') return handleApi(req, res, url);
-  if (url.pathname.startsWith('/api/') || url.pathname === '/healthz') {
-    handleApi(req, res, url).catch(error => {
-      if (!res.headersSent) json(res, error.status || 500, { error: 'request_failed', message: error.message || 'Request failed.' });
-      else res.destroy();
-    });
-    return;
-  }
-  return json(res, 404, { error: 'not_found', message: 'This backend exposes API routes only.' });
+  serveProxyStatic(req, res, url).then(served => {
+    if (served) return;
+    if (req.method === 'OPTIONS') return handleApi(req, res, url);
+    if (url.pathname.startsWith('/api/') || url.pathname === '/healthz') {
+      handleApi(req, res, url).catch(error => {
+        if (!res.headersSent) json(res, error.status || 500, { error: 'request_failed', message: error.message || 'Request failed.' });
+        else res.destroy();
+      });
+      return;
+    }
+    return json(res, 404, { error: 'not_found', message: 'This backend exposes API routes and the Scramjet/Epoxy browser.' });
+  }).catch(() => {
+    if (!res.headersSent) json(res, 500, { error: 'static_proxy_error', message: 'Could not serve browser asset.' });
+    else res.destroy();
+  });
+  return;
 });
 
 const wss = new WebSocket.WebSocketServer({ noServer: true, maxPayload: BODY_LIMIT });
@@ -291,6 +395,12 @@ server.on('upgrade', (req, socket, head) => {
   let url;
   try { url = new URL(req.url, 'http://' + (req.headers.host || 'localhost')); }
   catch { socket.destroy(); return; }
+
+  if (url.pathname === '/wisp/') {
+    if (proxyRuntime && proxyRuntime.wisp) return proxyRuntime.wisp.routeRequest(req, socket, head);
+    socket.destroy();
+    return;
+  }
 
   const match = url.pathname.match(/^\/api\/cloud\/signal\/([a-zA-Z0-9_-]{1,128})$/);
   if (!match) {
@@ -371,7 +481,14 @@ setInterval(() => {
   }
 }, 60 * 60 * 1000).unref();
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log('Figure Cloud Hostless backend listening on 0.0.0.0:' + PORT);
-  console.log('Provider configured: ' + Boolean(process.env.STRATUS_UPSTREAM_URL));
+initializeProxyRuntime().then(runtime => {
+  proxyRuntime = runtime;
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log('Figure Cloud Hostless backend + Scramjet/Epoxy browser listening on 0.0.0.0:' + PORT);
+    console.log('Provider configured: ' + Boolean(process.env.STRATUS_UPSTREAM_URL));
+    console.log('Scramjet proxy assets enabled with Epoxy transport.');
+  });
+}).catch(error => {
+  console.error('Could not initialize Scramjet/Epoxy runtime:', error);
+  process.exit(1);
 });
