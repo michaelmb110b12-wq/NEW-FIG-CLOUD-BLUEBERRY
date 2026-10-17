@@ -48,3 +48,10 @@ Hosting this Worker makes the static website and explicit API routes available, 
 A separate Node.js backend is included in `hostless-backend/`. See [HOSTLESS-CLOUD-SETUP.md](HOSTLESS-CLOUD-SETUP.md) for the Hostless setup and environment variables. The frontend Settings tab now contains a **Hostless Cloud Backend** panel for checking the API and loading a provider catalog.
 
 This adapter requires a compatible cloud provider that you own or are authorized to use. It does not create disposable third-party accounts or bypass a provider's protections or session limits. The provider-specific WebRTC player is not supplied by this configuration panel alone.
+
+
+## Auto-loading Scramjet + Epoxy proxy
+
+The hostless-proxy/ directory contains the browser app. Configure your existing Hostless Scramjet project to use this repository's hostless-cloud-integration branch and set its working directory to /hostless-proxy. This lets you keep that Hostless project's existing URL and custom domain; see HOSTLESS-CLOUD-SETUP.md.
+
+The proxy supports automatic destination loading through ?url=, uses Epoxy transport over the app's /wisp/ WebSocket route, and serves /healthz for health checks. Figure Cloud routes known game URLs into its in-app proxy window without opening a separate tab. Titles with no verified URL still need a real provider mapping.
