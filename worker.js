@@ -28,7 +28,8 @@ function unavailable(code, message) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const pathname = url.pathname.replace(/\\/+$/, "") || "/";
+    let pathname = url.pathname;
+    while (pathname.length > 1 && pathname.endsWith("/")) pathname = pathname.slice(0, -1);
 
     if (pathname === "/_health") {
       return jsonResponse(200, {
