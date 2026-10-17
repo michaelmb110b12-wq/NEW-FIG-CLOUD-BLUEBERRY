@@ -2,16 +2,20 @@
   "name": "figure-cloud-hostless-backend",
   "version": "1.0.0",
   "private": true,
-  "description": "Hostless API and WebSocket bridge for a provider-authorized cloud gaming service",
+  "description": "Combined Figure Cloud API bridge and Scramjet/Epoxy proxy browser for existing Hostless app",
   "main": "server.cjs",
   "scripts": {
     "start": "node server.cjs",
-    "check": "node --check server.cjs && node --check ../hostless-cloud.js"
+    "check": "node --check server.cjs && node --check ../hostless-cloud.js && node --check ../hostless-proxy/public/proxy.js && node --check ../browser-tutorial.js"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
-    "ws": "^8.18.3"
+    "ws": "^8.18.3",
+    "@mercuryworkshop/bare-mux": "^2.1.9",
+    "@mercuryworkshop/epoxy-transport": "^3.0.1",
+    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/v1.1.0/mercuryworkshop-scramjet-1.1.0.tgz",
+    "@mercuryworkshop/wisp-js": "^0.4.1"
   }
 }
