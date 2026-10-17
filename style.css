@@ -1808,3 +1808,26 @@ body.in-fullscreen #mobl-fs-bubble,
   font-size: 10px;
   line-height: 1.45;
 }
+
+/* Figure Cloud in-app proxy browser and tutorial */
+.fc-browser-shell{display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 160px);height:calc(100vh - 180px);border:1px solid var(--border,rgba(255,255,255,.14));border-radius:18px;overflow:hidden;background:#080d15}
+.fc-browser-caption{padding:10px 14px;background:rgba(255,255,255,.035);color:var(--muted,#aaa);font-size:12px}
+.fc-browser-frame{display:block;flex:1;width:100%;min-height:480px;border:0;background:#080d15}
+.fc-tutorial{margin-top:32px;padding:22px;border:1px solid var(--border,rgba(255,255,255,.13));border-radius:18px;background:rgba(255,255,255,.025)}
+.fc-tutorial-intro{max-width:940px;color:var(--muted,#aaa);font-size:13px;line-height:1.6}
+.fc-tutorial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.fc-tutorial-pane{min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:#080d15}
+.fc-tutorial-pane-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;min-height:48px;background:#111722}
+.fc-tutorial-pane-head strong{font-size:13px}
+.fc-tutorial-actions{display:flex;gap:6px;flex-wrap:wrap}
+.fc-mini-btn{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:7px 9px;background:#1c2433;color:white;font-size:11px;font-weight:700;cursor:pointer}
+.fc-tutorial-frame{display:block;width:100%;height:560px;border:0;background:#fff}
+.fc-video-section{margin-top:24px}
+.fc-video-section h4{font-size:14px;margin:0 0 10px}
+.fc-video-placeholder{aspect-ratio:16/9;width:min(100%,900px);max-height:506px;border:1px dashed rgba(255,255,255,.25);border-radius:14px;background:linear-gradient(145deg,#101725,#080b12);display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;color:var(--muted,#aaa);font-size:13px}
+.fc-play-symbol{display:grid;place-items:center;width:60px;height:60px;border:1px solid rgba(255,255,255,.22);border-radius:50%;color:#fff;font-size:21px;background:rgba(120,95,255,.22);padding-left:4px}
+.fc-complete-row{display:flex;align-items:center;gap:12px;margin-top:18px}
+.fc-complete-btn{border:0;border-radius:10px;padding:12px 16px;background:#8065ff;color:#fff;font-weight:800;cursor:pointer}
+.fc-complete-btn.is-complete{background:#188451}
+.fc-complete-status{font-size:24px;font-weight:900;color:#36d890}
+@media(max-width:850px){.fc-tutorial-grid{grid-template-columns:1fr}.fc-tutorial-frame{height:520px}.fc-tutorial{padding:14px}.fc-browser-shell{height:calc(100vh - 180px)}.fc-browser-frame{min-height:380px}}
