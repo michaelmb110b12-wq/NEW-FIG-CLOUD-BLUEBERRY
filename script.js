@@ -9,7 +9,40 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
  * - Do not invent provider IDs for newer-only titles.
  */
 (function installLegacyLaunchFallbackForGitHubPages() {
-  const isGitHubPages = /(^|\.)github\.io$/i.test(window.location.hostname);
+  const isGitHubPages = /(^|\\.)github\\.io$/i.test(window.location.hostname);
+  const launchModeKey = "figure_cloud_launch_mode";
+
+  function selectedLaunchMode() {
+    const selector = document.getElementById("launch-mode");
+    if (selector && (selector.value === "normal" || selector.value === "aboutblank")) {
+      return selector.value;
+    }
+    try {
+      return localStorage.getItem(launchModeKey) === "aboutblank" ? "aboutblank" : "normal";
+    } catch (_) {
+      return "normal";
+    }
+  }
+
+  function initializeLaunchModePicker() {
+    const selector = document.getElementById("launch-mode");
+    if (!selector) return;
+    try {
+      selector.value = localStorage.getItem(launchModeKey) === "aboutblank" ? "aboutblank" : "normal";
+    } catch (_) {
+      selector.value = "normal";
+    }
+    selector.addEventListener("change", function () {
+      try { localStorage.setItem(launchModeKey, selector.value === "aboutblank" ? "aboutblank" : "normal"); } catch (_) {}
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeLaunchModePicker, { once: true });
+  } else {
+    initializeLaunchModePicker();
+  }
+
   if (!isGitHubPages || typeof window.try2launch !== "function") return;
 
   window.try2launch = function try2launchFromLegacyCatalog() {
@@ -35,6 +68,43 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     }
 
     if (typeof clsMdl === "function") clsMdl();
+
+    if (selectedLaunchMode() === "aboutblank") {
+      const popup = window.open("about:blank", "_blank");
+      if (!popup) {
+        if (typeof showToast === "function") showToast("Pop-up blocked. Allow pop-ups or choose Open normally.");
+        return false;
+      }
+      try {
+        popup.document.open();
+        popup.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Figure Cloud</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#06080d;color:#e8edf5;font-family:system-ui,Arial,sans-serif}#launch-note{position:absolute;left:0;right:0;top:0;height:30px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:0 10px;background:rgba(10,13,21,.96);border-bottom:1px solid rgba(255,255,255,.12);z-index:2;font-size:11px;text-align:center}#figure-cloud-frame{position:absolute;left:0;top:31px;width:100%;height:calc(100% - 31px);border:0;background:#000}</style></head><body><div id="launch-note">Loading game page...</div><iframe id="figure-cloud-frame" allow="autoplay; fullscreen; keyboard-map; clipboard-read; clipboard-write; gamepad"></iframe></body></html>');
+        popup.document.close();
+        popup.document.title = gameName + " | Figure Cloud";
+        const note = popup.document.getElementById("launch-note");
+        if (note) note.textContent = "Loading " + gameName + ". If it does not work, close this tab and choose Open normally.";
+        const popupFrame = popup.document.getElementById("figure-cloud-frame");
+        if (popupFrame) popupFrame.src = targetUrl;
+        try { popup.opener = null; } catch (_) {}
+      } catch (_) {
+        try { popup.location.href = targetUrl; } catch (_) {}
+      }
+
+      gmWin = {
+        closed: false,
+        close: function () {
+          try { if (!popup.closed) popup.close(); } catch (_) {}
+        }
+      };
+      const popupWatcher = window.setInterval(function () {
+        if (popup.closed) {
+          window.clearInterval(popupWatcher);
+          if (gmWin) gmWin.closed = true;
+        }
+      }, 1000);
+      if (typeof trStart === "function") trStart(gameId);
+      if (typeof showToast === "function") showToast("Opened " + gameName + " in an about:blank tab.");
+      return false;
+    }
 
     const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 1024;
     if (mobile) {
