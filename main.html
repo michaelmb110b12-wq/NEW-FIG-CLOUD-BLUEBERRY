@@ -376,6 +376,15 @@
   <div class="m-grid">
     <div class="m-l">
       <img src="" id="mdl-post" alt="">
+      <div class="launch-mode-control">
+        <label for="launch-mode">Open game</label>
+        <select id="launch-mode" aria-describedby="launch-mode-help">
+          <option value="normal">Open normally</option>
+          <option value="aboutblank">Open in about:blank</option>
+        </select>
+        <small id="launch-mode-help">About:blank opens the provider page inside a blank tab. Some games may work only in normal mode.</small>
+      </div>
+
       <button class="m-play" onclick="try2launch(false)">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#000"><path d="M8 5v14l11-7z"/></svg>
         Play
