@@ -41,3 +41,10 @@ The source archive supplied for this project contains front-end files but no ori
 The frontend contains calls to `/api/auto-signup`, `/api/login`, `/api/credits`, and `/play?gid=...`. The Cloudflare Worker intentionally returns clear `503 Service Unavailable` responses for those routes instead of pretending that tokens or cloud sessions were created. The Figure Cloud email/password form is disabled until its own backend is configured.
 
 Hosting this Worker makes the static website and explicit API routes available, but **does not by itself implement automatic guest-account creation or cloud-game streaming**. Those functions require a provider-supported API or another backend the site is authorized to use. The account panel links users to the official Raccoon Game login/registration page for provider accounts. Do not enter provider passwords into Figure Cloud's disabled login form.
+
+
+## Hostless cloud backend setup
+
+A separate Node.js backend is included in `hostless-backend/`. See [HOSTLESS-CLOUD-SETUP.md](HOSTLESS-CLOUD-SETUP.md) for the Hostless setup and environment variables. The frontend Settings tab now contains a **Hostless Cloud Backend** panel for checking the API and loading a provider catalog.
+
+This adapter requires a compatible cloud provider that you own or are authorized to use. It does not create disposable third-party accounts or bypass a provider's protections or session limits. The provider-specific WebRTC player is not supplied by this configuration panel alone.
