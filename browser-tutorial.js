@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const PROXY_BASE = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
+  const PROXY_BASE = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://blueberry-cloud-figure.hostless.app/";
   const COMPLETE_KEY = "figureCloudBrowserTutorialComplete";
   const makeProxyUrl = (target) => {
     const url = new URL(PROXY_BASE);
