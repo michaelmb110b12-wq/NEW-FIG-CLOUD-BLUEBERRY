@@ -450,6 +450,26 @@
   </div>
 </div>
 
+
+<div class="popup-wrap" id="p-static-host-warning" role="dialog" aria-modal="true" aria-labelledby="static-host-title" onclick="if(event.target===this) hidePopup('p-static-host-warning')">
+  <div class="popup-box static-host-box">
+    <div class="popup-icon-container legal-ico" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 7v5"></path>
+        <path d="M12 16h.01"></path>
+      </svg>
+    </div>
+    <h2 id="static-host-title">Cloud gaming needs a backend</h2>
+    <p id="static-host-warning-message" aria-live="polite">GitHub Pages serves static files; it cannot run the cloud-session routes needed to launch a game.</p>
+    <div class="static-host-note">Your library can still load here. To play, open the official Raccoon Game platform and search for this title.</div>
+    <div class="popup-btn-row">
+      <a class="popup-btn primary static-host-link" href="https://www.raccoongame.com/" target="_blank" rel="noopener noreferrer" onclick="hidePopup('p-static-host-warning')">Open Raccoon Game</a>
+      <button class="popup-btn static-host-secondary" type="button" onclick="hidePopup('p-static-host-warning')">Stay here</button>
+    </div>
+  </div>
+</div>
+
 <div id="game-layer">
   <div id="mobl-rotate-prompt">
     <div class="rotate-ico-box">
