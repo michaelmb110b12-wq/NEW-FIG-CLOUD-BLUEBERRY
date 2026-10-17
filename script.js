@@ -8,7 +8,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
  * Server-backed deployments keep using the original launcher.
  */
 (function installGitHubPagesLaunchFallback() {
-  const isGitHubPages = /(^|\\.)github\\.io$/i.test(window.location.hostname);
+  const isGitHubPages = /(^|\.)github\.io$/i.test(window.location.hostname);
   const originalLaunch = window.try2launch;
   if (!isGitHubPages || typeof originalLaunch !== "function") return;
 
