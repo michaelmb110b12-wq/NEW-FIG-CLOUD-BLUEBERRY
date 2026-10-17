@@ -3,10 +3,11 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
 
 
 /*
- * Hybrid GitHub Pages launcher:
+ * Static-host launcher for this branch:
  * - Reuse exact, known-working game URLs from the older catalog when a title maps.
- * - Keep the original auto-account/session launcher unchanged on server-backed hosts.
+ * - Cloudflare Worker API routes return explicit unavailable responses until a real backend is connected.
  * - Do not invent provider IDs for newer-only titles.
+ * - Disable FIGURE_CLOUD_STATIC_FALLBACK in main.html only after a working backend is configured.
  */
 (function installStaticLaunchFallback() {
   const isGitHubPages = /(^|\.)github\.io$/i.test(window.location.hostname);
