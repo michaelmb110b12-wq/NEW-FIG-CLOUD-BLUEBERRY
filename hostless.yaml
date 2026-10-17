@@ -1,9 +1,14 @@
-# Hostless can use this file to configure the backend app when the app root is set to /hostless-backend.
-working_directory: hostless-backend
+# Hostless app config for the existing backend deployment.
+# Keep the repository root in the build context so hostless-proxy/public is included.
+working_directory: "/"
+build_context_directory: "/"
+
 build:
   system: auto
-  command: npm install
-start_command: npm start
+  command: "npm --prefix hostless-backend install"
+
+start_command: "npm --prefix hostless-backend start"
+
 health_check:
   type: http
   http_path: /healthz
