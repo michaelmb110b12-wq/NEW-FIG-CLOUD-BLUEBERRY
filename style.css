@@ -1698,3 +1698,38 @@ body.in-fullscreen #mobl-fs-bubble,
 #game-layer.is-fullscreen #mobl-fs-bubble {
   display: block !important;
 }
+
+
+/* Clear fallback for static hosting, where game-session API routes are unavailable. */
+.static-host-note {
+  margin: 0 0 18px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+.static-host-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.static-host-secondary {
+  background: #1a2230;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.static-host-secondary:hover {
+  background: #253145;
+}
+.static-host-box {
+  max-width: 460px;
+}
+@media (max-width: 480px) {
+  .static-host-box { padding: 22px 18px; }
+  #p-static-host-warning .popup-btn-row { flex-direction: column; }
+}
