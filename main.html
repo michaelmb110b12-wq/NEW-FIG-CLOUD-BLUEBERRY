@@ -92,6 +92,11 @@
     <div class="sec-head" style="margin-top:0;">Browser</div>
     <div class="fc-browser-shell">
       <div class="fc-browser-caption">Scramjet + Epoxy Browser · Home: Google</div>
+      <div class="fc-scramjet-linkbar" style="display:flex;gap:8px;align-items:center;margin:10px 0;flex-wrap:wrap;">
+        <label for="figure-cloud-browser-link" style="font-size:12px;white-space:nowrap;">Browser link</label>
+        <input id="figure-cloud-browser-link" type="text" readonly value="https://scramjet.mercurywork.shop/?url=https%3A%2F%2Fwww.google.com%2F" style="flex:1;min-width:160px;padding:9px 10px;border-radius:8px;border:1px solid var(--border,#444);background:var(--card,#151515);color:inherit;">
+        <button type="button" class="fc-copy-link-btn" onclick="copyScramjetLink('figure-cloud-browser-link', this)" style="padding:9px 12px;border-radius:8px;cursor:pointer;">Copy link</button>
+      </div>
       <iframe id="figure-cloud-browser" class="fc-browser-frame" src="https://scramjet.mercurywork.shop/?url=https%3A%2F%2Fwww.google.com%2F" title="Figure Cloud Browser — hosted Scramjet" allow="autoplay; fullscreen; clipboard-read; clipboard-write; gamepad; keyboard-map" loading="eager" referrerpolicy="no-referrer"></iframe>
     </div>
   </div>
@@ -537,6 +542,21 @@
   <iframe id="gF" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe>
 </div>
 
+<script>
+window.copyScramjetLink = async function(inputId, button) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const value = input.value || input.textContent || "";
+  try {
+    await navigator.clipboard.writeText(value);
+    if (button) { const old = button.textContent; button.textContent = "Copied!"; setTimeout(() => button.textContent = old, 1400); }
+  } catch (_) {
+    input.focus(); input.select();
+    try { document.execCommand("copy"); if (button) { const old = button.textContent; button.textContent = "Copied!"; setTimeout(() => button.textContent = old, 1400); } }
+    catch (_) { if (typeof showToast === "function") showToast("Select and copy the link manually."); }
+  }
+};
+</script>
 <script src="./random/gamelayout.js"></script>
 <script src="./random/legacy-urls.js"></script>
 <script>window.FIGURE_CLOUD_STATIC_FALLBACK = true;</script>
