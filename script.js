@@ -79,28 +79,16 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       return false;
     }
 
-    const proxyBase = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
-    let proxyUrl;
-    try {
-      proxyUrl = new URL(proxyBase);
-      if (proxyUrl.protocol !== "https:" && !["localhost", "127.0.0.1"].includes(proxyUrl.hostname)) {
-        throw new Error("The Scramjet proxy must use HTTPS.");
-      }
-      proxyUrl.searchParams.set("url", targetUrl);
-    } catch (error) {
-      if (typeof showToast === "function") showToast("Scramjet proxy URL is invalid: " + error.message);
-      return false;
-    }
-
+    // Games used to load directly from their verified provider URLs. Keep Scramjet for the separate browser/tutorial only.
     if (topTitle) topTitle.textContent = gameName;
     if (topGame) topGame.style.display = "flex";
-    if (loaderTitle) loaderTitle.textContent = "Opening " + gameName + " through Scramjet…";
-    if (loaderSubtitle) loaderSubtitle.textContent = "Starting the in-app browser with Epoxy transport.";
+    if (loaderTitle) loaderTitle.textContent = "Opening " + gameName + "…";
+    if (loaderSubtitle) loaderSubtitle.textContent = "Connecting directly to the game provider.";
     if (loader) { loader.style.display = "flex"; loader.style.opacity = "1"; }
     if (expired) expired.style.display = "none";
     if (typeof tglV === "function") tglV("g");
     gmWin = { closed: false, close: function () { if (typeof clsGm === "function") clsGm(); } };
-    frame.src = proxyUrl.href;
+    frame.src = targetUrl;
 
     window.setTimeout(function () {
       if (loader) {
