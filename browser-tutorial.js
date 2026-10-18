@@ -19,7 +19,7 @@
     const panel = el("section", { id: "figure-cloud-browser-tutorial", class: "fc-tutorial" });
     panel.append(
       el("h3", { class: "set-title" }, "Browser Tutorial"),
-      el("p", { class: "fc-tutorial-intro" }, "RaccoonGame loads directly in its iframe. Emailnator continues to run through Scramjet with Epoxy transport. Only use accounts and email addresses you control.")
+      el("p", { class: "fc-tutorial-intro" }, "RaccoonGame and Emailnator both load through Scramjet with Epoxy transport. Only use accounts and email addresses you control.")
     );
     const grid = el("div", { class: "fc-tutorial-grid" });
     const makePane = (title, target, useScramjet = true) => {
@@ -60,7 +60,7 @@
       return pane;
     };
     grid.append(
-      makePane("RaccoonGame Login", "https://www.raccoongame.com/login", false),
+      makePane("RaccoonGame Login", "https://www.raccoongame.com/login"),
       makePane("Emailnator", "https://emailnator.com/")
     );
     panel.appendChild(grid);
