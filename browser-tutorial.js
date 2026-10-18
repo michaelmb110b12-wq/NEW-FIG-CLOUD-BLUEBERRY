@@ -60,8 +60,8 @@
       return pane;
     };
     grid.append(
-      makePane("RaccoonGame Login", "https://www.raccoongame.com/login"),
-      makePane("Emailnator", "https://www.emailnator.com/")
+      makePane("RaccoonGame Login", "https://raccoongame.com/login"),
+      makePane("Emailnator", "https://emailnator.com/")
     );
     panel.appendChild(grid);
     const videoSection = el("section", { class: "fc-video-section" });
