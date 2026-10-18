@@ -58,21 +58,9 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const targetUrl = (window.LEGACY_GAME_URLS || {})[gameId];
 
     if (!targetUrl) {
-      // On the Hostless deployment, use the same cloud-session launch path as main
-      // so games outside the legacy URL list can still launch. GitHub Pages has no
-      // backend session API, so show the fallback notice there instead.
-      if (!isGitHubPages) {
-        launchUsingMainBranch();
-        return false;
-      }
-      if (typeof clsMdl === "function") clsMdl();
-      const modal = document.getElementById("p-static-host-warning");
-      const title = document.getElementById("static-host-title");
-      const message = document.getElementById("static-host-warning-message");
-      if (title) title.textContent = "Unable to launch game";
-      if (message) message.textContent = '"' + gameName + '" could not be launched here. Try opening it directly on Raccoon Game.';
-      if (modal) modal.classList.add("show");
-      else window.alert(gameName + " could not be launched here. Try opening it directly on Raccoon Game.");
+      // No legacy direct URL exists for this title. Try the original cloud-session
+      // launcher instead of interrupting the player with a static-hosting warning.
+      launchUsingMainBranch();
       return false;
     }
 
