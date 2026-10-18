@@ -47,6 +47,10 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
   const staticFallbackEnabled = window.FIGURE_CLOUD_STATIC_FALLBACK === true;
   if (!(isGitHubPages || staticFallbackEnabled) || typeof window.try2launch !== "function") return;
 
+  // Keep the original main-branch cloud-session launcher available for every game
+  // that is not present in the older direct-URL catalog.
+  const launchUsingMainBranch = window.try2launch.bind(window);
+
   window.try2launch = function try2launchFromLegacyCatalog() {
     if (typeof cxG === "undefined" || !cxG) return false;
     const gameId = typeof getGameId === "function" ? getGameId(cxG) : "";
@@ -54,14 +58,21 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const targetUrl = (window.LEGACY_GAME_URLS || {})[gameId];
 
     if (!targetUrl) {
+      // On the Hostless deployment, use the same cloud-session launch path as main
+      // so games outside the legacy URL list can still launch. GitHub Pages has no
+      // backend session API, so show the fallback notice there instead.
+      if (!isGitHubPages) {
+        launchUsingMainBranch();
+        return false;
+      }
       if (typeof clsMdl === "function") clsMdl();
       const modal = document.getElementById("p-static-host-warning");
       const title = document.getElementById("static-host-title");
       const message = document.getElementById("static-host-warning-message");
-      if (title) title.textContent = "Game unavailable";
-      if (message) message.textContent = '"' + gameName + '" is not available to launch here yet.';
+      if (title) title.textContent = "Game unavailable on static hosting";
+      if (message) message.textContent = '"' + gameName + '" needs the cloud-session service, which is not available on GitHub Pages.';
       if (modal) modal.classList.add("show");
-      else window.alert(gameName + " is not available to launch here yet.");
+      else window.alert(gameName + " needs the cloud-session service, which is not available on GitHub Pages.");
       return false;
     }
 
