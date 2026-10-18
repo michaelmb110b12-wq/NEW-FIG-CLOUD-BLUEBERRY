@@ -389,6 +389,7 @@ const G_DATA = [
     {
         "name": "Little Nightmares III",
         "game_key": "bs0039",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1021&name=Little%20Nightmares%20III",
         "description": "Little Nightmares III is an atmospheric adventure game in which you follow the journey of Low and Alone, two best friends in search of a way out of the Nowhere. In 2 players online cooperation or solo with an A.I., work together to solve puzzles and survive in this nightmarish world.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260515/20260515162908395.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20251017/20251017175259569.png",
@@ -401,6 +402,7 @@ const G_DATA = [
     {
         "name": "SAND LAND",
         "game_key": "dg0419",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1018&name=SAND%20LAND",
         "description": "SAND LAND is an action RPG where you become the main character as Beelzebub, a Fiend Prince. Lead your company of heroic misfits and explore the legendary world of SAND LAND created by Akira Toriyama.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250903/20250903105440952.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250903/20250903105458739.png",
@@ -413,6 +415,7 @@ const G_DATA = [
     {
         "name": "X-Plane 11",
         "game_key": "kj0495",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1016&name=X-Plane%2011",
         "description": "Notice：Need to ignore the update prompt. The future of flight simulation is now! X-Plane 11 is the detailed, realistic, and modern simulator you’ve been waiting for. Intuitive user interface, 3-D cockpits, new effects, 3-D sound, living airports and world-wide scenery.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250902/2025090217335483.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250902/20250902173645541.jpg",
@@ -424,6 +427,7 @@ const G_DATA = [
     {
         "name": "GUILTY GEAR -STRIVE-",
         "game_key": "kj0530",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1015&name=GUILTY%20GEAR%20-STRIVE-",
         "description": "The cutting-edge 2D/3D hybrid graphics pioneered in the Guilty Gear series have been raised to the next level in “GUILTY GEAR -STRIVE-“. The new artistic direction and improved character animations will go beyond anything you’ve seen before in a fighting game!",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250901/20250901143139167.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250901/2025090114314282.jpg",
@@ -435,6 +439,7 @@ const G_DATA = [
     {
         "name": "Sim Racing Telemetry - F1 22",
         "game_key": "kj0531",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1014&name=Sim%20Racing%20Telemetry%20-%20F1%2022",
         "description": "This content requires the base application Sim Racing Telemetry on Steam in order to run.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260515/2026051516284867.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250901/20250901114742375.png",
@@ -447,6 +452,7 @@ const G_DATA = [
     {
         "name": "Clair Obscur: Expedition 33",
         "game_key": "bs0034",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1013&name=Clair%20Obscur%3A%20Expedition%2033",
         "description": "Lead the members of Expedition 33 on their quest to destroy the Paintress so that she can never paint death again. Explore a world of wonders inspired by Belle Époque France and battle unique enemies in this turn-based RPG with real-time mechanics.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260515/20260515162820447.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250829/20250829160344655.png",
@@ -458,6 +464,7 @@ const G_DATA = [
     {
         "name": "Easy Red 2",
         "game_key": "bs0035",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1012&name=Easy%20Red%202",
         "description": "Fight massive battles between infantry, armored vehicles, tanks, cannons and planes. Realistically manage your weapons and equipment, coordinate with your squad, and tactically navigate large, fully destructible open world maps. Experience the WW2 in singleplayer, PVP and Co-Op.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250829/20250829153823174.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250901/20250901142928882.jpg",
@@ -469,6 +476,7 @@ const G_DATA = [
     {
         "name": "Wolf Mate",
         "game_key": "bs0036",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1011&name=Wolf%20Mate",
         "description": "Escape from the locked school by solving puzzles while running away from Freya.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250829/20250829115558198.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250829/20250829151520484.png",
@@ -481,6 +489,7 @@ const G_DATA = [
     {
         "name": "JDM: Japanese Drift Master",
         "game_key": "bs0026",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1003&name=JDM%3A%20Japanese%20Drift%20Master",
         "description": "Discover Japan’s legendary car culture in JDM: Japanese Drift Master! Take on challenging roads with refined simcade physics, immerse in the story through manga pages, and explore an open world inspired by stunning real-life areas. Every turn invites you to master the art of drift.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250930/20250930120300208.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250704/20250704160426206.png",
@@ -493,6 +502,7 @@ const G_DATA = [
     {
         "name": "The First Berserker: Khazan",
         "game_key": "bs0023",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1002&name=The%20First%20Berserker%3A%20Khazan",
         "description": "The First Berserker: Khazan is a hardcore action role-playing game. The player will become Khazan, the great general of the Pell Los Empire, who overcame death, and sets out to reveal the incidents that led to his downfall and seek vengeance on his enemies.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627115659712.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627115702179.png",
@@ -505,6 +515,7 @@ const G_DATA = [
     {
         "name": "Blue Prince",
         "game_key": "bs0021",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1001&name=Blue%20Prince",
         "description": "Welcome to Mt. Holly, where every dawn unveils a new mystery. Navigate through shifting corridors and ever-changing chambers in this genre-defying strategy puzzle adventure. But will your unpredictable path lead you to the rumored Room 46?",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627112123936.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627112108682.png",
@@ -515,6 +526,7 @@ const G_DATA = [
     {
         "name": "Only Up",
         "game_key": "bs0025",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=999&name=Only%20Up",
         "description": "Embark on an exciting journey in Only UP ! Play as Jacky, a teenager from the ghetto who wants to get out of poverty and join the wealth of the Space ! As you explore a huge world full of secrets and mysteries, you will have to climb as high as possible !",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250613/20250613113813585.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250620/20250620191032595.png",
@@ -526,6 +538,7 @@ const G_DATA = [
     {
         "name": "Schedule 1",
         "game_key": "bs0024",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=998&name=Schedule%201",
         "description": "From small-time dope pusher to kingpin - manufacture and distribute a range of drugs throughout the grungy city of Hyland Point. Expand your empire with properties, businesses, employees and more.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250612/2025061214262743.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250612/20250612140558838.jpg",
@@ -550,6 +563,7 @@ const G_DATA = [
     {
         "name": "RuneScape: Dragonwilds",
         "game_key": "bs0022",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=996&name=RuneScape%3A%20Dragonwilds",
         "description": "On RuneScape’s forgotten continent of Ashenfall, dragons have awoken. Gather, build, skill and craft to survive in this co-operative (1-4) survival crafting game. Only by mastering survival and uncovering ancient secrets can they hope to slay the Dragon Queen—alone or with allies.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250530/20250530162530751.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250530/20250530162533878.png",
@@ -562,6 +576,7 @@ const G_DATA = [
     {
         "name": "Cities: Skylines 2",
         "game_key": "dg0364",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=995&name=Cities%3A%20Skylines%202",
         "description": "Raise a city from the ground up and transform it into a thriving metropolis with the most realistic city builder ever. Push your creativity and problem-solving to build on a scale you've never experienced. With deep simulation and a living economy, this is world-building without limits.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250530/2025053015334968.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250530/2025053015351599.png",
@@ -574,6 +589,7 @@ const G_DATA = [
     {
         "name": "Crashlands 2",
         "game_key": "bs0020",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=994&name=Crashlands%202",
         "description": "Slap your way across a vibrant world where interstellar friendships are the key to your survival. Befriend eccentric aliens, craft bizarre weaponry, and stick it to the man in this sequel to the award-winning open world crafting RPG Crashlands.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627144457604.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250523/20250523171146133.png",
@@ -585,6 +601,7 @@ const G_DATA = [
     {
         "name": "Mandragora: Whispers of the Witch Tree",
         "game_key": "bs0019",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=993&name=Mandragora%3A%20Whispers%20of%20the%20Witch%20Tree",
         "description": "Slay your way in Mandragora: Whispers of the Witch Tree, an epic action RPG in a dark fantasy world. Battle monsters, master six unique Classes, craft hundreds of useful items, and explore the secrets of an expansive, interconnected world.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250523/20250523151922656.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250523/20250523151915433.png",
@@ -596,6 +613,7 @@ const G_DATA = [
     {
         "name": "Frostpunk 2",
         "game_key": "dg0533",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=992&name=Frostpunk%202",
         "description": "Develop, expand, and advance your city in a society survival game set 30 years after an apocalyptic blizzard ravaged Earth. In Frostpunk 2, you face not only the perils of never-ending winter, but also the powerful factions that watch your every step inside the Council Hall.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250516/20250516155744357.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250516/20250516160437393.jpg",
@@ -608,6 +626,7 @@ const G_DATA = [
     {
         "name": "Manor Lords",
         "game_key": "kp0213",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=991&name=Manor%20Lords",
         "description": "Manor Lords is a medieval strategy game featuring in-depth city building, large-scale tactical battles, and complex economic and social simulations. Rule your lands as a medieval lord – the seasons pass, the weather changes, and cities rise and fall.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250430/20250430164222535.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250516/20250516164035975.jpg",
@@ -620,6 +639,7 @@ const G_DATA = [
     {
         "name": "inZOI",
         "game_key": "kj0620",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=990&name=inZOI",
         "description": "\"Every life becomes a story\" Create your unique story by controlling and observing the lives of 'Zois'. Customize characters and build houses using inZOI's easy-to-use tools to live the life of your dreams and experience the different emotions of life created by its deep and detailed simulation.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250527/20250527115852814.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250430/20250430154802684.jpeg",
@@ -632,6 +652,7 @@ const G_DATA = [
     {
         "name": "AI LIMIT",
         "game_key": "bs0018",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=989&name=AI%20LIMIT",
         "description": "In the distant future when civilization is on the verge of extinction, people follow the legend of the Elysium in the last city, Havenswell. In this post-apocalyptic wasteland sci-fi ARPG, you will play as Arrisa, a Blader with immortality, and explore the city ruin to find the hope of a new life.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425165139248.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425165323885.png",
@@ -644,6 +665,7 @@ const G_DATA = [
     {
         "name": "Horizon Zero Dawn",
         "game_key": "dg0598",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=988&name=Horizon%20Zero%20Dawn",
         "description": "Experience the critically acclaimed Horizon Zero Dawn™ with stunning new visuals and upgraded features. In a far future where colossal machines roam the Earth, pockets of humanity survive in unique tribes among the lush, overgrown ruins of our long-lost civilization.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425162419325.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425162432879.png",
@@ -656,6 +678,7 @@ const G_DATA = [
     {
         "name": "Dead Space™ 3",
         "game_key": "kj0615",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=987&name=Dead%2520Space%E2%84%A2%25203",
         "description": "Journey across space to the icy planet of Tau Volantis with Isaac Clarke and Sgt. John Carver to discover and destroy the source of the Necromorph outbreak.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425153104777.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425153051380.jpg",
@@ -668,6 +691,7 @@ const G_DATA = [
     {
         "name": "Deathloop",
         "game_key": "kj0035",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=986&name=Deathloop",
         "description": "DEATHLOOP is a next-gen FPS from Arkane Lyon, the award-winning studio behind Dishonored. In DEATHLOOP, two rival assassins are trapped in a mysterious timeloop on the island of Blackreef, doomed to repeat the same day for eternity.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425144627336.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425144632597.png",
@@ -680,6 +704,7 @@ const G_DATA = [
     {
         "name": "Football Manager 2023",
         "game_key": "kj0461",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=985&name=Football%20Manager%202023",
         "description": "Take the helm of your club in Football Manager 2023 and immerse yourself in its unparalleled depth and meticulous detail. Become the ultimate mastermind—craft your own headlines, win the hearts of fans, and dominate the beautiful game. Your legacy starts here.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425111359553.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425111353578.png",
@@ -691,6 +716,7 @@ const G_DATA = [
     {
         "name": "Dead Space 2",
         "game_key": "kj0614",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=984&name=Dead%20Space%202",
         "description": "Three years after the Necromorph infestation aboard the USS Ishimura, Isaac Clarke awakens from a coma, confused, disoriented, and on a space station called The Sprawl. Explore this world and its zero-g environments to discover the truth about the Unitology and its role in the Necromorph epidemic.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250418/20250418160850720.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250418/20250418160656506.jpeg",
@@ -716,6 +742,7 @@ const G_DATA = [
     {
         "name": "Inside the Backrooms",
         "game_key": "kj0179",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=982&name=Inside%20the%20Backrooms",
         "description": "Inside the Backrooms is a horror multiplayer game mixed with different mechanics that will make you spend an intense night with friends. Explore, think, interact, but be careful, it is rumored that there are several entities wishing to find you...",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250418/20250418110314927.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250418/20250418110320756.png",
@@ -727,6 +754,7 @@ const G_DATA = [
     {
         "name": "Platform 8",
         "game_key": "kj0529",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=980&name=Platform%208",
         "description": "You are trapped on a train that runs forever. Keep an eye out for anomalies and find a way out.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411114101787.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411114108140.png",
@@ -738,6 +766,7 @@ const G_DATA = [
     {
         "name": "Five Hearts Under One Roof",
         "game_key": "dg0589",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=979&name=Five%20Hearts%20Under%20One%20Roof",
         "description": "[Five Hearts Under One Roof] is a fully immersive interactive video game that simulates a love story with five unique heroines. As the player, you take on the role of Yuman, who has always been home alone. Now, you’ll be running a lively, love-filled boarding house with five fascinating heroines.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250930/202509301203287.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411110951314.png",
@@ -763,6 +792,7 @@ const G_DATA = [
     {
         "name": "The Callisto Protocol",
         "game_key": "kj0483",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=977&name=The%20Callisto%20Protocol",
         "description": "In this narrative-driven, third-person survival horror game set 300 years in the future, the player will take on the role of Jacob Lee – a victim of fate thrown into Black Iron Prison, a maximum-security penitentiary located on Jupiter's moon, Callisto. When inmates begin to transform into monstrous creatures, the prison is thrown into chaos. To survive, Jacob must battle his way to safety to escape Black Iron Prison, while uncovering the dark and disturbing secrets buried beneath the surface of Callisto.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410172113912.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410172116228.jpg",
@@ -776,6 +806,7 @@ const G_DATA = [
     {
         "name": "Poppy Playtime: Chapter 4",
         "game_key": "dg0730",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=975&name=Poppy%20Playtime%3A%20Chapter%204",
         "description": "You are pushed deeper into the undiscovered depths of the Playtime Co. factory, far below anything the world knew. Here, you’ll encounter terrifying new threats and discover shocking revelations. Can you outwit the unnatural new creations lurking in the shadows? Can you survive here long enough to eventually unravel the mysteries behind the experiments? Every step will test your courage, every puzzle will challenge your mind, and every corner may be your last.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250402/20250402141532953.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328170938528.png",
@@ -788,6 +819,7 @@ const G_DATA = [
     {
         "name": "Raft",
         "game_key": "kj0209",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=974&name=Raft",
         "description": "By yourself or with friends, your mission is to survive an epic oceanic adventure across a perilous sea! Gather debris to survive, expand your raft and set sail towards forgotten and dangerous islands!",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328180047198.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328180106981.png",
@@ -800,6 +832,7 @@ const G_DATA = [
     {
         "name": "Mafia III: Definitive Edition",
         "game_key": "dg0492",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=973&name=Mafia%20III%3A%20Definitive%20Edition",
         "description": "After years in Vietnam (1968), Lincoln Clay learned a hard truth: Family ain't who you're born with—it's who you're willing to die for. Returning to New Bordeaux, he tries leaving his criminal past behind—until the Italian mob betrays and massacres his surrogate family, the Black Mob. From the ashes, Lincoln forges a new family, exacting brutal vengeance on every connected mobster.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250801/20250801170443257.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328175200365.png",
@@ -813,6 +846,7 @@ const G_DATA = [
     {
         "name": "Mafia II: Definitive Edition",
         "game_key": "dg0491",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=972&name=Mafia%20II%3A%20Definitive%20Edition",
         "description": "《Mafia II: Definitive Edition》 unfolds in 1940s-50s Empire Bay, New York. War hero Vito Scaletta turns to the mob to settle his father's debts. With his buddy Joe Barbaro, Vito climbs the criminal ladder — pulling off bigger jobs for fatter payouts and deadlier consequences, cementing his place in the family.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627144331837.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328174905439.png",
@@ -826,6 +860,7 @@ const G_DATA = [
     {
         "name": "TCG Card Shop",
         "game_key": "kp0232",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=971&name=TCG%20Card%20Shop",
         "description": "Open your own local game store. Stock shelves with the latest booster packs, or crack them and collect the cards for yourself. Set your own prices, hire staff, host events, and expand your card shop.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250331/20250331151732927.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250331/20250331152024104.png",
@@ -837,6 +872,7 @@ const G_DATA = [
     {
         "name": "Uncharted 4",
         "game_key": "dg0248",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=970&name=Uncharted%204",
         "description": "Compared to its predecessors, Uncharted 4 will undergo some stylistic changes. This installment will be one of the darker entries in the series and will place greater emphasis on storytelling. The game's story takes place three years after Uncharted 3: Drake's Deception and is set in a Madagascar colony. The settings range from East African countries along the Indian Ocean to various snow-covered outdoor locations. The two brothers will face off against the antagonist treasure hunters Rafe and Nadine. In addition to guarding against the cunning and deceit of enemies, Drake must also constantly be wary of Sam's reckless actions.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250930/20250930115220269.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250320/20250320170325254.jpg",
@@ -850,6 +886,7 @@ const G_DATA = [
     {
         "name": "Undertale",
         "game_key": "kj0306",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=969&name=Undertale",
         "description": "UNDERTALE! The RPG game where you don't have to destroy anyone.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250408/20250408111349799.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250320/20250320165426349.png",
@@ -860,6 +897,7 @@ const G_DATA = [
     {
         "name": "Yandere Simulator",
         "game_key": "dg0639",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=968&name=Yandere%20Simulator",
         "description": "Yandere Simulator is a stealth game about stalking a boy and secretly eliminating any girl who has a crush on him, while maintaining the image of an innocent schoolgirl.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250320/20250320164718378.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250320/2025032016472366.png",
@@ -870,6 +908,7 @@ const G_DATA = [
     {
         "name": " Amanda the Adventurer",
         "game_key": "kj0177",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=967&name=%20Amanda%20the%20Adventurer",
         "description": "Join Amanda and her pal Wooly on a series of adventures as they explore and learn about our wonderful world! With several NEW play-along, laugh-along, learn-along episodes there's always fun to be had! Just make sure to do everything Amanda says or she might get angry.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250408/20250408111140703.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250408/20250408111122445.jpg",
@@ -882,6 +921,7 @@ const G_DATA = [
     {
         "name": "Poppy Playtime: Chapter 2",
         "game_key": "kj0138",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=966&name=Poppy%20Playtime%3A%20Chapter%202",
         "description": "Après avoir affronté Huggy Wuggy et libéré Poppy, vous devez vous enfoncer au cœur de la fabrique de jouets Playtime Co., dans laquelle des puzzles complexes et des jouets terrifiants vous attendent. Agrippez-vous, balancez-vous et tentez de vous échapper, mais ne vous faites pas attraper par Mommy. Poursuivez votre exploration des entrailles de Playtime Co. à la recherche de réponses. Votre voyage pour découvrir ce qui s'est passé dans l'usine ne fait que commencer… • Faites équipe avec Poppy pour vous échapper en lieu sûr. • Explorez une nouvelle zone immense : la Station de Jeu. • Tâchez de ne pas vous faire remarquer. Il ne faudrait pas que Mommy Long Legs vous attrape… • Découvrez de nouveaux mini-jeux, mais prenez garde ! L'échec peut être mortel. • De nouveaux jouets comme Bunzo Bunny et PJ Pug-a-Pillar sont impatients de vous rencontrer ! • Franchissez de nombreux obstacles avec les nouvelles capacités du GrabPack. Votre ticket pour la liberté vous attend chez Playtime Co.…",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250312/20250312142044488.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250312/20250312142048423.jpg",
@@ -894,6 +934,7 @@ const G_DATA = [
     {
         "name": "Poppy Playtime: Chapter 1",
         "game_key": "kj0137",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=965&name=Poppy%20Playtime%3A%20Chapter%201",
         "description": "You must stay alive in this horror/puzzle adventure. Try to survive the vengeful toys waiting for you in the abandoned toy factory. Use your GrabPack to hack electrical circuits or nab items from afar. Explore the mysterious facility… and don’t get caught. Welcome to Playtime Co.! Playtime Co. was once the king of the toy manufacturing industry... until everybody inside of the factory one day disappeared into thin air. Now, years later, you must explore the factory and uncover the truth.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250312/20250312113635587.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250312/2025031211383467.jpg",
@@ -917,6 +958,7 @@ const G_DATA = [
     {
         "name": "God of War: Ragnarök",
         "game_key": "bs0017",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=963&name=God%2520of%2520War%253A%2520Ragnar%C3%B6k",
         "description": "Kratos and Atreus embark on a mythic journey for answers before Ragnarök arrives – now on PC. This game may take up some time to load, please be patient and wait. 【Force Quit】Back + RB 【Control】interact：B avoid：A axe：Y action：X hard attack：RT aim：LT attack：RB block：LB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20251218/20251218002037369.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20241225/2024122510542280.png",
@@ -930,6 +972,7 @@ const G_DATA = [
     {
         "name": "Poppy Playtime: Chapter 3",
         "game_key": "kj0442",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=958&name=Poppy%20Playtime%3A%20Chapter%203",
         "description": "Players can complete various challenges here, face numerous opponents and receive different rewards, making you become more levels. Searching for mission props is very important, which can bring a lot of different fun and experience a more enjoyable game process.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250226/20250226105957398.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250408/20250408114636529.png",
@@ -992,6 +1035,7 @@ const G_DATA = [
     {
         "name": "Supermarket Simulator",
         "game_key": "kp0203",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=952&name=Supermarket%20Simulator",
         "description": "Run your own supermarket! Stock shelves, set your prices, take payments, hire staff, expand your store, handle shoplifters, and design your layout. Purchase goods from online or local markets around town, and personally deliver online orders to your customers.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20240527/2024052717080272.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527170815952.png",
@@ -1051,6 +1095,7 @@ const G_DATA = [
     {
         "name": "Brotato",
         "game_key": "dg0380",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=946&name=Brotato",
         "description": "Brotato is a top-down arena shooting light ROGUE game where players will take on the role of a potato who simultaneously uses six weapons to repel swarms of aliens. Choose from various features and props, create unique buildings and survive until rescue arrives.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20240520/2024052018070993.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20240520/20240520180713885.jpg",
@@ -1061,6 +1106,7 @@ const G_DATA = [
     {
         "name": "Wobbly Life",
         "game_key": "kj0238",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=943&name=Wobbly%20Life",
         "description": "Wobbly Life is a vibrant open-world physics sandbox. Play with your friends online or in local co-op, with exciting jobs, mini games and wacky story missions. Earn cash to spend in the world on clothes, vehicles and houses. There is a whole Wobbly World out there to explore!",
         "image": "https://download-oss.raccoongame.com/uploads/image/20240411/20240411183825744.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20240411/20240411183834566.jpg",
@@ -1074,6 +1120,7 @@ const G_DATA = [
     {
         "name": "Sniper：Ghost Warrior Contracts2",
         "game_key": "kp0133",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=914&name=Sniper%EF%BC%9AGhost%2520Warrior%2520Contracts2",
         "description": "【Introduction】SGW Contracts 2 is a modern warfare shooter set in the Middle East. Play as Raven, Contract Sniper Assassin, as you take out a series of targets across a dramatic single-player campaign. With extreme-range shots exceeding 1000m, gear up for the most challenging entry to the series yet. 【Force Quit】 Back + RB (Right Back Button on the controller)",
         "image": "https://download-oss.raccoongame.com/uploads/image/20240223/20240223104219285.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20240223/20240223104223120.jpg",
@@ -1099,6 +1146,7 @@ const G_DATA = [
     {
         "name": "Halo: The Master Chief Collection",
         "game_key": "kj0229",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=890&name=Halo%3A%20The%20Master%20Chief%20Collection",
         "description": "【Introduction】: The classic heroic journey of the Master Chief spans across 6 games, now unified into one. Whether you are a long-time fan or meeting Spartan 117 for the first time, “Halo: The Master Chief Collection” will definitely satisfy you, offering the best Halo experience. 【Force Quit】: Back + RB (Right upper rear button on the controller)",
         "image": "https://download-oss.raccoongame.com/uploads/image/20241217/20241217183311663.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20240104/2024010415291328.jpg",
@@ -1122,6 +1170,7 @@ const G_DATA = [
     {
         "name": "Neon Abyss",
         "game_key": "dg0359",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=815&name=Neon%20Abyss",
         "description": "Neon Abyss is a horizontal dungeon game that emphasizes the stacking effect of props. Shooting, treasure hunting, death? Suicide! Who is the boss on earth? (Roguelike that can even be played with hands!) Rich prop effects stack up, providing a constantly new combat experience. Excellent art style with numerous characters to choose from.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250225/20250225111706535.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20231010/20231010172921209.jpg",
@@ -1149,6 +1198,7 @@ const G_DATA = [
     {
         "name": "Ratchet & Clank",
         "game_key": "kj0287",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=791&name=Ratchet%20%26%20Clank",
         "description": "【Button】： Spirit ：B Jump：A Select Weapons：Y Combat ：X Shoot ：RT Aim ：LT String ：LB Boots ：RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230831/20230831160505147.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230831/20230831160516101.jpg",
@@ -1161,6 +1211,7 @@ const G_DATA = [
     {
         "name": "The Last of Us™ Part I",
         "game_key": "dg0315",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=765&name=The%2520Last%2520of%2520Us%E2%84%A2%2520Part%2520I",
         "description": "In a ravaged civilization, where infected and hardened survivors run rampant, Joel, a weary protagonist, is hired to smuggle 14-year-old Ellie out of a military quarantine zone. However, what starts as a small job soon transforms into a brutal cross-country journey.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260408/20260408152339290.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260408/20260408152604686.jpg",
@@ -1195,6 +1246,7 @@ const G_DATA = [
     {
         "name": "Minecraft: Legends",
         "game_key": "kj0191",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=735&name=Minecraft%3A%20Legends",
         "description": "Discover the mysteries of Minecraft Legends, a new action strategy game. Explore a gentle land of rich resources and lush biomes on the brink of destruction. The ravaging piglins have arrived, and it’s up to you to inspire your allies and lead them in strategic battles to save the Overworld! 【Force Quit】：Back + RB Please choose offline mode 【Control】：Cloatse Comb：B Jump/Fly：A command：Y Entice/Stop enticng：X Build：RT Blueprint：LT Switch Shortcut：LB/RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230504/20230504180952993.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230504/20230504181002607.jpg",
@@ -1207,6 +1259,7 @@ const G_DATA = [
     {
         "name": "Need for Speed: Payback",
         "game_key": "kj0181",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=723&name=Need%20for%20Speed%3A%20Payback",
         "description": "【Introduction】: Set in the underworld of Fortune Valley, you and your crew were divided by betrayal and reunited by revenge to take down The House, a nefarious cartel that rules the city’s casinos, criminals and cops. In this corrupt gambler’s paradise, the stakes are high and The House always wins. 【Force Quit】: Back + RB (Right Rear Upper Button on the Controller) 【Buttons】: Downshift: B Nitro: A Upshift: Y Handbrake: X Accelerate: RT Brake: LT Horn: LB Action: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230329/20230329174621974.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230329/20230329174630101.jpg",
@@ -1220,6 +1273,7 @@ const G_DATA = [
     {
         "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
         "game_key": "kj0161",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=714&name=SpongeBob%20SquarePants%3A%20Battle%20for%20Bikini%20Bottom",
         "description": "【Introduction】: Are you ready, kids? The cult classic is back, faithfully remade in spongetastic splendor! Play as SpongeBob, Patrick and Sandy and show the evil Plankton that crime pays even less than Mr. Krabs. 【Force Quit】: Back + RB (Right Bumper on the controller) 【Controls】: Bounce/Bowling: B Jump: A Bubble Bash: Y Attack: X Show HUD: RT Sneak: LT Cruise Bubble: LB Interact: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230309/20230309154245933.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230309/20230309154253635.jpg",
@@ -1247,6 +1301,7 @@ const G_DATA = [
     {
         "name": "Hogwarts Legacy",
         "game_key": "kj0166",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=697&name=Hogwarts%20Legacy",
         "description": "【Loading】: The magical world requires some loading time. Please be patient, wizards. 【Create】: When creating a character, long press the start button to bring up the virtual keyboard and enter your name. 【Introduction】: Experience Hogwarts in the 1800s. You will play as a student holding the key to an ancient secret that could threaten the entire magical world. Make allies, fight dark wizards, and ultimately decide the fate of the magical world. Write your own legend. Leave a legacy for future generations. 【Force Quit】: Back + RB (Right Rear Upper Button on the controller) 【Controls】: Dodge: B Jump: A Shield: Y Interact: X Basic Magic: RT Aim: LT Tool Wheel/Use Item: LB Ancient Magic Throw: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250930/20250930145508266.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20241119/2024111915172341.jpg",
@@ -1259,6 +1314,7 @@ const G_DATA = [
     {
         "name": "SpongeBob SquarePants: The Cosmic Shake",
         "game_key": "kj0150",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=687&name=SpongeBob%20SquarePants%3A%20The%20Cosmic%20Shake",
         "description": "Wish-granting Mermaid’s Tears in the hands of SpongeBob and Patrick… What could go wrong? Sure, the very fabric holding the universe together could come undone, opening portals into wild Wishworlds. But that’s nothing our favorite sponge can’t handle- with the right cosmic costume! 【Buttton】：Dodge/Attack：B Jump/Slide：A Interact：Y Spin Attack：X Swain Hook：RT Attack on Ground：LT Switch HUD：LB Bumble：RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230208/20230208162229856.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230208/20230208162455142.jpg",
@@ -1271,6 +1327,7 @@ const G_DATA = [
     {
         "name": "Drift Racing Online",
         "game_key": "kj0141",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=676&name=Drift%20Racing%20Online",
         "description": "【Introduction】: CarX Drift Racing Online is your chance to immerse yourself in the real world of drifting. Get together with friends, tune your car and burn some tires! 【Force Quit】: Back + RB (Right Rear Upper Button on the Controller) 【Buttons】: Restore Vehicle: B Handbrake: A Next Camera: Y Clutch: X Throttle: RT Brake: LT Previous Gear: LB Next Gear: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230112/20230112141904622.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230112/2023011214190849.jpg",
@@ -1283,6 +1340,7 @@ const G_DATA = [
     {
         "name": "Choo-Choo Charles",
         "game_key": "dg0278",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=669&name=Choo-Choo%20Charles",
         "description": "Prompt: Press the START button to activate the controller after entering the game. Description: Drive a vintage train around an open-world island, continuously upgrading and modifying it as you progress, while using it to fight against the evil spider train Charles. Force Quit: Back + RB (Right Bumper on the controller) Controls: Exit/Return: B Jump: A、 Inventory/Zoom Out Map: Y、 Zoom In Map/Skip Tutorial Dialogue: X、 Interact/Action/Place Marker: RT、 Open Map: LT Tilt Left: LB、 Tilt Right: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250402/20250402140901381.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20221226/20221226164844572.jpg",
@@ -1306,6 +1364,7 @@ const G_DATA = [
     {
         "name": "NBA 2K23",
         "game_key": "kj0107",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=633&name=NBA%202K23",
         "description": "The NBA 2K23 has put the entire basketball world in your hands. Start a \"fast game\" and engage in battles with real teams and players in a realistic NBA and WNBA environment.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230508/2023050818554376.jpeg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220922/20220922143345527.webp",
@@ -1318,6 +1377,7 @@ const G_DATA = [
     {
         "name": "Ranch Simulator22",
         "game_key": "kj0085",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=630&name=Ranch%20Simulator22",
         "description": "The map is large, and creation takes time, please be patient. [Introduction] : Create your farm and grow beautiful moments! Harvest crops, care for animals, manage production, and face seasonal challenges head-on. [Force Quit] : Back + RB (Right Back Button on the controller) [Controls] : Plant: B Jump: A Load/Unload: Y Machine interaction: X Accelerate: RT Reverse: LT Transform: LB Activate farm tools: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20220905/20220905122011868.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220905/2022090512201532.webp",
@@ -1328,6 +1388,7 @@ const G_DATA = [
     {
         "name": "Marvel’s Spider-Man Remastered",
         "game_key": "kj0089",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=625&name=Marvel%E2%80%99s%2520Spider-Man%2520Remastered",
         "description": "In Marvel’s Spider-Man Remastered, the worlds of Peter Parker and Spider-Man collide in an original action-packed story. Play as an experienced Peter Parker, fighting big crime and iconic villains in Marvel’s New York. Web-swing through vibrant neighborhoods and defeat villains with epic",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250930/20250930114154630.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220822/20220822102739116.png",
@@ -1349,6 +1410,7 @@ const G_DATA = [
     {
         "name": "Stray",
         "game_key": "dg0183",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=620&name=Stray",
         "description": "《Stray》 is a third-person adventure game where you play as a stray cat navigating a decaying cybercity. Explore meticulously detailed neon-lit alleys and grungy underbellies, leaping across high and low terrain. Survive unforeseen threats in this indifferent world inhabited solely by mundane robots and dangerous creatures, while unraveling the mysteries of this forgotten realm.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250613/20250613153035148.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220721/20220721173245822.png",
@@ -1371,6 +1433,7 @@ const G_DATA = [
     {
         "name": "Subnautica Zero",
         "game_key": "kj0025",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=612&name=Subnautica%20Zero",
         "description": "The story of Subnautica: Below Zero takes place on an alien planet, where icy storms endlessly churn the planet's surface. Given this harsh environment, diving into the sea, where temperatures are more controllable, is safer than staying on land. You can search for resources in the ocean, build an underwater home, and begin exploring the depths.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20220601/20220601160738157.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220601/20220601160747480.png",
@@ -1382,6 +1445,7 @@ const G_DATA = [
     {
         "name": "GhostWire: Tokyo",
         "game_key": "KJ0019",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=610&name=GhostWire%3A%20Tokyo",
         "description": "【Loading】The game requires some startup time, please be patient. No charges will be incurred during this period. 【Introduction】: Explore a Tokyo twisted by supernatural forces. From ultra-modern cityscapes to dark, deep alleys and ancient, elegant temples, traverse through unique aesthetics and discover the monsters rampant in the city—the vengeful spirits wandering the streets. 【Force Quit】: Back + RB (Right Rear Upper Button on the controller) 【Controls】: Crouch/Stand: B Jump/Ethereal Glide/Ethereal Leap: A Food Switch/Use: Y Spirit Vision: X Ranged Attack: RT Aim/Purify/Absorb: LT Block: LB Ethereal Combat Skill Attribute Switch: RB Melee Attack: RS",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250103/20250103180827822.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220512/20220512150101663.png",
@@ -1420,6 +1484,7 @@ const G_DATA = [
     {
         "name": "Nintendo Star Brawl",
         "game_key": "kj0332",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=602&name=Nintendo%20Star%20Brawl",
         "description": "【Loading】: The game requires some startup time, please be patient. No charges will be incurred during this period. 【Introduction】: The game features 103 stages. Each map can accommodate up to eight players in a brawl and can be set to \"Battlefield,\" \"Final Destination,\" or \"Big Battlefield\" modes, effectively giving over 300 maps. Additionally, players can set up dual-stage switching during battles, resulting in 300² possible combinations. 【Force Quit】: Back + RB (Right Bumper on the controller) 【Controls】: Long press the Start button to bring up the control diagram",
         "image": "https://download-oss.raccoongame.com/uploads/image/20220308/20220308113443136.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220308/20220308113448830.webp",
@@ -1446,6 +1511,7 @@ const G_DATA = [
     {
         "name": "Elden Ring",
         "game_key": "dg0170",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=598",
         "description": "【Note】: When creating a character, long press START to enter the settings menu - Control Settings - Enable Virtual Keyboard Input to input text. 【Introduction】: Step into vast scenes and explore unknown underground labyrinths. Challenge perilous situations filled with difficulties and enjoy the sense of accomplishment when overcoming them. 【Force Quit】: Back + RB (Right Bumper on the controller) 【Controls】: Roll, Dash, Backstep: B Jump: A Trigger Event: Y Use Item: X Heavy Attack: RT Skill: LT Light Attack: RB Guard: LB Crouch: LS",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260515/2026051516303039.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260122/20260122010238981.png",
@@ -1459,6 +1525,7 @@ const G_DATA = [
     {
         "name": "LEGO The Incredibles",
         "game_key": "dg0163",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=597&name=LEGO%20The%20Incredibles",
         "description": "[Force Quit] Back + RB (right bumper on the controller) [Controls] Special: B Jump: A Switch Character: Y Action: X Switch Down: LB Switch Up: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20220218/20220218162726597.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220218/20220218162730691.webp",
@@ -1471,6 +1538,7 @@ const G_DATA = [
     {
         "name": "Watch Dogs: Legion",
         "game_key": "dg0159",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=590&name=Watch%20Dogs%3A%20Legion",
         "description": "[Note] After entering, choose \"Story Mode.\" [Loading] The game takes a while to load, please be patient. Overview: In the game, your task is to build a resistance to fight against a tyrannical regime. You can recruit and play as anyone, each with their unique gameplay traits. Your choices have significant consequences, and if the character you play gets into too much trouble, they might permanently die. Quick Exit: Back + RB (Right Bumper on the controller) Controls: Cancel Throw/Cover: B Parkour: A Interact/Grab/Reload: Y Attack/Take Down: X Aim and Shoot/Sprint: RT Aim: LT Use/Recall Gadget: RB Hack: LB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250402/20250402141702762.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220209/2022020916243193.webp",
@@ -1484,6 +1552,7 @@ const G_DATA = [
     {
         "name": "God of War 4",
         "game_key": "dg0154",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=587",
         "description": "The days of Kratos' vengeance upon the Olympian gods are long past. Now, he lives as a mortal in lands stalked by Norse deities and monsters alike. In this frozen, desolate wilderness... survival is forged only through battle.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250402/20250402141418448.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250208/20250208161453296.png",
@@ -1497,6 +1566,7 @@ const G_DATA = [
     {
         "name": "Cooking Simulator",
         "game_key": "dg0145",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=585&name=Cooking%20Simulator",
         "description": "[Introduction] : Become the ultimate chef! Take control in a fully-equipped, beautifully decorated realistic kitchen! Unlock and master over 80 recipes, use dozens of real ingredients, and cook up perfect dishes. The entire process features realistic physics effects! [Force Quit] : Back + RB (Right Back Button on the controller) [Controls] : Return: B Confirm: A Throw: Y Special action: X Crouch: RT Advanced item operation: LT Switch smartphone: BACK [Note] : The game startup time is a bit long, please be patient. [Reminder] : No charges during loading.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20220118/20220118160905685.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220118/20220118160908809.webp",
@@ -1507,6 +1577,7 @@ const G_DATA = [
     {
         "name": "FIFA19",
         "game_key": "dg0139",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=581&name=FIFA19",
         "description": "[Match]: Other players can join during the selection screen at the start of the match. [Note]: If prompted that you are not logged in, select to use the default lineup. Overview: In the game, both Career Mode and Ultimate Team allow you to play in the Champions League. The Ultimate Team mode from the previous installment returns, allowing players to build their dream team. Quick Exit: Back + RB (Right Bumper on the controller) Controls: Lofted Pass/Cross/Header: X Through Ball: Y Ground Pass/Header: A Shoot/Volley/Header: B",
         "image": "https://download-oss.raccoongame.com/uploads/image/20220106/20220106131728331.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20220106/20220106131732975.webp",
@@ -1593,6 +1664,7 @@ const G_DATA = [
     {
         "name": "Arma 3",
         "game_key": "dg0054",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=515&name=Arma%203",
         "description": "Experience true combat gameplay in a vast military sandbox. This is the best PC military game, featuring a variety of content, over 20 vehicles, and more than 40 weapons, along with limitless content creation opportunities. Realistic, diverse, and open— Arma 3 sends you into battle.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20211008/20211008154130946.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20211008/2021100815413434.webp",
@@ -1604,6 +1676,7 @@ const G_DATA = [
     {
         "name": "Assassin's Creed: Brotherhood",
         "game_key": "dg0062",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=513&name=Assassin%27s%20Creed%3A%20Brotherhood",
         "description": "Overview: Ezio, now a legendary Master Assassin, continues to survive against the powerful Templar Order. He must now journey to Rome, the center of power, greed, and corruption, to strike at the heart of the enemy. To defeat the deeply entrenched tyrants in Rome, Ezio requires not only strength but also outstanding leadership. Thus, he commands the Brotherhood, united under his leadership, to fight alongside him.Quick Exit: Back + RB (Right Bumper on the controller) Controls: - Hand-to-Hand: B - Foot: A - Head: Y - Armed: X - Sprint: RT - Super Lock Target: LT - Assassination: LB - Weapon Wheel: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627144524899.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20211008/20211008150329478.webp",
@@ -1618,6 +1691,7 @@ const G_DATA = [
     {
         "name": "Assassin's Creed: Revelations ",
         "game_key": "dg0063",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=512&name=Assassin%27s%20Creed%3A%20Revelations%20",
         "description": "\"Assassin's Creed: Revelations\" follows the legendary protagonist Ezio as he traces the steps of his predecessor, Altair. Embark on a journey to uncover the truth, delivering the most immersive gameplay experience to date and the pinnacle of the Ezio Trilogy.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20211008/20211008145828215.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20211008/20211008145832603.webp",
@@ -1631,6 +1705,7 @@ const G_DATA = [
     {
         "name": "Assassin's Creed: Black Flag",
         "game_key": "dg0064",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=509&name=Assassin%27s%20Creed%3A%20Black%20Flag",
         "description": "Overview: The game narrates Edward's journey from participating in the waning years of the 18th-century privateering war to becoming involved in the Assassin Brotherhood's age-old conflict with the Templars. The game features historical pirate legends such as Blackbeard and Charles Vane, leading players through the exploration of numerous islands and vast seas of the West Indies, recreating the golden age of piracy. Quick Exit: Back + RB (Right Bumper on the controller) Controls: - Interact/Counter: B - Fast Walk/Jump/Break Defense: A - Tools: Y - Assassinate/Melee Weapons: X - Run: RT - Free Aim: LT - Reload: LB - Island Info: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230420/20230420211652688.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210930/20210930103622101.webp",
@@ -1645,6 +1720,7 @@ const G_DATA = [
     {
         "name": "Assassin's Creed: Syndicate",
         "game_key": "dg0065",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=465&name=Assassin%27s%20Creed%3A%20Syndicate",
         "description": "In this game, Assassin Jacob Frye, with the help of his twin sister Evie, changes the fate of many in Assassin's Creed: Syndicate. Stand up, unite, and lead the people of the underground world to break the chains of corruption and darkness that loom over London in a thrilling adventure filled with violence, intrigue, and brutal combat!",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250402/2025040214122974.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210927/20210927171209123.webp",
@@ -1657,6 +1733,7 @@ const G_DATA = [
     {
         "name": "Football：PES 2021",
         "game_key": "dg0024",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=462&name=Football%EF%BC%9APES%25202021",
         "description": "【Online】: For match selection, choose \"Kick-off\" - \"Co-op\" / \"VERSUS\", then pick a side. 【Note】: If prompted, choose to continue offline. 【Overview】: Added many new elements beyond the gaming experience. In addition to the latest season's player and club data, the game also includes an exclusive UEFA EURO 2020 mode, as well as content from the real-world events that have been rescheduled. 【Forced Quit】: Back + RB (upper right button on the controller) 【Controls】: Air pass/Sliding tackle: B Ground pass/Pressure: A Direct pass/Goalkeeper: Y Shoot: X Special control: RT Manual control: LT Change cursor: LB Sprint: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20251218/20251218002137560.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260122/20260122003226463.png",
@@ -1693,6 +1770,7 @@ const G_DATA = [
     {
         "name": "A Way Out",
         "game_key": "dg0021",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=458&name=A%20Way%20Out",
         "description": "Note: Only supports two-player gameplay Online: Choose different characters in-game Introduction: Each player needs to control one of the two protagonists, Leo and Vincent. Despite their reluctance, they must work together to escape and regain their freedom. Force Quit: Back + RB (Right Bumper on the controller) Buttons: Cancel: B Jump: A Talk: Y Interact: X Focus/Aim: LT Pause/Shoot: RT",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230322/20230322203032216.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210913/20210913170525971.webp",
@@ -1731,6 +1809,7 @@ const G_DATA = [
     {
         "name": "Alba: A Wildlife Adventure",
         "game_key": "jy0362",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=451&name=Alba%3A%20A%20Wildlife%20Adventure",
         "description": "Introduction: Even the smallest person can make a big difference. Join Alba, as she sets out to save her beautiful island and its wildlife. And possibly start a revolution. Force Quit: Back + RB (Right Bumper on the controller) Buttons: Close: B Interact/Confirm: A Home: X Take Photo/Next Category: RT Previous Category: LT Task List: D-Pad Up Guide: D-Pad Left",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210827/20210827110503152.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210827/20210827110507369.webp",
@@ -1741,6 +1820,7 @@ const G_DATA = [
     {
         "name": "Days Gone",
         "game_key": "jy0487",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=449&name=Days%20Gone",
         "description": "Ride and fight into a deadly, post pandemic America. Play as Deacon St. John, a drifter and bounty hunter who rides the broken road, fighting to survive while searching for a reason to live in this open-world action-adventure game. 【Button】：Slide：B Climb/Change Shoulders：A Switch Weapons/Special：Y Reload：X Survive loop：LT Roll：RT Shooot/Fight：RB Aim：LB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210826/20210826165254727.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210826/20210826165258697.webp",
@@ -1775,6 +1855,7 @@ const G_DATA = [
     {
         "name": "Forza Horizon 4",
         "game_key": "jy0541",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=445&name=Forza%20Horizon%204",
         "description": "【Loading】: The game is large and requires some loading time, please be patient. 【Note】: No charges during startup. 【Description】: In the world's greatest automotive festival, ever-changing seasons change everything. Explore beautiful and historic Britain in an open world. Collect, modify, and drive over 450 cars. Race, stunt, create, and explore to your heart's content. 【Force Quit】: Back + RB (Right bumper on the controller) 【Controls】: Handbrake: A Rewind: Y Start: X Change View: RB View Events: LB Accelerate: RT Brake: LT Start ANNA: Up Horn: RS Map: BACK",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210819/20210819150927774.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210819/20210819150932788.webp",
@@ -1821,6 +1902,7 @@ const G_DATA = [
     {
         "name": "My Friend Pedro",
         "game_key": "jy0473",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=421&name=My%20Friend%20Pedro",
         "description": "Description: My Friend Pedro is a blood-soaked ballet about friendship and imagination, where a man embarks on a relentless killing spree under the guidance of a talking banana. This unexpected, over-the-top adventure combines stylish action sequences with a unique, darkly humorous narrative. Controls Force Quit: Back + RB (Right Bumper) Buttons: Interact: B Jump: A Kick: Y Reload: X Fire: RT (Right Trigger) Secondary Fire Mode: LT (Left Trigger) Motorcycle Rear Wheel Balance: LB (Left Bumper)",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210715/20210715203828208.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210715/20210715203831143.webp",
@@ -1831,6 +1913,7 @@ const G_DATA = [
     {
         "name": "Doom Eternal",
         "game_key": "jy0488",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=415&name=Doom%20Eternal",
         "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons across dimensions and stop the final destruction of humanity. The only thing they fear... is you.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121175158608.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121175513137.png",
@@ -1842,6 +1925,7 @@ const G_DATA = [
     {
         "name": "Party Hard2",
         "game_key": "jy0470",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=411&name=Party%20Hard2",
         "description": "Description: In Party Hard 2, use hundreds of methods to eliminate those annoying party-goers, accidentally dismantle a drug cartel, and protect Earth from an alien invasion. May the Chicken God be with you! Controls Force Quit: Back + RB (Right Bumper) Buttons: Pick Up: B Use Object: A Dance: Y Use Item: X Ultimate: RT (Right Trigger) Sprint: LT (Left Trigger) Quick Map: LB (Left Bumper) Quick Use: RB (Right Bumper)",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230824/20230824153232681.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20230824/20230824153244425.jpg",
@@ -1879,6 +1963,7 @@ const G_DATA = [
     {
         "name": "Control",
         "game_key": "jy0417",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=398&name=Control",
         "description": "【Introduction】 A form of corruption has invaded the Federal Bureau of Control… Only you have the power to stop it. With containment failing, humanity faces a life-or-death crisis. Can you regain control? 【Force Quit]】Back + RB (Right Bumper on the controller) 【Controls】 Dodge: B Jump/Levitate: A Melee: Y Use/Grab/Switch Weapon: X Shoot: RT Aim: LT Shield: LB Throw/Drop: RB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121174633373.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210624/20210624151535175.webp",
@@ -1892,6 +1977,7 @@ const G_DATA = [
     {
         "name": "Halo: Reach",
         "game_key": "jy0371",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=390&name=Halo%3A%20Reach",
         "description": "After entering, select Reach to start the game. In the game, players will once again experience the strength and noble spirit of the Spartan warriors.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260121/2026012117405271.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121174006760.png",
@@ -1914,6 +2000,7 @@ const G_DATA = [
     {
         "name": "Fallout 4",
         "game_key": "jy0310",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=314&name=Fallout%204",
         "description": "Fallout 4 is the fourth installment in the role-playing game series Fallout, developed by Bethesda. The development team is the same group behind The Elder Scrolls V: Skyrim. In the new game, players will encounter new items, character designs, and gameplay mechanics.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210423/20210423120714547.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210423/20210423120719798.webp",
@@ -1925,6 +2012,7 @@ const G_DATA = [
     {
         "name": "It Takes Two",
         "game_key": "jy0440",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=305&name=It%20Takes%20Two",
         "description": "【Local Offline】: Please select \"Offline Play\" 【Adjust Volume】: In-game, hold Start LB: Volume- RB: Volume+ 【Skip Cutscenes】: Both players hold the \"B\" button simultaneously to quickly skip cutscenes 【Note】: No charges during loading 【Force Quit】: Back + RB (Right bumper on the controller) 【Controls】: Dash: X Interact: Y Rope Hook: RB Jump: A Cancel: B Chapter Ability: RT/LT Sprint: LS",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230323/20230323122354541.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210610/20210610143732631.webp",
@@ -1939,6 +2027,7 @@ const G_DATA = [
     {
         "name": "Minecraft:Dungeons",
         "game_key": "jy0402",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=301&name=Minecraft%3ADungeons",
         "description": "Fight your way through an exciting action-adventure game, inspired by classic dungeon crawlers and set in the Minecraft universe!",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210402/20210402153932908.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210402/20210402153935638.webp",
@@ -2011,6 +2100,7 @@ const G_DATA = [
     {
         "name": "Grand Theft Auto V ",
         "game_key": "jy0108",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=209",
         "description": "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260304/20260304175808508.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260304/20260304175815239.jpg",
@@ -2037,6 +2127,7 @@ const G_DATA = [
     {
         "name": "ONE PIECE: PIRATE WARRIORS 4",
         "game_key": "jy0183",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=201&name=ONE%20PIECE%3A%20PIRATE%20WARRIORS%204",
         "description": "This work takes \"realistic ONE PIECE experience\" as the core concept, incorporating the effects of building destruction and smoke and dust in action scenes, striving to recreate the \"ONE PIECE battlefield\".",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210827/20210827103721165.webp",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210827/20210827103736785.webp",
@@ -2050,6 +2141,7 @@ const G_DATA = [
     {
         "name": "Overcooked 2",
         "game_key": "jy0281",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=196&name=Overcooked%202",
         "description": "Overcooked returns with a brand-new helping of chaotic cooking action! Journey back to the Onion Kingdom and assemble your team of chefs in classic couch co-op or online play for up to four players. Hold onto your aprons… it’s time to save the world again!",
         "image": "https://download-oss.raccoongame.com/uploads/image/20230508/20230508200039339.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20210618/20210618155328979.webp",
@@ -2130,6 +2222,7 @@ const G_DATA = [
     {
         "name": "Cyberpunk 2077",
         "game_key": "jy0354",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=117&name=Cyberpunk%202077",
         "description": "Cyberpunk 2077 is an open world game set in Night City, where the themes of power change and physical transformation remain unchanged. Play the role of an ambitious mercenary: V, pursuing a unique implant - the key to achieving immortality. Customize character avatars, skills, and gameplay to explore a diverse city.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410170557349.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410170600406.jpg",
@@ -2191,6 +2284,7 @@ const G_DATA = [
     {
         "name": "Resident Evil: Revelations 2",
         "game_key": "jy0235",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=102&name=Resident%20Evil%3A%20Revelations%202",
         "description": "[Introduction] : The story of this game takes place between Resident Evil 5 and Resident Evil 6 . It reintroduces the \"traditional\" exploration and puzzle-solving elements from earlier installments in the series, focusing on creating a terrifying and suspenseful atmosphere, making players feel that intense fear of not wanting to move forward. [Force Quit] : Back + RB (Right Back Button on the controller) [Controls] : Cancel: B Confirm: A Switch character/commands: Y Pick up/reload ammo: X Close-range attack/fire weapon: RT Raise weapon: LT Use herbs: RB",
         "image": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020147/a004_img_recommend_1.webp",
         "cover": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020147/a004_list_1.webp",
@@ -2228,6 +2322,7 @@ const G_DATA = [
     {
         "name": "Attack On Titan2",
         "game_key": "jy0208",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=96&name=Attack%20On%20Titan2",
         "description": "【Force Quit】: Back + RB (Right Back Button on the controller) 【Controls】:Interact: B Jump/Boost: A Fire Hook/Attack: Y Swing Movement: X Prepare Sneak Attack: RT Switch Item Slot: LT Lock onto Titan: RB Teammate Action: LB",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815161718587.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815161708130.jpg",
@@ -2297,6 +2392,7 @@ const G_DATA = [
     {
         "name": "Watch Dogs 2",
         "game_key": "jy0147",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=74&name=Watch%20Dogs%202",
         "description": "【Introduction】: Players take on the role of the young and intelligent hacker Marcus Holloway, arriving at the birthplace of the tech revolution: the San Francisco Bay Area. Join the most notorious hacker group, DedSec, to execute the largest-scale hacking operation in history. 【Force Quit】: Back + RB (Right Bumper on the controller) 【Controls】: - Melee: B - Cover: A - Interact/Enter Vehicle: Y - Reload/Hold to Control Device: X - Climb/Aim: RT - Hold to Aim: LT - Throw/Mass Hack: RB - Quick Hack: LB - Network Intrusion: RS - Sprint: LS - Phone: START",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260416/20260416114647944.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260416/20260416114650855.jpg",
@@ -2309,6 +2405,7 @@ const G_DATA = [
     {
         "name": "Cuphead",
         "game_key": "jy0146",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=66&name=Cuphead",
         "description": "\"Cuphead\" is a retro side scrolling game in the 1930s cartoon style. Players can choose single player mode or cooperate to complete it. In the game, players will travel back and forth to a strange world, obtain new weapons, and learn powerful super mobility abilities.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121145749473.png",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121145948311.png",
@@ -2382,6 +2479,7 @@ const G_DATA = [
     {
         "name": "One Piece: Burning Blood",
         "game_key": "jy0059",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=50&name=One%20Piece%3A%20Burning%20Blood",
         "description": "Online Play: The online interface is unlocked after completing the sixth level. Force Quit: Back + RB (Right Bumper on the controller) Buttons: Guard/Back: B Jump/Confirm: A Orange Special Skill: Y Attack: X Switch Character: RT/LT Ability Unlock: RB Switch Map: LB",
         "image": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020055/a004_img_recommend_1.webp",
         "cover": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020055/a004_list_1.webp",
@@ -2393,6 +2491,7 @@ const G_DATA = [
     {
         "name": "Ori and the Will of the Wisps",
         "game_key": "jy0126",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=49&name=Ori%20and%20the%20Will%20of%20the%20Wisps",
         "description": "\"Ori and the Will of the Wisps\" is a Metroidvania-style platform adventure game developed by Moon Studios. This game is the sequel to the 2015 release \"Ori and the Blind Forest.\" In this installment, embark on a new adventure to explore the mysteries hidden behind the Nibel forest, uncover lost truths, and reveal Ori's true destiny.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20210402/20210402165758426.webp",
         "cover": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020082/a004_list_1.webp",
@@ -2524,6 +2623,7 @@ const G_DATA = [
     {
         "name": "Resident Evil 2: Remake",
         "game_key": "jy0040",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=25&name=Resident%20Evil%202%3A%20Remake",
         "description": "The genre-defining masterpiece Resident Evil 2 returns, completely rebuilt from the ground up for a deeper narrative experience. Using Capcom’s proprietary RE Engine, Resident Evil 2 offers a fresh take on the classic survival horror saga with breathtakingly realistic visuals, heart-pounding immersive audio, a new over-the-shoulder camera, and modernized controls on top of gameplay modes from the original game. In Resident Evil 2, the classic action, tense exploration, and puzzle solving gameplay that defined the Resident Evil series returns. Players join rookie police officer Leon Kennedy and college student Claire Redfield, who are thrust together by a disastrous outbreak in Raccoon City that transformed its population into deadly zombies. Both Leon and Claire have their own separate playable campaigns, allowing players to see the story from both characters’ perspectives. The fate of these two fan favorite characters is in players hands as they work together to survive and get to the bottom of what is behind the terrifying attack on the city. Will they make it out alive? A spine-chilling reimagining of a horror classic - Based on the original release in 1998, the new game has been completely rebuilt from the ground up for a deeper narrative experience. A whole new perspective – New over-the-shoulder camera mode and modernized control scheme creates a more modern take on the survival horror experience and offers players a trip down memory lane with the original gameplay modes from the 1998 release. Terrifyingly realistic visuals – Built on Capcom’s proprietary RE Engine, Resident Evil 2 delivers breathtakingly photorealistic visuals whilst stunning lighting creates an up-close, intense and atmospheric experience as players roam the corridors of the Raccoon City Police Department (RPD). Face the grotesque hordes – Zombies are brought to life with a horrifyingly realistic wet gore effect as they react in real time taking instant visible damage, making every bullet count. Iconic series defining gameplay – Engage in frenzied combat with enemies, explore dark menacing corridors, solve puzzles to access areas and collect and use items discovered around the environment in a terrifying constant fight for survival. See favorite characters in a whole new light - Join rookie police officer Leon S. Kennedy on his first day in the job and college student Claire Redfield, who is searching for her brother amidst a terrifying zombie epidemic. Step into the rookie shoes of both heroes - Enjoy separately playable campaigns for both Leon and Claire, allowing players to see the story from both characters’ perspective.",
         "image": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020017/a004_img_recommend_1.webp",
         "cover": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020017/a004_list_1.webp",
@@ -2668,6 +2768,7 @@ const G_DATA = [
     {
         "name": "Hollow Knight",
         "game_key": "jy0011",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=2&name=Hollow%20Knight",
         "description": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20250331/20250331165157210.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20251217/20251217150023563.png",
