@@ -1,0 +1,4 @@
+# Explicitly approve only the dependency install scripts required by this backend.
+allowBuilds:
+  bufferutil: true
+  '@mercuryworkshop/scramjet@https://github.com/MercuryWorkshop/scramjet/releases/download/v1.1.0/mercuryworkshop-scramjet-1.1.0.tgz': true
