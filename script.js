@@ -45,11 +45,59 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
   }
 
   const staticFallbackEnabled = window.FIGURE_CLOUD_STATIC_FALLBACK === true;
-  if (!(isGitHubPages || staticFallbackEnabled) || typeof window.try2launch !== "function") return;
+  if (typeof window.try2launch !== "function") return;
 
-  // Keep the original main-branch cloud-session launcher available for every game
-  // that is not present in the older direct-URL catalog.
+  // Keep the original main-branch cloud-session launcher available for games without a verified direct provider URL.
   const launchUsingMainBranch = window.try2launch.bind(window);
+  const scramjetBase = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
+  function makeGameScramjetUrl(target) {
+    const proxy = new URL(scramjetBase);
+    proxy.searchParams.set("url", target);
+    return proxy.href;
+  }
+  function showGameUrlToolbar(gameName, target) {
+    const gameLayer = document.getElementById("game-layer");
+    const frame = document.getElementById("gF");
+    if (!gameLayer || !frame) return;
+    let bar = document.getElementById("fc-game-urlbar");
+    if (!bar) {
+      bar = document.createElement("div");
+      bar.id = "fc-game-urlbar";
+      bar.className = "fc-game-urlbar";
+      const label = document.createElement("span");
+      label.className = "fc-game-urlbar-label";
+      label.textContent = "GAME URL · PASTE INTO SCRAMJET";
+      const input = document.createElement("input");
+      input.className = "fc-game-urlbar-input";
+      input.type = "text";
+      input.readOnly = true;
+      input.spellcheck = false;
+      input.setAttribute("aria-label", "Original game URL to copy into Scramjet");
+      const button = document.createElement("button");
+      button.className = "fc-game-urlbar-button";
+      button.type = "button";
+      button.textContent = "Copy URL";
+      button.addEventListener("click", async function () {
+        const oldText = button.textContent;
+        try {
+          await navigator.clipboard.writeText(input.value);
+          button.textContent = "Copied!";
+        } catch (_) {
+          input.focus();
+          input.select();
+          try { button.textContent = document.execCommand("copy") ? "Copied!" : "Select URL"; }
+          catch (_) { button.textContent = "Select URL"; }
+        }
+        window.setTimeout(function () { button.textContent = oldText; }, 1400);
+      });
+      bar.append(label, input, button);
+      gameLayer.appendChild(bar);
+    }
+    const input = bar.querySelector("input");
+    if (input) input.value = target;
+    bar.setAttribute("aria-label", "Original URL for " + gameName + ". Copy this address to use it in Scramjet.");
+    bar.style.display = "flex";
+  }
 
   window.try2launch = function try2launchFromLegacyCatalog() {
     if (typeof cxG === "undefined" || !cxG) return false;
@@ -60,8 +108,9 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const targetUrl = catalogUrl || (window.LEGACY_GAME_URLS || {})[gameId] || (window.LEGACY_GAME_URLS_BY_NAME || {})[normalizedGameName];
 
     if (!targetUrl) {
-      // No legacy direct URL exists for this title. Try the original cloud-session
-      // launcher instead of interrupting the player with a static-hosting warning.
+      // Keep existing cloud-session support for titles without a verified direct Raccoon Game URL.
+      const urlBar = document.getElementById("fc-game-urlbar");
+      if (urlBar) urlBar.style.display = "none";
       launchUsingMainBranch();
       return false;
     }
@@ -80,16 +129,16 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       return false;
     }
 
-    // Games used to load directly from their verified provider URLs. Keep Scramjet for the separate browser/tutorial only.
     if (topTitle) topTitle.textContent = gameName;
     if (topGame) topGame.style.display = "flex";
     if (loaderTitle) loaderTitle.textContent = "Opening " + gameName + "…";
-    if (loaderSubtitle) loaderSubtitle.textContent = "Connecting directly to the game provider.";
+    if (loaderSubtitle) loaderSubtitle.textContent = "Connecting to the game through Scramjet.";
     if (loader) { loader.style.display = "flex"; loader.style.opacity = "1"; }
     if (expired) expired.style.display = "none";
     if (typeof tglV === "function") tglV("g");
     gmWin = { closed: false, close: function () { if (typeof clsGm === "function") clsGm(); } };
-    frame.src = targetUrl;
+    showGameUrlToolbar(gameName, targetUrl);
+    frame.src = makeGameScramjetUrl(targetUrl);
 
     window.setTimeout(function () {
       if (loader) {
