@@ -19,7 +19,7 @@
     const panel = el("section", { id: "figure-cloud-browser-tutorial", class: "fc-tutorial" });
     panel.append(
       el("h3", { class: "set-title" }, "Browser Tutorial"),
-      el("p", { class: "fc-tutorial-intro" }, "Use these browser windows for provider login and email. Both run through Scramjet with Epoxy transport. Only use accounts and email addresses you control.")
+      el("p", { class: "fc-tutorial-intro" }, "Use this browser window for RaccoonGame login. It runs through Scramjet with Epoxy transport. Only use accounts you control.")
     );
     const grid = el("div", { class: "fc-tutorial-grid" });
     const makePane = (title, target) => {
@@ -59,10 +59,7 @@
       iframe.src = dest;
       return pane;
     };
-    grid.append(
-      makePane("RaccoonGame Login", "https://raccoongame.com/login"),
-      makePane("Emailnator", "https://emailnator.com/")
-    );
+    grid.append(makePane("RaccoonGame Login", "https://www.raccoongame.com/login"));
     panel.appendChild(grid);
     const videoSection = el("section", { class: "fc-video-section" });
     videoSection.appendChild(el("h4", {}, "Tutorial Video"));
