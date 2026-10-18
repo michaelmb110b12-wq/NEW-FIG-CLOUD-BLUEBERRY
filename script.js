@@ -58,10 +58,10 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       const modal = document.getElementById("p-static-host-warning");
       const title = document.getElementById("static-host-title");
       const message = document.getElementById("static-host-warning-message");
-      if (title) title.textContent = "Game needs a verified provider URL";
-      if (message) message.textContent = '"' + gameName + '" does not have a verified game URL in this catalogue yet. No URL or provider session ID has been guessed.';
+      if (title) title.textContent = "Game unavailable";
+      if (message) message.textContent = '"' + gameName + '" is not available to launch here yet.';
       if (modal) modal.classList.add("show");
-      else window.alert("No verified launch URL is available for " + gameName + ".");
+      else window.alert(gameName + " is not available to launch here yet.");
       return false;
     }
 
