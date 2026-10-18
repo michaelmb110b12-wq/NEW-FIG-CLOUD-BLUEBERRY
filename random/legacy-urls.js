@@ -6,6 +6,7 @@
  * titles without known direct links continue through the original cloud-session launcher.
  */
 window.LEGACY_GAME_URLS = Object.freeze({
+  "bs0046": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1025&name=Hollow%20Knight%3A%20Silksong",
   "bs0039": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1021&name=Little%20Nightmares%20III",
   "dg0419": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1018&name=SAND%20LAND",
   "kj0495": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1016&name=X-Plane%2011",
@@ -181,6 +182,7 @@ window.LEGACY_GAME_URLS = Object.freeze({
   "314": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=314&name=Fallout%204",
   "305": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=305&name=It%20Takes%20Two",
   "301": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=301&name=Minecraft%3ADungeons",
+  "1025": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1025&name=Hollow%20Knight%3A%20Silksong",
   "1024": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1024&name=Destiny%202%20%28Steam%29",
   "1023": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1023&name=War%20Thunder%20%28Steam%29",
   "1011": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1011&name=Wolf%20Mate",
@@ -220,6 +222,7 @@ window.LEGACY_GAME_URLS_BY_NAME = Object.freeze({
   "grand theft auto v": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=209",
   "elden ring": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=598",
   "sim racing telemetry f1 22": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1014&name=Sim%20Racing%20Telemetry%20-%20F1%2022",
+  "hollow knight silksong": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1025&name=Hollow%20Knight%3A%20Silksong",
   "little nightmares iii": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1021&name=Little%20Nightmares%20III",
   "sand land": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1018&name=SAND%20LAND",
   "x plane 11": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1016&name=X-Plane%2011",
