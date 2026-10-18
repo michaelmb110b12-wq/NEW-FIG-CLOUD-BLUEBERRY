@@ -66,8 +66,20 @@
     panel.appendChild(grid);
     const videoSection = el("section", { class: "fc-video-section" });
     videoSection.appendChild(el("h4", {}, "Tutorial Video"));
-    const video = el("div", { class: "fc-video-placeholder", role: "note", "aria-label": "Tutorial video placeholder" });
-    video.append(el("span", { class: "fc-play-symbol", "aria-hidden": "true" }, "▶"), el("span", {}, "Your tutorial video will appear here"));
+    const video = el("video", {
+      class: "fc-video-placeholder fc-tutorial-video",
+      controls: "controls",
+      playsinline: "playsinline",
+      preload: "metadata",
+      "aria-label": "Tutorial Video",
+      title: "Figure Cloud Tutorial Video"
+    });
+    video.style.cssText = "display:block;object-fit:contain;background:#000;border-style:solid;";
+    video.src = "./tutorial-browser-compatible-full.mp4";
+    video.addEventListener("error", () => {
+      video.setAttribute("aria-label", "Tutorial video unavailable");
+      console.error("Figure Cloud tutorial video failed to load. Confirm tutorial-browser-compatible-full.mp4 is present beside main.html.");
+    });
     videoSection.appendChild(video);
     panel.appendChild(videoSection);
     const completeRow = el("div", { class: "fc-complete-row" });
