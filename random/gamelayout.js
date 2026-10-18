@@ -2778,5 +2778,258 @@ const G_DATA = [
             "Easy",
             "Action"
         ]
+    },
+    {
+        "name": "Minecraft 1.20 Browser (Eagler Craft)",
+        "game_key": "legacy-mc120",
+        "url": "https://yee.pages.dev/#/bW9yZS9tb3JlL21vZGRlZC9lYWdseWpz",
+        "description": "Minecraft is a critically acclaimed 3D sandbox video game developed by the Swedish studio Mojang Studios. It has no specific goals, offering players absolute freedom to explore, build, and craft. The game world is made of 3D blocks representing materials like dirt, stone, and wood.",
+        "image": "https://cdn.mos.cms.futurecdn.net/AZ4nyhrARyZhc69hMXAy3L.jpg",
+        "cover": "https://cdn.mos.cms.futurecdn.net/AZ4nyhrARyZhc69hMXAy3L.jpg",
+        "tags": [
+            "Minecraft",
+            "Open World",
+            "RPG",
+            "Sci-fi"
+        ],
+        "dev": "Some random dude"
+    },
+    {
+        "name": "Counter-Strike 2 (Steam)",
+        "game_key": "legacy-1022",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1022&name=Counter-Strike%202%20%28Steam%29",
+        "description": "The next chapter in the world's premier tactical shooter. Featuring an engine upgrade, dynamic smoke grenades, and refined maps for elite competitive play.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/library_hero.jpg",
+        "tags": [
+            "FPS",
+            "Shooter",
+            "Multiplayer",
+            "Competitive"
+        ],
+        "dev": "Valve"
+    },
+    {
+        "name": "Sniper: Ghost Warrior Contracts 2",
+        "game_key": "legacy-914",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=914&name=Sniper%EF%BC%9AGhost%2520Warrior%2520Contracts2",
+        "description": "Take aim from over 1,000 meters away in the most challenging entry to the acclaimed sniper series. Experience high-pressure tactical combat deep inside enemy territory.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1338770/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1338770/library_hero.jpg",
+        "tags": [
+            "Sniper",
+            "Stealth",
+            "Action",
+            "FPS"
+        ],
+        "dev": "CI Games"
+    },
+    {
+        "name": "Ratchet & Clank: Rift Apart",
+        "game_key": "legacy-791",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=791&name=Ratchet%20%26%20Clank",
+        "description": "Blast your way through an interdimensional adventure. Join Ratchet and Clank as they take on an evil emperor from another reality in this visually stunning platformer.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1895880/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1895880/library_hero.jpg",
+        "tags": [
+            "Action",
+            "Platformer",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "dev": "Insomniac Games"
+    },
+    {
+        "name": "The Last of Us Part I",
+        "game_key": "legacy-765",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=765&name=The%2520Last%2520of%2520Us%E2%84%A2%2520Part%2520I",
+        "description": "Experience the emotional, genre-defining story of Joel and Ellie as they navigate a brutal, infected world in this beautifully rebuilt and enhanced masterpiece.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1888930/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1888930/library_hero.jpg",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Story Rich",
+            "Survival"
+        ],
+        "dev": "Naughty Dog"
+    },
+    {
+        "name": "SpongeBob: Battle for Bikini Bottom",
+        "game_key": "legacy-714",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=714&name=SpongeBob%20SquarePants%3A%20Battle%20for%20Bikini%20Bottom",
+        "description": "Are you ready, kids? Play as SpongeBob, Patrick, and Sandy and show the evil Plankton that crime pays even less than Mr. Krabs in this faithful remake.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/969990/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/969990/library_hero.jpg",
+        "tags": [
+            "Platformer",
+            "Action",
+            "Family",
+            "Cartoon"
+        ],
+        "dev": "Purple Lamp"
+    },
+    {
+        "name": "SpongeBob: The Cosmic Shake",
+        "game_key": "legacy-687",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=687&name=SpongeBob%20SquarePants%3A%20The%20Cosmic%20Shake",
+        "description": "Wish-granting Mermaid's Tears in the hands of SpongeBob and Patrick… What could go wrong? Travel to crazy Wishworlds in this cosmic 3D platforming adventure.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1282150/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1282150/library_hero.jpg",
+        "tags": [
+            "Platformer",
+            "Action",
+            "Adventure"
+        ],
+        "dev": "Purple Lamp"
+    },
+    {
+        "name": "Ranch Simulator 22",
+        "game_key": "legacy-630",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=630&name=Ranch%20Simulator22",
+        "description": "Builder. Farmer. Hunter. Trader. Ranching certainly isn’t your average job. Take over your family's dilapidated homestead and turn it into the most prosperous ranch in the valley.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1119730/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1119730/library_hero.jpg",
+        "tags": [
+            "Simulation",
+            "Farming",
+            "Open World",
+            "Casual"
+        ],
+        "dev": "Toxic Dog"
+    },
+    {
+        "name": "Subnautica: Below Zero",
+        "game_key": "legacy-612",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=612&name=Subnautica%20Zero",
+        "description": "Dive into a freezing underwater adventure on an alien planet. Set one year after the original, survive the icy biomes both above and below the surface to uncover the truth.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/848450/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/848450/library_hero.jpg",
+        "tags": [
+            "Survival",
+            "Open World",
+            "Crafting",
+            "Underwater"
+        ],
+        "dev": "Unknown Worlds"
+    },
+    {
+        "name": "FIFA 19",
+        "game_key": "legacy-581",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=581&name=FIFA19",
+        "description": "Experience the world's most popular sport with enhanced gameplay, realistic player mechanics, and the ultimate glory of competing in top-tier football tournaments.",
+        "image": "https://m.media-amazon.com/images/M/MV5BOGQ5ZWZiOTQtY2IwYS00YTY0LTgxMDktOTZkNmI4MmIyYzU0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "cover": "https://i.pinimg.com/736x/31/48/ac/3148acae3b1f5d2cc4caf13d0508fc89.jpg",
+        "tags": [
+            "Sports",
+            "Football",
+            "Simulation"
+        ],
+        "dev": "EA Sports"
+    },
+    {
+        "name": "Destiny 2",
+        "game_key": "legacy-1024",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1024&name=Destiny%202%20%28Steam%29",
+        "description": "Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1085660/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1085660/library_hero.jpg",
+        "tags": [
+            "FPS",
+            "Free to Play",
+            "Looter Shooter",
+            "Multiplayer"
+        ],
+        "dev": "Bungie"
+    },
+    {
+        "name": "War Thunder",
+        "game_key": "legacy-1023",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1023&name=War%20Thunder%20%28Steam%29",
+        "description": "The most comprehensive free-to-play, cross-platform, MMO military game dedicated to aviation, armoured vehicles, and naval craft.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/236390/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/236390/library_hero.jpg",
+        "tags": [
+            "Free to Play",
+            "Vehicular Combat",
+            "Simulation",
+            "Multiplayer"
+        ],
+        "dev": "Gaijin Entertainment"
+    },
+    {
+        "name": "Mandragora",
+        "game_key": "legacy-993",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=993&name=Mandragora%3A%20Whispers%20of%20the%20Witch%20Tree",
+        "description": "Slash, burn, and rage against the encroaching darkness in this 2.5D side-scrolling action-RPG set in a decaying universe.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1792660/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1792660/library_hero.jpg",
+        "tags": [
+            "Action RPG",
+            "Metroidvania",
+            "Dark Fantasy",
+            "2.5D"
+        ],
+        "dev": "Primal Game Studio"
+    },
+    {
+        "name": "Dead Space 3",
+        "game_key": "legacy-987",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=987&name=Dead%2520Space%E2%84%A2%25203",
+        "description": "Journey across space to the icy planet of Tau Volantis with Isaac Clarke and Sgt. John Carver to discover the source of the Necromorph outbreak.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238060/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238060/library_hero.jpg",
+        "tags": [
+            "Horror",
+            "Sci-Fi",
+            "Action",
+            "Co-op"
+        ],
+        "dev": "Visceral Games"
+    },
+    {
+        "name": "ARK: Survival Ascended",
+        "game_key": "legacy-976",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=976&name=ARK%3A%20Survival%20Ascended",
+        "description": "Form a tribe, tame and breed hundreds of unique dinosaurs and primeval creatures, explore, craft, build, and fight your way to the top of the food chain.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2399830/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2399830/library_hero.jpg",
+        "tags": [
+            "Survival",
+            "Open World",
+            "Dinosaurs",
+            "Multiplayer"
+        ],
+        "dev": "Studio Wildcard"
+    },
+    {
+        "name": "Attack On Titan 2",
+        "game_key": "legacy-96",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=96&name=Attack%20On%20Titan2",
+        "description": "Experience the immense thrill of fighting against the Titans using the Omni-Directional Mobility Gear in the official game based on the hit anime.",
+        "image": "https://store-images.s-microsoft.com/image/apps.3749.67116328302209369.766d5242-c87b-4e0a-9cef-7b3e870a4a02.1558a40a-d19b-4b5d-b0fd-9c9a565fa1ae",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/601050/capsule_616x353.jpg?t=1760594755",
+        "tags": [
+            "Action",
+            "Anime",
+            "Hack and Slash",
+            "Multiplayer"
+        ],
+        "dev": "Koei Tecmo"
+    },
+    {
+        "name": "Party Hard 2",
+        "game_key": "legacy-411",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=411&name=Party%20Hard2",
+        "description": "You dream of getting some sleep, but it’s 3am and your neighbors are having a loud party. Stop them using stealth, strategy, and whatever you can find.",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/572430/library_600x900.jpg",
+        "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/572430/library_hero.jpg",
+        "tags": [
+            "Action",
+            "Strategy",
+            "Stealth",
+            "Pixel Art"
+        ],
+        "dev": "Pinokl Games"
     }
 ];
