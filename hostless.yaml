@@ -1,7 +1,7 @@
 # Hostless app config for the existing backend deployment.
-# Keep the repository root in the build context so hostless-proxy/public is included.
-working_directory: "/"
-build_context_directory: "/"
+# Use repository-relative paths so the build can see hostless-backend and hostless-proxy.
+working_directory: "."
+build_context_directory: "."
 
 build:
   system: auto
