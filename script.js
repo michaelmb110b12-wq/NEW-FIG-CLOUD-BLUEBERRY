@@ -54,7 +54,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     proxy.searchParams.set("url", target);
     return proxy.href;
   }
-  function showGameUrlToolbar(gameName, target) {
+  function showGameUrlToolbar(gameName, target, isFallback) {
     const gameLayer = document.getElementById("game-layer");
     const frame = document.getElementById("gF");
     if (!gameLayer || !frame) return;
@@ -65,7 +65,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       bar.className = "fc-game-urlbar";
       const label = document.createElement("span");
       label.className = "fc-game-urlbar-label";
-      label.textContent = "GAME URL · PASTE INTO SCRAMJET";
+      label.textContent = isFallback ? "RACCOON GAME · FIND TITLE" : "GAME URL · PASTE INTO SCRAMJET";
       const input = document.createElement("input");
       input.className = "fc-game-urlbar-input";
       input.type = "text";
@@ -94,7 +94,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     }
     const input = bar.querySelector("input");
     if (input) input.value = target;
-    bar.setAttribute("aria-label", "Original URL for " + gameName + ". Copy this address to use it in Scramjet.");
+    bar.setAttribute("aria-label", isFallback ? "Raccoon Game homepage. Search for " + gameName + " there." : "Original URL for " + gameName + ". Copy this address to use it in Scramjet.");
     bar.style.display = "flex";
   }
 
@@ -104,59 +104,9 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const gameName = typeof getGameName === "function" ? getGameName(cxG) : "This game";
     const normalizedGameName = String(gameName || "").normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
     const catalogUrl = typeof cxG !== "undefined" && cxG && typeof cxG.url === "string" && (cxG.url.startsWith("https://") || cxG.url.startsWith("http://")) ? cxG.url : "";
-    const targetUrl = catalogUrl || (window.LEGACY_GAME_URLS || {})[gameId] || (window.LEGACY_GAME_URLS_BY_NAME || {})[normalizedGameName];
-
-    if (!targetUrl) {
-      // Do not invoke the old /api/auto-signup flow here. The Hostless backend
-      // uses /api/cloud/* and cannot create the old provider session by itself.
-      const urlBar = document.getElementById("fc-game-urlbar");
-      if (urlBar) urlBar.style.display = "none";
-      if (typeof clsMdl === "function") clsMdl();
-
-      let notice = document.getElementById("fc-missing-game-url-notice");
-      if (!notice) {
-        notice = document.createElement("div");
-        notice.id = "fc-missing-game-url-notice";
-        notice.style.cssText = "position:fixed;inset:0;z-index:100500;display:grid;place-items:center;padding:22px;background:rgba(3,6,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);";
-        const panel = document.createElement("section");
-        panel.style.cssText = "width:min(520px,100%);padding:24px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:#101521;color:#eff3fb;box-shadow:0 24px 80px rgba(0,0,0,.5);font:14px/1.55 Inter,system-ui,sans-serif;";
-        const eyebrow = document.createElement("div");
-        eyebrow.textContent = "FIGURE CLOUD";
-        eyebrow.style.cssText = "font-size:11px;font-weight:850;letter-spacing:.14em;color:#c9f31d;";
-        const heading = document.createElement("h2");
-        heading.id = "fc-missing-game-url-title";
-        heading.textContent = "Game URL not configured";
-        heading.style.cssText = "margin:10px 0;font-size:23px;line-height:1.2;";
-        const message = document.createElement("p");
-        message.id = "fc-missing-game-url-message";
-        message.style.cssText = "margin:0 0 17px;color:#c2cada;";
-        const actions = document.createElement("div");
-        actions.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;align-items:center;";
-        const provider = document.createElement("a");
-        provider.href = "https://www.raccoongame.com/";
-        provider.target = "_blank";
-        provider.rel = "noopener noreferrer";
-        provider.textContent = "Open Raccoon Game";
-        provider.style.cssText = "display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:9px;background:#c9f31d;color:#11150a;text-decoration:none;font-weight:800;";
-        const close = document.createElement("button");
-        close.type = "button";
-        close.textContent = "Close";
-        close.style.cssText = "padding:10px 13px;border:1px solid rgba(255,255,255,.18);border-radius:9px;background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;cursor:pointer;";
-        close.addEventListener("click", function () { notice.remove(); });
-        actions.append(provider, close);
-        panel.append(eyebrow, heading, message, actions);
-        notice.appendChild(panel);
-        notice.addEventListener("click", function (event) {
-          if (event.target === notice) notice.remove();
-        });
-        document.body.appendChild(notice);
-      }
-      const message = notice.querySelector("#fc-missing-game-url-message");
-      if (message) {
-        message.textContent = '“' + gameName + '” has no verified direct game URL in this build. The previous fallback used an older auto-signup/session endpoint that this Hostless backend does not implement. To launch this title, add its verified Raccoon Game URL or configure a compatible cloud-session provider using STRATUS_UPSTREAM_URL.';
-      }
-      return false;
-    }
+    const mappedTargetUrl = catalogUrl || (window.LEGACY_GAME_URLS || {})[gameId] || (window.LEGACY_GAME_URLS_BY_NAME || {})[normalizedGameName];
+    const hasDirectUrl = Boolean(mappedTargetUrl);
+    const targetUrl = mappedTargetUrl || "https://www.raccoongame.com/";
 
     if (typeof clsMdl === "function") clsMdl();
     const frame = document.getElementById("gF");
@@ -172,15 +122,15 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       return false;
     }
 
-    if (topTitle) topTitle.textContent = gameName;
+    if (topTitle) topTitle.textContent = hasDirectUrl ? gameName : gameName + " · Find on Raccoon Game";
     if (topGame) topGame.style.display = "flex";
-    if (loaderTitle) loaderTitle.textContent = "Opening " + gameName + "…";
-    if (loaderSubtitle) loaderSubtitle.textContent = "Connecting to the game through Scramjet.";
+    if (loaderTitle) loaderTitle.textContent = hasDirectUrl ? "Opening " + gameName + "…" : "Opening Raccoon Game…";
+    if (loaderSubtitle) loaderSubtitle.textContent = hasDirectUrl ? "Connecting to the game through Scramjet." : "The direct game link is not listed; use the provider site to find this title.";
     if (loader) { loader.style.display = "flex"; loader.style.opacity = "1"; }
     if (expired) expired.style.display = "none";
     if (typeof tglV === "function") tglV("g");
     gmWin = { closed: false, close: function () { if (typeof clsGm === "function") clsGm(); } };
-    showGameUrlToolbar(gameName, targetUrl);
+    showGameUrlToolbar(hasDirectUrl ? gameName : "Raccoon Game", targetUrl, !hasDirectUrl);
     frame.src = makeGameScramjetUrl(targetUrl);
 
     window.setTimeout(function () {
@@ -189,7 +139,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
         window.setTimeout(function () { loader.style.display = "none"; }, 250);
       }
     }, 2500);
-    if (typeof trStart === "function") trStart(gameId);
+    if (hasDirectUrl && typeof trStart === "function") trStart(gameId);
     return false;
   };
 })();
