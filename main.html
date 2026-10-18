@@ -541,10 +541,88 @@
 
   <iframe id="gF" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe>
 </div>
+<div id="game-source-url-bar" class="game-source-url-bar" hidden>
+  <label for="game-source-url">Game URL</label>
+  <input id="game-source-url" type="text" readonly spellcheck="false" aria-label="Launched game source URL">
+  <button id="game-source-url-copy" type="button" onclick="copyLaunchedGameUrl()">Copy URL</button>
+</div>
+
 
 <script src="./random/gamelayout.js"></script>
 <script src="./random/legacy-urls.js"></script>
 <script>window.FIGURE_CLOUD_STATIC_FALLBACK = true;</script>
 <script src="script.js"></script>
+
+<script>
+(function installBottomGameUrlBar() {
+  const bar = document.getElementById("game-source-url-bar");
+  const input = document.getElementById("game-source-url");
+  const copyButton = document.getElementById("game-source-url-copy");
+  if (!bar || !input || !copyButton) return;
+
+  function getSourceUrl() {
+    try {
+      const id = typeof cxG !== "undefined" && cxG && typeof getGameId === "function" ? getGameId(cxG) : "";
+      const itemUrl = typeof cxG !== "undefined" && cxG ? (cxG.url || cxG.link || cxG.gameUrl || cxG.game_url || "") : "";
+      return (window.LEGACY_GAME_URLS && window.LEGACY_GAME_URLS[id]) || itemUrl || "";
+    } catch (_) {
+      return "";
+    }
+  }
+
+  function showSourceUrl(url) {
+    if (!url) {
+      bar.hidden = true;
+      input.value = "";
+      return;
+    }
+    input.value = url;
+    bar.hidden = false;
+  }
+
+  window.copyLaunchedGameUrl = function copyLaunchedGameUrl() {
+    if (!input.value) return;
+    input.focus();
+    input.select();
+    let copied = false;
+    try { copied = document.execCommand("copy"); } catch (_) {}
+    if (copied) {
+      copyButton.textContent = "Copied!";
+      window.setTimeout(function () { copyButton.textContent = "Copy URL"; }, 1400);
+      return;
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(input.value).then(function () {
+        copyButton.textContent = "Copied!";
+        window.setTimeout(function () { copyButton.textContent = "Copy URL"; }, 1400);
+      }).catch(function () {
+        copyButton.textContent = "Select URL";
+        input.focus();
+        input.select();
+      });
+    } else {
+      copyButton.textContent = "Select URL";
+      input.focus();
+      input.select();
+    }
+  };
+
+  const originalLaunch = window.try2launch;
+  if (typeof originalLaunch === "function") {
+    window.try2launch = function figureCloudLaunchWithSourceUrl() {
+      showSourceUrl(getSourceUrl());
+      return originalLaunch.apply(this, arguments);
+    };
+  }
+
+  const originalClose = window.clsGm;
+  if (typeof originalClose === "function") {
+    window.clsGm = function figureCloudCloseWithSourceUrl() {
+      showSourceUrl("");
+      return originalClose.apply(this, arguments);
+    };
+  }
+})();
+</script>
 </body>
 </html>
