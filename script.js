@@ -79,7 +79,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       return false;
     }
 
-    const proxyBase = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://blueberry-cloud-figure.hostless.app/";
+    const proxyBase = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
     let proxyUrl;
     try {
       proxyUrl = new URL(proxyBase);
