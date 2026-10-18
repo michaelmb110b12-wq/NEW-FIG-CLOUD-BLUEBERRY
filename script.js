@@ -56,7 +56,7 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const gameId = typeof getGameId === "function" ? getGameId(cxG) : "";
     const gameName = typeof getGameName === "function" ? getGameName(cxG) : "This game";
     const normalizedGameName = String(gameName || "").normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-    const targetUrl = (window.LEGACY_GAME_URLS || {})[gameId] || (window.LEGACY_GAME_URLS_BY_NAME || {})[normalizedGameName];
+    const catalogUrl = typeof cxG !== "undefined" && cxG && typeof cxG.url === "string" && /^https?:\\/\\//i.test(cxG.url) ? cxG.url : "";\n    const targetUrl = catalogUrl || (window.LEGACY_GAME_URLS || {})[gameId] || (window.LEGACY_GAME_URLS_BY_NAME || {})[normalizedGameName];
 
     if (!targetUrl) {
       // No legacy direct URL exists for this title. Try the original cloud-session
