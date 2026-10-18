@@ -79,13 +79,37 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       }
       try {
         popup.document.open();
-        popup.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Figure Cloud</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#06080d;color:#e8edf5;font-family:system-ui,Arial,sans-serif}#launch-note{position:absolute;left:0;right:0;top:0;height:30px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:0 10px;background:rgba(10,13,21,.96);border-bottom:1px solid rgba(255,255,255,.12);z-index:2;font-size:11px;text-align:center}#figure-cloud-frame{position:absolute;left:0;top:31px;width:100%;height:calc(100% - 31px);border:0;background:#000}</style></head><body><div id="launch-note">Loading game page...</div><iframe id="figure-cloud-frame" allow="autoplay; fullscreen; keyboard-map; clipboard-read; clipboard-write; gamepad"></iframe></body></html>');
+        popup.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Figure Cloud</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#06080d;color:#e8edf5;font-family:system-ui,Arial,sans-serif}#launch-note{position:absolute;left:0;right:0;top:0;height:30px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:0 10px;background:rgba(10,13,21,.96);border-bottom:1px solid rgba(255,255,255,.12);z-index:2;font-size:11px;text-align:center}#launch-url{position:absolute;left:0;right:0;bottom:0;height:44px;box-sizing:border-box;display:flex;align-items:center;gap:8px;padding:5px 10px;background:rgba(10,13,21,.98);border-top:1px solid rgba(255,255,255,.15);z-index:3;font-size:11px}#launch-url input{min-width:0;flex:1;height:28px;box-sizing:border-box;padding:5px 8px;border:1px solid #343b4a;border-radius:6px;background:#090c12;color:#e8edf5;font:inherit}#launch-url button{height:28px;border:0;border-radius:6px;padding:0 11px;background:#c9f31d;color:#101307;font-weight:700;cursor:pointer}#figure-cloud-frame{position:absolute;left:0;top:31px;width:100%;height:calc(100% - 75px);border:0;background:#000}</style></head><body><div id="launch-note">Loading game page...</div><iframe id="figure-cloud-frame" allow="autoplay; fullscreen; keyboard-map; clipboard-read; clipboard-write; gamepad"></iframe><div id="launch-url"><span>Game URL</span><input id="launch-url-value" aria-label="Game URL" readonly><button id="launch-url-copy" type="button">Copy URL</button></div></body></html>');
         popup.document.close();
         popup.document.title = gameName + " | Figure Cloud";
         const note = popup.document.getElementById("launch-note");
         if (note) note.textContent = "Loading " + gameName + ". If it does not work, close this tab and choose Open normally.";
         const popupFrame = popup.document.getElementById("figure-cloud-frame");
         if (popupFrame) popupFrame.src = targetUrl;
+        const popupUrlField = popup.document.getElementById("launch-url-value");
+        const popupCopyButton = popup.document.getElementById("launch-url-copy");
+        if (popupUrlField) popupUrlField.value = targetUrl;
+        if (popupCopyButton && popupUrlField) {
+          popupCopyButton.addEventListener("click", function () {
+            popupUrlField.focus();
+            popupUrlField.select();
+            let copied = false;
+            try { copied = popup.document.execCommand("copy"); } catch (_) {}
+            if (copied) {
+              popupCopyButton.textContent = "Copied!";
+              return;
+            }
+            if (popup.navigator.clipboard && popup.isSecureContext) {
+              popup.navigator.clipboard.writeText(targetUrl).then(function () {
+                popupCopyButton.textContent = "Copied!";
+              }).catch(function () {
+                popupCopyButton.textContent = "Select URL";
+              });
+            } else {
+              popupCopyButton.textContent = "Select URL";
+            }
+          });
+        }
         try { popup.opener = null; } catch (_) {}
       } catch (_) {
         try { popup.location.href = targetUrl; } catch (_) {}
