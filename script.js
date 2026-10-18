@@ -69,10 +69,10 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
       const modal = document.getElementById("p-static-host-warning");
       const title = document.getElementById("static-host-title");
       const message = document.getElementById("static-host-warning-message");
-      if (title) title.textContent = "Game unavailable on static hosting";
-      if (message) message.textContent = '"' + gameName + '" needs the cloud-session service, which is not available on GitHub Pages.';
+      if (title) title.textContent = "Unable to launch game";
+      if (message) message.textContent = '"' + gameName + '" could not be launched here. Try opening it directly on Raccoon Game.';
       if (modal) modal.classList.add("show");
-      else window.alert(gameName + " needs the cloud-session service, which is not available on GitHub Pages.");
+      else window.alert(gameName + " could not be launched here. Try opening it directly on Raccoon Game.");
       return false;
     }
 
