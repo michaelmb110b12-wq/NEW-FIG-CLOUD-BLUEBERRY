@@ -378,6 +378,7 @@ const G_DATA = [
     {
         "name": "Hollow Knight: Silksong",
         "game_key": "bs0046",
+        "url": "https://www.raccoongame.com/wap/dist/#/platform/cloudgame/gamedetail?gid=1025&name=Hollow%20Knight%3A%20Silksong",
         "description": "Discover a vast, haunted kingdom in Hollow Knight: Silksong! Explore, fight and survive as you ascend to the peak of a land ruled by silk and song.",
         "image": "https://download-oss.raccoongame.com/uploads/image/20260618/20260618144453541.jpg",
         "cover": "https://download-oss.raccoongame.com/uploads/image/20260508/20260508163357849.jpg",
