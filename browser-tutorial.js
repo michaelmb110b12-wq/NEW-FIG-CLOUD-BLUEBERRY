@@ -39,7 +39,7 @@
         referrerpolicy: "no-referrer", loading: "eager"
       });
       const dest = makeProxyUrl(target);
-      linkInput.value = dest;
+      linkInput.value = target;
       copy.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(linkInput.value);
