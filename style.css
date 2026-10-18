@@ -1808,3 +1808,70 @@ body.in-fullscreen #mobl-fs-bubble,
   font-size: 10px;
   line-height: 1.45;
 }
+
+
+/* Bottom source-URL strip shown while a game is launching/running */
+.game-source-url-bar {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  z-index: 100005;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 12px;
+  background: rgba(9, 12, 19, 0.97);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.38);
+  color: #e8edf5;
+  backdrop-filter: blur(14px);
+}
+.game-source-url-bar[hidden] { display: none !important; }
+.game-source-url-bar label {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.game-source-url-bar input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 31px;
+  box-sizing: border-box;
+  padding: 6px 9px;
+  border: 1px solid #343b4a;
+  border-radius: 7px;
+  outline: none;
+  background: #06080d;
+  color: #e8edf5;
+  font: 11px ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.game-source-url-bar button {
+  flex: 0 0 auto;
+  min-height: 31px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--accent, #c9f31d);
+  color: #101307;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.game-source-url-bar button:hover { filter: brightness(1.08); }
+@media (max-width: 520px) {
+  .game-source-url-bar {
+    left: 6px;
+    right: 6px;
+    bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    gap: 6px;
+    padding: 6px;
+  }
+  .game-source-url-bar label { font-size: 10px; }
+  .game-source-url-bar input { font-size: 10px; }
+  .game-source-url-bar button { padding: 0 8px; font-size: 10px; }
+}
