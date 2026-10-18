@@ -7,6 +7,23 @@
 <link rel="icon" type="image/jpeg" href="Cloud.jpg">
 <title>Figure Cloud V2.3 BETA</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.fc-browser-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 12px;margin:0 12px;border:1px solid var(--border,rgba(255,255,255,.14));border-radius:12px;background:rgba(255,255,255,.035)}
+.fc-browser-btn{min-height:38px;padding:8px 13px;border:1px solid var(--border,rgba(255,255,255,.16));border-radius:9px;background:var(--card,#151515);color:inherit;cursor:pointer;font:inherit;white-space:nowrap}
+.fc-browser-btn:hover:not(:disabled){filter:brightness(1.2)}
+.fc-browser-btn:disabled{opacity:.38;cursor:not-allowed}
+.fc-browser-icon-btn{width:40px;padding:6px;font-size:20px;line-height:1}
+.fc-browser-address-form{display:flex;align-items:center;gap:8px;flex:1;min-width:220px}
+.fc-browser-address{box-sizing:border-box;flex:1;min-width:100px;width:100%;height:38px;padding:8px 12px;border:1px solid var(--border,rgba(255,255,255,.18));border-radius:9px;background:var(--card,#151515);color:inherit;font:inherit;outline:none}
+.fc-browser-address:focus{border-color:var(--accent,#6ea8fe);box-shadow:0 0 0 2px rgba(110,168,254,.16)}
+.fc-browser-go{font-weight:600}
+.fc-browser-status{padding:0 15px;color:var(--muted,#aaa);font-size:12px;min-height:15px;overflow-wrap:anywhere}
+.fc-browser-shell{gap:9px}
+.fc-browser-frame{flex:1;min-height:380px}
+@media(max-width:640px){.fc-browser-toolbar{gap:6px;margin:0 8px;padding:8px}.fc-browser-address-form{order:2;flex-basis:100%;min-width:0}.fc-browser-copy{margin-left:auto}.fc-browser-caption{line-height:1.5}.fc-browser-icon-btn{width:36px}.fc-browser-frame{min-height:320px}}
+</style>
+
 </head>
 <body>
 
@@ -91,12 +108,19 @@
   <div id="v-gift" class="tab-view">
     <div class="sec-head" style="margin-top:0;">Browser</div>
     <div class="fc-browser-shell">
-      <div class="fc-browser-caption">Scramjet + Epoxy Browser · Home: Google</div>
-      <div class="fc-scramjet-linkbar" style="display:flex;gap:8px;align-items:center;margin:10px 0;flex-wrap:wrap;">
-        <label for="figure-cloud-browser-link" style="font-size:12px;white-space:nowrap;">Browser link</label>
-        <input id="figure-cloud-browser-link" type="text" readonly value="https://www.google.com/" style="flex:1;min-width:160px;padding:9px 10px;border-radius:8px;border:1px solid var(--border,#444);background:var(--card,#151515);color:inherit;">
-        <button type="button" class="fc-copy-link-btn" onclick="copyScramjetLink('figure-cloud-browser-link', this)" style="padding:9px 12px;border-radius:8px;cursor:pointer;">Copy link</button>
+      <div class="fc-browser-caption">Scramjet + Epoxy Browser · Enter a website address or search Google</div>
+      <div class="fc-browser-toolbar" role="group" aria-label="Browser controls">
+        <button type="button" id="fc-browser-back" class="fc-browser-btn fc-browser-icon-btn" aria-label="Back" title="Back" disabled>←</button>
+        <button type="button" id="fc-browser-forward" class="fc-browser-btn fc-browser-icon-btn" aria-label="Forward" title="Forward" disabled>→</button>
+        <button type="button" id="fc-browser-reload" class="fc-browser-btn fc-browser-icon-btn" aria-label="Reload" title="Reload">⟳</button>
+        <button type="button" id="fc-browser-home" class="fc-browser-btn fc-browser-icon-btn" aria-label="Home" title="Home">⌂</button>
+        <form id="fc-browser-nav-form" class="fc-browser-address-form" autocomplete="off">
+          <input id="figure-cloud-browser-link" class="fc-browser-address" type="text" value="https://www.google.com/" placeholder="Search Google or enter a URL" aria-label="Website address" spellcheck="false" autocapitalize="off">
+          <button type="submit" class="fc-browser-btn fc-browser-go">Go</button>
+        </form>
+        <button type="button" id="fc-browser-copy" class="fc-browser-btn fc-browser-copy" onclick="copyScramjetLink('figure-cloud-browser-link', this)">Copy URL</button>
       </div>
+      <div id="fc-browser-status" class="fc-browser-status" role="status" aria-live="polite">Ready · Hosted Scramjet proxy</div>
       <iframe id="figure-cloud-browser" class="fc-browser-frame" src="https://scramjet.mercurywork.shop/?url=https%3A%2F%2Fwww.google.com%2F" title="Figure Cloud Browser — hosted Scramjet" allow="autoplay; fullscreen; clipboard-read; clipboard-write; gamepad; keyboard-map" loading="eager" referrerpolicy="no-referrer"></iframe>
     </div>
   </div>
@@ -557,6 +581,124 @@ window.copyScramjetLink = async function(inputId, button) {
   }
 };
 </script>
+
+<script>
+(() => {
+  "use strict";
+  const PROXY_BASE = "https://scramjet.mercurywork.shop/";
+  const HOME_URL = "https://www.google.com/";
+  const frame = document.getElementById("figure-cloud-browser");
+  const address = document.getElementById("figure-cloud-browser-link");
+  const form = document.getElementById("fc-browser-nav-form");
+  const backButton = document.getElementById("fc-browser-back");
+  const forwardButton = document.getElementById("fc-browser-forward");
+  const reloadButton = document.getElementById("fc-browser-reload");
+  const homeButton = document.getElementById("fc-browser-home");
+  const copyButton = document.getElementById("fc-browser-copy");
+  const status = document.getElementById("fc-browser-status");
+  if (!frame || !address || !form) return;
+
+  let visited = [HOME_URL];
+  let position = 0;
+  let currentTarget = HOME_URL;
+
+  function proxyUrl(target) {
+    const proxy = new URL(PROXY_BASE);
+    proxy.searchParams.set("url", target);
+    return proxy.href;
+  }
+
+  function setStatus(message) {
+    if (status) status.textContent = message;
+  }
+
+  function updateControls() {
+    if (backButton) backButton.disabled = position <= 0;
+    if (forwardButton) forwardButton.disabled = position >= visited.length - 1;
+  }
+
+  function normalizeTarget(raw) {
+    const value = String(raw || "").trim();
+    if (!value) throw new Error("Enter a website address or search term.");
+    let candidate = value;
+    if (/^https?:\/\//i.test(candidate)) {
+      // Keep explicitly supplied HTTP(S) URLs.
+    } else if (/^[a-z][a-z0-9+.-]*:\/\//i.test(candidate)) {
+      throw new Error("Only HTTP and HTTPS websites can be opened.");
+    } else if (/\s/.test(candidate) || (!candidate.includes(".") && !/^localhost(?::\d+)?(?:\/|$)/i.test(candidate))) {
+      candidate = "https://www.google.com/search?q=" + encodeURIComponent(candidate);
+    } else {
+      candidate = "https://" + candidate;
+    }
+    let parsed;
+    try { parsed = new URL(candidate); }
+    catch (_) { throw new Error("That address is not valid. Try a full website address."); }
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+      throw new Error("Only HTTP and HTTPS websites can be opened.");
+    }
+    return parsed.href;
+  }
+
+  function loadTarget(target, mode) {
+    currentTarget = target;
+    address.value = target;
+    frame.src = proxyUrl(target);
+    if (mode === "push") {
+      visited = visited.slice(0, position + 1);
+      if (visited[visited.length - 1] !== target) visited.push(target);
+      position = visited.length - 1;
+    } else if (mode === "replace") {
+      visited[position] = target;
+    }
+    updateControls();
+    try { setStatus("Opening " + new URL(target).hostname + " through Scramjet…"); }
+    catch (_) { setStatus("Opening website through Scramjet…"); }
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    try {
+      const target = normalizeTarget(address.value);
+      loadTarget(target, "push");
+    } catch (error) {
+      setStatus(error && error.message ? error.message : "Unable to open that address.");
+    }
+  });
+
+  if (backButton) backButton.addEventListener("click", function () {
+    if (position <= 0) return;
+    position -= 1;
+    loadTarget(visited[position], "none");
+  });
+  if (forwardButton) forwardButton.addEventListener("click", function () {
+    if (position >= visited.length - 1) return;
+    position += 1;
+    loadTarget(visited[position], "none");
+  });
+  if (reloadButton) reloadButton.addEventListener("click", function () {
+    loadTarget(currentTarget, "none");
+    setStatus("Reloading " + new URL(currentTarget).hostname + " through Scramjet…");
+  });
+  if (homeButton) homeButton.addEventListener("click", function () {
+    loadTarget(HOME_URL, "push");
+  });
+  if (copyButton) copyButton.addEventListener("click", function () {
+    // The shared copy helper reads the visible destination URL, not the Scramjet wrapper URL.
+    if (typeof window.copyScramjetLink === "function") window.copyScramjetLink("figure-cloud-browser-link", copyButton);
+  });
+  frame.addEventListener("load", function () {
+    setStatus("Proxy frame loaded · The destination website may still restrict iframe access.");
+  });
+  address.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      address.value = currentTarget;
+      address.blur();
+    }
+  });
+  updateControls();
+})();
+</script>
+
 <script src="./random/gamelayout.js"></script>
 <script src="./random/legacy-urls.js"></script>
 <script>window.FIGURE_CLOUD_STATIC_FALLBACK = true;</script>
