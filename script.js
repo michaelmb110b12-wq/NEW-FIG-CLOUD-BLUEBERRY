@@ -48,7 +48,6 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
   if (typeof window.try2launch !== "function") return;
 
   // Keep the original main-branch cloud-session launcher available for games without a verified direct provider URL.
-  const launchUsingMainBranch = window.try2launch.bind(window);
   const scramjetBase = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
   function makeGameScramjetUrl(target) {
     const proxy = new URL(scramjetBase);
@@ -108,10 +107,54 @@ const _0x19774a=_0x46a6;(function(_0x2cd82b,_0x5bf191){const _0x4d3df7=_0x46a6,_
     const targetUrl = catalogUrl || (window.LEGACY_GAME_URLS || {})[gameId] || (window.LEGACY_GAME_URLS_BY_NAME || {})[normalizedGameName];
 
     if (!targetUrl) {
-      // Keep existing cloud-session support for titles without a verified direct Raccoon Game URL.
+      // Do not invoke the old /api/auto-signup flow here. The Hostless backend
+      // uses /api/cloud/* and cannot create the old provider session by itself.
       const urlBar = document.getElementById("fc-game-urlbar");
       if (urlBar) urlBar.style.display = "none";
-      launchUsingMainBranch();
+      if (typeof clsMdl === "function") clsMdl();
+
+      let notice = document.getElementById("fc-missing-game-url-notice");
+      if (!notice) {
+        notice = document.createElement("div");
+        notice.id = "fc-missing-game-url-notice";
+        notice.style.cssText = "position:fixed;inset:0;z-index:100500;display:grid;place-items:center;padding:22px;background:rgba(3,6,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);";
+        const panel = document.createElement("section");
+        panel.style.cssText = "width:min(520px,100%);padding:24px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:#101521;color:#eff3fb;box-shadow:0 24px 80px rgba(0,0,0,.5);font:14px/1.55 Inter,system-ui,sans-serif;";
+        const eyebrow = document.createElement("div");
+        eyebrow.textContent = "FIGURE CLOUD";
+        eyebrow.style.cssText = "font-size:11px;font-weight:850;letter-spacing:.14em;color:#c9f31d;";
+        const heading = document.createElement("h2");
+        heading.id = "fc-missing-game-url-title";
+        heading.textContent = "Game URL not configured";
+        heading.style.cssText = "margin:10px 0;font-size:23px;line-height:1.2;";
+        const message = document.createElement("p");
+        message.id = "fc-missing-game-url-message";
+        message.style.cssText = "margin:0 0 17px;color:#c2cada;";
+        const actions = document.createElement("div");
+        actions.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;align-items:center;";
+        const provider = document.createElement("a");
+        provider.href = "https://www.raccoongame.com/";
+        provider.target = "_blank";
+        provider.rel = "noopener noreferrer";
+        provider.textContent = "Open Raccoon Game";
+        provider.style.cssText = "display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:9px;background:#c9f31d;color:#11150a;text-decoration:none;font-weight:800;";
+        const close = document.createElement("button");
+        close.type = "button";
+        close.textContent = "Close";
+        close.style.cssText = "padding:10px 13px;border:1px solid rgba(255,255,255,.18);border-radius:9px;background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;cursor:pointer;";
+        close.addEventListener("click", function () { notice.remove(); });
+        actions.append(provider, close);
+        panel.append(eyebrow, heading, message, actions);
+        notice.appendChild(panel);
+        notice.addEventListener("click", function (event) {
+          if (event.target === notice) notice.remove();
+        });
+        document.body.appendChild(notice);
+      }
+      const message = notice.querySelector("#fc-missing-game-url-message");
+      if (message) {
+        message.textContent = '“' + gameName + '” has no verified direct game URL in this build. The previous fallback used an older auto-signup/session endpoint that this Hostless backend does not implement. To launch this title, add its verified Raccoon Game URL or configure a compatible cloud-session provider using STRATUS_UPSTREAM_URL.';
+      }
       return false;
     }
 
