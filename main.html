@@ -563,8 +563,7 @@
   function getSourceUrl() {
     try {
       const id = typeof cxG !== "undefined" && cxG && typeof getGameId === "function" ? getGameId(cxG) : "";
-      const itemUrl = typeof cxG !== "undefined" && cxG ? (cxG.url || cxG.link || cxG.gameUrl || cxG.game_url || "") : "";
-      return (window.LEGACY_GAME_URLS && window.LEGACY_GAME_URLS[id]) || itemUrl || "";
+      return (window.LEGACY_GAME_URLS && window.LEGACY_GAME_URLS[id]) || "";
     } catch (_) {
       return "";
     }
