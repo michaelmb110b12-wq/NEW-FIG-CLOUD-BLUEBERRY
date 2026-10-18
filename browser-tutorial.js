@@ -23,7 +23,7 @@
     );
     const grid = el("div", { class: "fc-tutorial-grid" });
     const makePane = (title, target, useScramjet = true) => {
-      const pane = el("section", { class: "fc-tutorial-pane" });
+      const pane = el("section", { class: title === "RaccoonGame Login" ? "fc-tutorial-pane fc-tutorial-raccoon-pane" : "fc-tutorial-pane" });
       const top = el("div", { class: "fc-tutorial-pane-head" });
       const label = el("strong", {}, title);
       const actions = el("div", { class: "fc-tutorial-actions" });
