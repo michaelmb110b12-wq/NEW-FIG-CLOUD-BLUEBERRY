@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const PROXY_BASE = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://blueberry-cloud-figure.hostless.app/";
+  const PROXY_BASE = window.FIGURE_CLOUD_SCRAMJET_BASE || "https://scramjet.mercurywork.shop/";
   const COMPLETE_KEY = "figureCloudBrowserTutorialComplete";
   const makeProxyUrl = (target) => {
     const url = new URL(PROXY_BASE);
@@ -28,16 +28,34 @@
       const label = el("strong", {}, title);
       const actions = el("div", { class: "fc-tutorial-actions" });
       const reload = el("button", { type: "button", class: "fc-mini-btn" }, "Reload");
+      const linkRow = el("div", { class: "fc-scramjet-linkbar" });
+      linkRow.style.cssText = "display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap;";
+      const linkInput = el("input", { type: "text", readonly: "readonly", "aria-label": title + " Scramjet link" });
+      linkInput.style.cssText = "flex:1;min-width:140px;box-sizing:border-box;padding:8px 10px;border-radius:8px;border:1px solid var(--border,#444);background:var(--card,#151515);color:inherit;";
+      const copy = el("button", { type: "button", class: "fc-mini-btn" }, "Copy link");
       const iframe = el("iframe", {
         class: "fc-tutorial-frame", title: title,
         allow: "autoplay; fullscreen; clipboard-read; clipboard-write",
         referrerpolicy: "no-referrer", loading: "eager"
       });
       const dest = makeProxyUrl(target);
+      linkInput.value = dest;
+      copy.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(linkInput.value);
+          copy.textContent = "Copied!";
+          setTimeout(() => copy.textContent = "Copy link", 1400);
+        } catch (_) {
+          linkInput.focus(); linkInput.select();
+          try { document.execCommand("copy"); copy.textContent = "Copied!"; setTimeout(() => copy.textContent = "Copy link", 1400); }
+          catch (_) { copy.textContent = "Select link to copy"; }
+        }
+      });
       reload.addEventListener("click", () => { iframe.src = dest; });
       actions.append(reload);
       top.append(label, actions);
-      pane.append(top, iframe);
+      linkRow.append(linkInput, copy);
+      pane.append(top, linkRow, iframe);
       iframe.src = dest;
       return pane;
     };
