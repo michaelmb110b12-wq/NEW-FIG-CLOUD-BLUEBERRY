@@ -5,7 +5,7 @@ build_context_directory: "."
 
 build:
   system: auto
-  command: "npm --prefix hostless-backend install"
+  command: "corepack pnpm --dir hostless-backend install"
 
 start_command: "npm --prefix hostless-backend start"
 
