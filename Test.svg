@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Figure Cloud — Single HTML Launcher</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: #080b12; color: #eff3fb; }
+    main { width: min(560px, 100%); padding: 28px; border: 1px solid #283144; border-radius: 18px; background: #101521; box-shadow: 0 24px 80px #0008; }
+    .brand { font-weight: 850; letter-spacing: .12em; color: #c9f31d; font-size: 12px; }
+    h1 { margin: 14px 0 8px; font-size: clamp(24px, 5vw, 34px); }
+    p { color: #9da8bc; line-height: 1.55; font-size: 14px; }
+    .track { height: 5px; margin: 22px 0 14px; border-radius: 99px; background: #252e40; overflow: hidden; }
+    .fill { width: 35%; height: 100%; border-radius: inherit; background: #c9f31d; animation: slide 1.2s ease-in-out infinite alternate; }
+    @keyframes slide { from { transform: translateX(0); } to { transform: translateX(180%); } }
+    #status { margin: 0; color: #e7ebf3; font-size: 12px; }
+    #error { display: none; margin-top: 16px; padding: 12px; border: 1px solid #773f45; border-radius: 10px; background: #321c23; color: #ffd8dc; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+    #error a { color: #e8f9a1; }
+  </style>
+</head>
+<body>
+  <main id="loader">
+    <div class="brand">FIGURE CLOUD</div>
+    <h1>Preparing your game library</h1>
+    <p>This is one HTML file. When opened, it downloads the latest Figure Cloud page, styles, game catalog, URL mappings, and scripts and injects them into this page. No separate local files are needed. An internet connection is required.</p>
+    <div class="track"><div class="fill"></div></div>
+    <p id="status" role="status">Connecting to the Figure Cloud CDN…</p>
+    <div id="error" role="alert"></div>
+  </main>
+<script>
+(async function startSingleFileFigureCloud() {
+  // All project files are read from the Hostless integration branch; this file does not write to GitHub.
+  const base = "https://cdn.jsdelivr.net/gh/michaelmb110b12-wq/NEW-FIG-CLOUD-BLUEBERRY@dfe6b2dba7713c690536191cf35dae334c2f09d1/";
+  const status = document.getElementById("status");
+  const error = document.getElementById("error");
+  const loader = document.getElementById("loader");
+  const say = (message) => { if (status) status.textContent = message; };
+  const fetchText = async (path) => {
+    const response = await fetch(base + path, { cache: "no-cache" });
+    if (!response.ok) throw new Error(path + " returned HTTP " + response.status);
+    return await response.text();
+  };
+  try {
+    say("Loading the page layout…");
+    const html = await fetchText("main.html");
+    say("Combining the styles and game catalog…");
+    const dom = new DOMParser().parseFromString(html, "text/html");
+const css = await fetchText("style.css");
+    const styleLink = [...dom.querySelectorAll('link[rel="stylesheet"]')].find(el => /(?:^|\/)style\.css(?:\?|$)/.test(el.getAttribute("href") || ""));
+    if (styleLink) {
+      const style = dom.createElement("style");
+      style.setAttribute("data-inline-source", "style.css");
+      style.textContent = css;
+      styleLink.replaceWith(style);
+    } else {
+      const style = dom.createElement("style");
+      style.textContent = css;
+      dom.head.appendChild(style);
+    }
+
+    const scripts = [...dom.querySelectorAll("script[src]")];
+    for (let i = 0; i < scripts.length; i++) {
+      const oldScript = scripts[i];
+      const src = oldScript.getAttribute("src") || "";
+      let path = src.replace(/^\.\//, "");
+      if (path.startsWith("http:") || path.startsWith("https:")) {
+        // Keep third-party script URLs intact if the project adds any in the future.
+        continue;
+      }
+      say("Bundling script " + (i + 1) + " of " + scripts.length + "…");
+      let code = await fetchText(path);
+      if (path.replace(/\\/g, "/").endsWith("browser-tutorial.js")) {
+        const placeholder = 'const video = el("div", { class: "fc-video-placeholder", role: "note", "aria-label": "Tutorial video placeholder" });\n    video.append(el("span", { class: "fc-play-symbol", "aria-hidden": "true" }, "▶"), el("span", {}, "Your tutorial video will appear here"));';
+        const player = 'const video = el("video", { class: "fc-video-placeholder fc-tutorial-video", controls: "controls", playsinline: "playsinline", preload: "metadata", "aria-label": "Tutorial video" }); video.style.display = "block"; video.style.objectFit = "contain"; video.style.background = "#000"; video.style.borderStyle = "solid"; video.src = "https://cdn.jsdelivr.net/gh/michaelmb110b12-wq/NEW-FIG-CLOUD-BLUEBERRY@SINGLE-FILE/tutorial-browser-compatible-full.mp4"; video.addEventListener("error", () => { video.insertAdjacentText("afterend", " Tutorial video failed to load. Check your connection and uploaded MP4 asset."); }, { once: true });';
+        if (!code.includes(placeholder)) throw new Error("Could not find the Settings tutorial video placeholder in browser-tutorial.js.");
+        code = code.replace(placeholder, player);
+      }
+      const inlineScript = dom.createElement("script");
+      inlineScript.textContent = code;
+      inlineScript.setAttribute("data-inline-source", path);
+      oldScript.replaceWith(inlineScript);
+    }
+
+    // Resolve the site's relative images/assets against the branch CDN.
+    const baseTag = dom.createElement("base");
+    baseTag.href = base;
+    dom.head.insertBefore(baseTag, dom.head.firstChild);
+    const title = dom.querySelector("title");
+    if (title) title.textContent = "Figure Cloud V2.3 BETA";
+
+    say("Starting Figure Cloud…");
+    const finalHtml = "<!doctype html>\n" + dom.documentElement.outerHTML;
+    document.open();
+    document.write(finalHtml);
+    document.close();
+  } catch (err) {
+    if (loader) loader.querySelector(".track").style.display = "none";
+    say("Could not load the site files.");
+    if (error) {
+      error.style.display = "block";
+      const message = String(err && err.message ? err.message : err);
+      error.textContent = "Details: " + message + ". Check your internet connection or whether the CDN is blocked on your network, then reopen this HTML file.";
+      const link = document.createElement("a");
+      link.href = "https://github.com/michaelmb110b12-wq/NEW-FIG-CLOUD-BLUEBERRY/tree/hostless-cloud-integration";
+      link.textContent = " Open the project branch";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      error.appendChild(link);
+    }
+  }
+})();
+</script>
+</body>
+</html>
