@@ -1,15 +1,11 @@
 "use strict";
 const DEFAULT_HOME = "https://www.google.com/";
-const SCRAMJET_APP = "https://scramjet.mercurywork.shop/";
 const form = document.getElementById("address-form");
 const address = document.getElementById("address");
 const statusLine = document.getElementById("status");
-const stage = document.getElementById("browser-stage");
-const emptyState = document.getElementById("empty-state");
-let proxyFrame = null;
-let currentTarget = DEFAULT_HOME;
 
 function setStatus(message, isError = false) {
+  if (!statusLine) return;
   statusLine.textContent = message;
   statusLine.style.color = isError ? "#ff9b9b" : "#aeb9ca";
 }
@@ -26,44 +22,51 @@ function targetFromInput(value) {
   } catch (_) {}
   return "https://www.google.com/search?q=" + encodeURIComponent(input);
 }
-function openThroughProxy(value) {
-  currentTarget = targetFromInput(value);
-  address.value = currentTarget;
 
-  // Use the hosted Scramjet service as the proxy. Its ?url= parameter
-  // automatically opens the requested destination.
-  const proxyUrl = SCRAMJET_APP + "?url=" + encodeURIComponent(currentTarget);
-
-  if (!proxyFrame) {
-    proxyFrame = document.createElement("iframe");
-    proxyFrame.id = "sj-frame";
-    proxyFrame.title = "Scramjet proxied website";
-    proxyFrame.allow = "autoplay; fullscreen; clipboard-read; clipboard-write; gamepad";
-    proxyFrame.referrerPolicy = "no-referrer";
-    proxyFrame.style.cssText = "display:block;width:100%;height:100%;min-height:60vh;border:0;background:#fff;";
-    stage.replaceChildren(proxyFrame);
+async function openThroughScramjet(value, replace = false) {
+  const target = targetFromInput(value);
+  if (address) address.value = target;
+  setStatus("Connecting to Scramjet using the Hostless Wisp transport…");
+  try {
+    const controller = await window.figureCloudScramjetReady;
+    const proxiedUrl = controller.encodeUrl(target);
+    setStatus("Opening " + new URL(target).hostname + " through Scramjet/Wisp…");
+    if (replace) window.location.replace(proxiedUrl);
+    else window.location.assign(proxiedUrl);
+  } catch (error) {
+    setStatus("Could not start Scramjet/Wisp: " + (error && error.message ? error.message : String(error)), true);
   }
-  if (emptyState) emptyState.style.display = "none";
-  setStatus("Opening " + currentTarget + " through hosted Scramjet…");
-  proxyFrame.onload = () => setStatus("Hosted Scramjet loaded. If the page is blank, the proxy service may block being embedded.");
-  proxyFrame.onerror = () => setStatus("Could not load the hosted Scramjet service. Try opening it directly.", true);
-  proxyFrame.src = proxyUrl;
 }
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  openThroughProxy(address.value);
+
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    openThroughScramjet(address ? address.value : DEFAULT_HOME);
+  });
+}
+const back = document.getElementById("back");
+const forward = document.getElementById("forward");
+const reload = document.getElementById("reload");
+const home = document.getElementById("home");
+if (back) back.addEventListener("click", () => window.history.back());
+if (forward) forward.addEventListener("click", () => window.history.forward());
+if (reload) reload.addEventListener("click", () => window.location.reload());
+if (home) home.addEventListener("click", () => {
+  if (address) address.value = DEFAULT_HOME;
+  openThroughScramjet(DEFAULT_HOME);
 });
-document.getElementById("back").addEventListener("click", () => {
-  try { proxyFrame?.contentWindow?.history.back(); } catch (_) {}
-  setStatus("Back navigation may be unavailable because the hosted proxy is on another domain.");
-});
-document.getElementById("forward").addEventListener("click", () => {
-  try { proxyFrame?.contentWindow?.history.forward(); } catch (_) {}
-  setStatus("Forward navigation may be unavailable because the hosted proxy is on another domain.");
-});
-document.getElementById("reload").addEventListener("click", () => openThroughProxy(currentTarget));
-document.getElementById("home").addEventListener("click", () => openThroughProxy(DEFAULT_HOME));
-(function boot() {
-  const queryUrl = new URLSearchParams(location.search).get("url");
-  openThroughProxy(queryUrl || DEFAULT_HOME);
+
+(async function boot() {
+  const requested = new URLSearchParams(window.location.search).get("url");
+  if (address) address.value = targetFromInput(requested || DEFAULT_HOME);
+  if (requested) {
+    // Game launches pass ?url=...; proxy the destination in this tab, not in an iframe.
+    await openThroughScramjet(requested, true);
+  } else {
+    setStatus("Ready · Google.com is the starting address. Press Go to open it through Scramjet/Wisp.");
+    try {
+      await window.figureCloudScramjetReady;
+      setStatus("Ready · Scramjet is connected to the Hostless Wisp endpoint. Google.com is the starting address.");
+    } catch (_) {}
+  }
 })();
