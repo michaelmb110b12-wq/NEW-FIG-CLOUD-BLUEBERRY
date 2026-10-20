@@ -121,7 +121,7 @@
         <button type="button" id="fc-browser-copy" class="fc-browser-btn fc-browser-copy">Copy URL</button>
       </div>
       <div id="fc-browser-status" class="fc-browser-status" role="status" aria-live="polite">Ready · Hosted Scramjet proxy</div>
-      <iframe id="figure-cloud-browser" class="fc-browser-frame" src="https://scramjet.mercurywork.shop/?url=https%3A%2F%2Fwww.google.com%2F" title="Figure Cloud Browser — hosted Scramjet" allow="autoplay; fullscreen; clipboard-read; clipboard-write; gamepad; keyboard-map" loading="eager" referrerpolicy="no-referrer"></iframe>
+      <iframe id="figure-cloud-browser" class="fc-browser-frame" src="https://scramjet-blueberry-pop-c.hostless.app/?url=https%3A%2F%2Fwww.google.com%2F" title="Figure Cloud Browser — hosted Scramjet" allow="autoplay; fullscreen; clipboard-read; clipboard-write; gamepad; keyboard-map" loading="eager" referrerpolicy="no-referrer"></iframe>
     </div>
   </div>
 
@@ -545,7 +545,60 @@
     </div>
   </div>
 
-  <iframe id="gF" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe>
+  <div id="fc-game-urlbar" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 10px;background:#17181b;border-bottom:1px solid #3a3d44;position:relative;z-index:5">
+  <strong style="font-size:12px;white-space:nowrap">Game URL</strong>
+  <input id="fc-game-original-url" type="text" readonly aria-label="Original game URL" placeholder="Launch a game to show its original URL" style="flex:1;min-width:180px;padding:8px 10px;border:1px solid #454852;border-radius:7px;background:#23252b;color:#f4f4f5">
+  <button id="fc-game-copy-url" type="button" style="padding:8px 12px;border:1px solid #555b67;border-radius:7px;background:#30333b;color:white;cursor:pointer">Copy URL</button>
+</div>
+<iframe id="gF" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe>
+<script>
+(() => {
+  const WISP_PROXY_BASE = "https://scramjet-blueberry-pop-c.hostless.app/";
+  const frame = document.getElementById("gF");
+  const input = document.getElementById("fc-game-original-url");
+  const copy = document.getElementById("fc-game-copy-url");
+  if (!frame || !input || !copy) return;
+  const nativeSrc = Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, "src");
+  const wrap = (target) => {
+    const proxy = new URL(WISP_PROXY_BASE);
+    proxy.searchParams.set("url", target);
+    return proxy.href;
+  };
+  Object.defineProperty(frame, "src", {
+    configurable: true,
+    get() { return nativeSrc.get.call(frame); },
+    set(value) {
+      const raw = String(value || "");
+      if (!raw || raw === "about:blank" || raw.startsWith(WISP_PROXY_BASE)) {
+        nativeSrc.set.call(frame, raw);
+        return;
+      }
+      try {
+        const target = new URL(raw, document.baseURI);
+        if (target.protocol === "http:" || target.protocol === "https:") {
+          input.value = target.href;
+          nativeSrc.set.call(frame, wrap(target.href));
+          return;
+        }
+      } catch (_) {}
+      nativeSrc.set.call(frame, raw);
+    }
+  });
+  copy.addEventListener("click", async () => {
+    if (!input.value) return;
+    try {
+      await navigator.clipboard.writeText(input.value);
+      copy.textContent = "Copied!";
+      setTimeout(() => copy.textContent = "Copy URL", 1300);
+    } catch (_) {
+      input.focus(); input.select();
+      try { document.execCommand("copy"); copy.textContent = "Copied!"; }
+      catch (_) { copy.textContent = "Select URL to copy"; }
+      setTimeout(() => copy.textContent = "Copy URL", 1300);
+    }
+  });
+})();
+</script>
 </div>
 
 <script>
@@ -567,7 +620,7 @@ window.copyScramjetLink = async function(inputId, button) {
 <script>
 (() => {
   "use strict";
-  const PROXY_BASE = "https://scramjet.mercurywork.shop/";
+  const PROXY_BASE = "https://scramjet-blueberry-pop-c.hostless.app/";
   const HOME_URL = "https://www.google.com/";
   const frame = document.getElementById("figure-cloud-browser");
   const address = document.getElementById("figure-cloud-browser-link");
