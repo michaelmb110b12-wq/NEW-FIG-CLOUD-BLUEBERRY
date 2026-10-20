@@ -121,7 +121,7 @@
         <button type="button" id="fc-browser-copy" class="fc-browser-btn fc-browser-copy">Copy URL</button>
       </div>
       <div id="fc-browser-status" class="fc-browser-status" role="status" aria-live="polite">Ready · Hosted Scramjet proxy</div>
-      <iframe id="figure-cloud-browser" class="fc-browser-frame" src="https://scramjet-blueberry-pop-c.hostless.app/?url=https%3A%2F%2Fwww.google.com%2F" title="Figure Cloud Browser — hosted Scramjet" allow="autoplay; fullscreen; clipboard-read; clipboard-write; gamepad; keyboard-map" loading="eager" referrerpolicy="no-referrer"></iframe>
+      <div id="figure-cloud-browser" class="fc-browser-frame fc-browser-open-panel" role="status" aria-live="polite" style="display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;box-sizing:border-box;background:rgba(0,0,0,.18);border:1px solid var(--border,rgba(255,255,255,.12));border-radius:12px;color:var(--text-muted,#aaa)">No embedded browser frame. Press Go to open the selected website in a separate tab using Scramjet and the Hostless Wisp connection. Google.com is the starting address.</div>
     </div>
   </div>
 
@@ -407,7 +407,7 @@
       <div class="launch-mode-control">
         <label for="launch-mode">Open game</label>
         <select id="launch-mode" aria-describedby="launch-mode-help"><option value="normal">Open in Scramjet Browser</option></select>
-        <small id="launch-mode-help">Games open inside Figure Cloud using the configured Scramjet + Epoxy proxy. No new tab is opened.</small>
+        <small id="launch-mode-help">Games open in a separate tab through Scramjet + the Hostless Wisp connection. The original game URL stays available below to copy.</small>
       </div>
 
       <button class="m-play" onclick="try2launch(false)">
@@ -550,52 +550,76 @@
   <input id="fc-game-original-url" type="text" readonly aria-label="Original game URL" placeholder="Launch a game to show its original URL" style="flex:1;min-width:180px;padding:8px 10px;border:1px solid #454852;border-radius:7px;background:#23252b;color:#f4f4f5">
   <button id="fc-game-copy-url" type="button" style="padding:8px 12px;border:1px solid #555b67;border-radius:7px;background:#30333b;color:white;cursor:pointer">Copy URL</button>
 </div>
-<iframe id="gF" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe>
+<iframe id="gF" hidden aria-hidden="true" tabindex="-1" style="display:none!important" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe><div id="fc-game-open-notice" style="min-height:240px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;color:#c9ccd2;background:#17181b">Games open in a separate Scramjet tab—no game is embedded here. Launch a game to open it through the Hostless Wisp connection.</div>
 <script>
 (() => {
-  const WISP_PROXY_BASE = "https://scramjet-blueberry-pop-c.hostless.app/";
+  "use strict";
+  const SCRAMJET_HOME = "https://scramjet-blueberry-pop-c.hostless.app/";
   const frame = document.getElementById("gF");
   const input = document.getElementById("fc-game-original-url");
   const copy = document.getElementById("fc-game-copy-url");
+  const notice = document.getElementById("fc-game-open-notice");
   if (!frame || !input || !copy) return;
+
+  // Reserve the separate game tab during the actual click so popup blockers do not
+  // discard the navigation after the launch routine completes asynchronous work.
+  let gameTab = null;
+  document.addEventListener("click", (event) => {
+    const button = event.target && event.target.closest ? event.target.closest(".m-play, #btn-modal-use-new-acc") : null;
+    if (!button) return;
+    try { gameTab = window.open("about:blank", "figureCloudScramjetGameTab"); } catch (_) { gameTab = null; }
+  }, true);
+
+  function openGame(target) {
+    let parsed;
+    try { parsed = new URL(String(target), document.baseURI); }
+    catch (_) { return false; }
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return false;
+
+    input.value = parsed.href;
+    const proxy = new URL(SCRAMJET_HOME);
+    proxy.searchParams.set("url", parsed.href);
+    try {
+      if (!gameTab || gameTab.closed) gameTab = window.open(proxy.href, "figureCloudScramjetGameTab");
+      else gameTab.location.href = proxy.href;
+    } catch (_) { gameTab = null; }
+    if (!gameTab) {
+      if (notice) notice.textContent = "The game tab was blocked. Allow pop-ups for this site, then click Play again. The original game URL is shown above.";
+      return false;
+    }
+    try { gameTab.focus(); } catch (_) {}
+    if (notice) notice.textContent = "Game opened in a separate tab through Scramjet + Hostless Wisp. Use the original URL above to copy the source link.";
+    return true;
+  }
+
+  // Catch legacy game-launch code that assigns gF.src, but never load that URL
+  // in the iframe. Route it to the standalone Scramjet tab instead.
   const nativeSrc = Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, "src");
-  const wrap = (target) => {
-    const proxy = new URL(WISP_PROXY_BASE);
-    proxy.searchParams.set("url", target);
-    return proxy.href;
-  };
   Object.defineProperty(frame, "src", {
     configurable: true,
     get() { return nativeSrc.get.call(frame); },
     set(value) {
       const raw = String(value || "");
-      if (!raw || raw === "about:blank" || raw.startsWith(WISP_PROXY_BASE)) {
-        nativeSrc.set.call(frame, raw);
+      if (!raw || raw === "about:blank") {
+        nativeSrc.set.call(frame, "about:blank");
         return;
       }
-      try {
-        const target = new URL(raw, document.baseURI);
-        if (target.protocol === "http:" || target.protocol === "https:") {
-          input.value = target.href;
-          nativeSrc.set.call(frame, wrap(target.href));
-          return;
-        }
-      } catch (_) {}
-      nativeSrc.set.call(frame, raw);
+      if (!openGame(raw)) nativeSrc.set.call(frame, "about:blank");
+      else nativeSrc.set.call(frame, "about:blank");
     }
   });
+
   copy.addEventListener("click", async () => {
     if (!input.value) return;
     try {
       await navigator.clipboard.writeText(input.value);
       copy.textContent = "Copied!";
-      setTimeout(() => copy.textContent = "Copy URL", 1300);
     } catch (_) {
       input.focus(); input.select();
       try { document.execCommand("copy"); copy.textContent = "Copied!"; }
       catch (_) { copy.textContent = "Select URL to copy"; }
-      setTimeout(() => copy.textContent = "Copy URL", 1300);
     }
+    setTimeout(() => copy.textContent = "Copy URL", 1300);
   });
 })();
 </script>
@@ -622,7 +646,6 @@ window.copyScramjetLink = async function(inputId, button) {
   "use strict";
   const PROXY_BASE = "https://scramjet-blueberry-pop-c.hostless.app/";
   const HOME_URL = "https://www.google.com/";
-  const frame = document.getElementById("figure-cloud-browser");
   const address = document.getElementById("figure-cloud-browser-link");
   const form = document.getElementById("fc-browser-nav-form");
   const backButton = document.getElementById("fc-browser-back");
@@ -631,33 +654,30 @@ window.copyScramjetLink = async function(inputId, button) {
   const homeButton = document.getElementById("fc-browser-home");
   const copyButton = document.getElementById("fc-browser-copy");
   const status = document.getElementById("fc-browser-status");
-  if (!frame || !address || !form) return;
+  if (!address || !form) return;
 
   let visited = [HOME_URL];
   let position = 0;
   let currentTarget = HOME_URL;
+  let browserTab = null;
 
   function proxyUrl(target) {
     const proxy = new URL(PROXY_BASE);
     proxy.searchParams.set("url", target);
     return proxy.href;
   }
-
   function setStatus(message) {
     if (status) status.textContent = message;
   }
-
   function updateControls() {
     if (backButton) backButton.disabled = position <= 0;
     if (forwardButton) forwardButton.disabled = position >= visited.length - 1;
   }
-
   function normalizeTarget(raw) {
     const value = String(raw || "").trim();
     if (!value) throw new Error("Enter a website address or search term.");
     let candidate = value;
     if (/^https?:\/\//i.test(candidate)) {
-      // Keep explicitly supplied HTTP(S) URLs.
     } else if (/^[a-z][a-z0-9+.-]*:\/\//i.test(candidate)) {
       throw new Error("Only HTTP and HTTPS websites can be opened.");
     } else if (/\s/.test(candidate) || (!candidate.includes(".") && !/^localhost(?::\d+)?(?:\/|$)/i.test(candidate))) {
@@ -665,19 +685,13 @@ window.copyScramjetLink = async function(inputId, button) {
     } else {
       candidate = "https://" + candidate;
     }
-    let parsed;
-    try { parsed = new URL(candidate); }
-    catch (_) { throw new Error("That address is not valid. Try a full website address."); }
-    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-      throw new Error("Only HTTP and HTTPS websites can be opened.");
-    }
+    const parsed = new URL(candidate);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") throw new Error("Only HTTP and HTTPS websites can be opened.");
     return parsed.href;
   }
-
   function loadTarget(target, mode) {
     currentTarget = target;
     address.value = target;
-    frame.src = proxyUrl(target);
     if (mode === "push") {
       visited = visited.slice(0, position + 1);
       if (visited[visited.length - 1] !== target) visited.push(target);
@@ -686,51 +700,55 @@ window.copyScramjetLink = async function(inputId, button) {
       visited[position] = target;
     }
     updateControls();
-    try { setStatus("Opening " + new URL(target).hostname + " through Scramjet…"); }
-    catch (_) { setStatus("Opening website through Scramjet…"); }
-  }
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
     try {
-      const target = normalizeTarget(address.value);
-      loadTarget(target, "push");
+      const url = proxyUrl(target);
+      if (!browserTab || browserTab.closed) browserTab = window.open(url, "figureCloudScramjetBrowserTab");
+      else browserTab.location.href = url;
+      if (!browserTab) {
+        setStatus("Pop-up blocked. Allow pop-ups for this site, then press Go again.");
+        return;
+      }
+      browserTab.focus();
+      setStatus("Opened " + new URL(target).hostname + " in a separate tab through Scramjet + Hostless Wisp.");
     } catch (error) {
-      setStatus(error && error.message ? error.message : "Unable to open that address.");
+      setStatus(error && error.message ? error.message : "Unable to open this address.");
     }
+  }
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    try { loadTarget(normalizeTarget(address.value), "push"); }
+    catch (error) { setStatus(error && error.message ? error.message : "Unable to open that address."); }
   });
-
-  if (backButton) backButton.addEventListener("click", function () {
+  if (backButton) backButton.addEventListener("click", function() {
     if (position <= 0) return;
     position -= 1;
     loadTarget(visited[position], "none");
   });
-  if (forwardButton) forwardButton.addEventListener("click", function () {
+  if (forwardButton) forwardButton.addEventListener("click", function() {
     if (position >= visited.length - 1) return;
     position += 1;
     loadTarget(visited[position], "none");
   });
-  if (reloadButton) reloadButton.addEventListener("click", function () {
+  if (reloadButton) reloadButton.addEventListener("click", function() {
     loadTarget(currentTarget, "none");
-    setStatus("Reloading " + new URL(currentTarget).hostname + " through Scramjet…");
   });
-  if (homeButton) homeButton.addEventListener("click", function () {
+  if (homeButton) homeButton.addEventListener("click", function() {
     loadTarget(HOME_URL, "push");
   });
-  if (copyButton) copyButton.addEventListener("click", function () {
-    // The shared copy helper reads the visible destination URL, not the Scramjet wrapper URL.
-    if (typeof window.copyScramjetLink === "function") window.copyScramjetLink("figure-cloud-browser-link", copyButton);
-  });
-  frame.addEventListener("load", function () {
-    setStatus("Proxy frame loaded · The destination website may still restrict iframe access.");
-  });
-  address.addEventListener("keydown", function (event) {
+  if (copyButton && typeof window.copyScramjetLink === "function") {
+    copyButton.addEventListener("click", function() {
+      window.copyScramjetLink("figure-cloud-browser-link", copyButton);
+    });
+  }
+  address.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
       address.value = currentTarget;
       address.blur();
     }
   });
+  address.value = HOME_URL;
   updateControls();
+  setStatus("Ready · Google.com is the starting URL. Press Go to open it through Scramjet + Hostless Wisp (no iframe).");
 })();
 </script>
 
