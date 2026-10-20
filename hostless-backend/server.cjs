@@ -396,7 +396,7 @@ server.on('upgrade', (req, socket, head) => {
   try { url = new URL(req.url, 'http://' + (req.headers.host || 'localhost')); }
   catch { socket.destroy(); return; }
 
-  if (url.pathname === '/wisp/') {
+  if (/^\/wisp\/?$/.test(url.pathname)) {
     if (proxyRuntime && proxyRuntime.wisp) return proxyRuntime.wisp.routeRequest(req, socket, head);
     socket.destroy();
     return;
