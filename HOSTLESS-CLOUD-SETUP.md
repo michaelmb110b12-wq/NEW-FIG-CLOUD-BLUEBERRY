@@ -14,13 +14,13 @@ https://github.com/michaelmb110b12-wq/NEW-FIG-CLOUD-BLUEBERRY/tree/hostless-clou
 Keep the existing app's current repository/branch connection if it already points at this repo and branch. Its working directory should remain `/hostless-backend`.
 
 - Working directory: `/hostless-backend`
-- Build command: `npm install`
+- Build command: `npm install` (Scramjet installs from the npm registry, pinned to `1.1.0`)
 - Start command: `npm start`
 - Health-check path: `/healthz`
 - Node.js: 20 or newer
 - Required WebSocket upgrade route for Scramjet: `/wisp/`
 
-Deploy this branch to the **same existing Hostless app**. The expanded `hostless-backend/package.json` adds the Scramjet and Epoxy runtime packages; the backend now serves the proxy frontend and static runtime assets on the same HTTP server, while preserving its existing `/api/cloud/*` API and signaling routes.
+Deploy this branch to the **same existing Hostless app**. The expanded `hostless-backend/package.json` adds the Scramjet and Epoxy runtime packages. Scramjet is pinned to the published npm package version `1.1.0` (not a GitHub release tarball) to make dependency installation more reliable. The backend serves the proxy frontend and static runtime assets on the same HTTP server, while preserving its existing `/api/cloud/*` API and signaling routes.
 
 ## Test the same URL
 
