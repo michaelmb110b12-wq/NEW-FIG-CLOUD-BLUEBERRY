@@ -550,7 +550,7 @@
   <input id="fc-game-original-url" type="text" readonly aria-label="Original game URL" placeholder="Launch a game to show its original URL" style="flex:1;min-width:180px;padding:8px 10px;border:1px solid #454852;border-radius:7px;background:#23252b;color:#f4f4f5">
   <button id="fc-game-copy-url" type="button" style="padding:8px 12px;border:1px solid #555b67;border-radius:7px;background:#30333b;color:white;cursor:pointer">Copy URL</button>
 </div>
-<div id="gF" hidden aria-hidden="true" style="display:none!important"></div><div id="fc-game-open-notice" style="min-height:240px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;color:#c9ccd2;background:#17181b">Games open in a separate Scramjet tab—no game is embedded here. Launch a game to open it through the Hostless Wisp connection.</div>
+<iframe id="gF" allow="autoplay;fullscreen;keyboard-map;clipboard-read;clipboard-write;gamepad"></iframe>
 <script>
 (() => {
   "use strict";
@@ -591,33 +591,6 @@
     if (notice) notice.textContent = "Game opened in a separate tab through Scramjet + Hostless Wisp. Use the original URL above to copy the source link.";
     return true;
   }
-
-  // Keep the legacy gF.src API for the game launcher without creating an iframe.
-  // The URL is launched in a top-level Scramjet tab instead of being embedded here.
-  Object.defineProperty(frame, "src", {
-    configurable: true,
-    get() { return frame.dataset.requestedSrc || "about:blank"; },
-    set(value) {
-      const raw = String(value || "");
-      frame.dataset.requestedSrc = raw;
-      if (!raw || raw === "about:blank") return;
-      if (!openGame(raw) && notice) {
-        notice.textContent = "This game link could not be opened as an HTTP/HTTPS URL. Check the link and allow pop-ups, then try again.";
-      }
-    }
-  });
-  Object.defineProperty(frame, "contentWindow", {
-    configurable: true,
-    get() { return gameTab && !gameTab.closed ? gameTab : null; }
-  });
-  const nativeSetAttribute = Element.prototype.setAttribute;
-  frame.setAttribute = function(name, value) {
-    if (String(name).toLowerCase() === "src") {
-      this.src = value;
-      return;
-    }
-    nativeSetAttribute.call(this, name, value);
-  };
 
   copy.addEventListener("click", async () => {
     if (!input.value) return;
